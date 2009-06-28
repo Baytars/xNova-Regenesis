@@ -1,0 +1,6 @@
+INSERT INTO `game_config` VALUES ('ForumBannerFrame', '0');
+INSERT INTO `game_config` VALUES ('banner_source_post', 'http://TU WEB/images/bann.png');
+
+
+para los foros:
+[img]http://TU WEB/scripts/createbanner.php?id={user_id}[/img]
