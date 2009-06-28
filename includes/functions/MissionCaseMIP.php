@@ -107,4 +107,5 @@ $message_vorlage .= 'al planeta ' .$name_deffer.'<br><br>';
           }
        } $FleetRow['fleet_start_time'] <= time();
     }
+    }
     ?>
