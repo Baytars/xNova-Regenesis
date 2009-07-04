@@ -119,28 +119,23 @@ function MissionCaseAttack ( $FleetRow ) {
 					$metal   = $TargetPlanet['metal'] / 2;
 					$crystal = $TargetPlanet['crystal'] / 2;
 					$deuter  = $TargetPlanet["deuterium"] / 2;
-					if (($metal) > $FleetStorage / 3) {
-						$Mining['metal']   = $FleetStorage / 3;
-						$FleetStorage      = $FleetStorage - $Mining['metal'];
+					$FleetStorage= $FleetStorage / 3;
+					if (($metal) > $FleetStorage) {
+						$Mining['metal']   = $FleetStorage;
 					} else {
 						$Mining['metal']   = $metal;
-						$FleetStorage      = $FleetStorage - $Mining['metal'];
 					}
 
-					if (($crystal) > $FleetStorage / 2) {
-						$Mining['crystal'] = $FleetStorage / 2;
-						$FleetStorage      = $FleetStorage - $Mining['crystal'];
+					if (($crystal) > $FleetStorage) {
+						$Mining['crystal'] = $FleetStorage;
 					} else {
 						$Mining['crystal'] = $crystal;
-						$FleetStorage      = $FleetStorage - $Mining['crystal'];
 					}
 
 					if (($deuter) > $FleetStorage) {
 						$Mining['deuter']  = $FleetStorage;
-						$FleetStorage      = $FleetStorage - $Mining['deuter'];
 					} else {
 						$Mining['deuter']  = $deuter;
-						$FleetStorage      = $FleetStorage - $Mining['deuter'];
 					}
 				}
 			}

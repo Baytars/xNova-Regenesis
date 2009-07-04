@@ -1,96 +1,97 @@
 <?php
 
 $lang['Multiverse']   = '<b>XNova</b>';
-$lang['adm_messageall'] = 'Mensaje circular';
-$lang['Overview']     = 'Visi&oacute;n General';
-$lang['Officiers']    = 'Oficiales';
+$lang['adm_messageall'] = 'Toplu Mesaj';
+$lang['Overview']     = 'Genel Durum';
+$lang['Officiers']    = 'Subaylar G.';
 
-$lang['Buildings']    = 'Edificios';
-$lang['Research']     = 'Investigaci&oacute;n';
-$lang['Shipyard']     = 'Hangar';
-$lang['Defense']      = 'Defensa';
+$lang['Buildings']    = 'Bina';
+$lang['Research']     = 'Ara&#351;t&#305;rma';
+$lang['Shipyard']     = 'Tersane';
+$lang['Defense']      = 'Savunma';
 
-$lang['Resources']    = 'Recursos';
-$lang['Imperium']     = 'Imperio';
-$lang['Marchand']     = 'Mercader';
-$lang['Annonces']     = 'Anuncios de pedidos';
-$lang['Technology']   = 'Tecnolog&iacute;a';
+$lang['Resources']    = 'Hammadde';
+$lang['Imperium']     = '&#304;mparatorluk';
+$lang['Marchand']     = 'T&#252;ccar';
+$lang['Annonces']     = 'Anonslar';
+$lang['Technology']   = 'Teknik';
 
-$lang['Galaxy']       = 'Galaxia';
-$lang['Fleet']        = 'Flota';
+$lang['Galaxy']       = 'Galaksi';
+$lang['Fleet']        = 'Filo';
 
-$lang['Alliance']     = 'Alianza';
+$lang['Alliance']     = '&#304;ttifaklar';
 $lang['Chat']         = 'Chat';
-$lang['Statistics']   = 'Estadisticas';
-$lang['Search']       = 'Buscar';
-$lang['blocked']      = 'Sancionados';
-$lang['Records']      = 'Records';
+$lang['Statistics']   = '&#304;statistikler';
+$lang['Search']       = 'Arama';
+$lang['blocked']      = 'Cazal&#305;lar';
+$lang['Records']      = 'Rekorlar';
 
-$lang['Messages']     = 'Mensajes';
-$lang['Notes']        = 'Notas';
-$lang['Buddylist']    = 'Compa&ntilde;eros';
+$lang['Messages']     = 'Haberler';
+$lang['Notes']        = 'Notlar';
+$lang['Buddylist']    = 'Arkada&#351; Listesi';
 
-$lang['Board']        = 'Foro';
-$lang['Contact']      = 'Contacto';
-$lang['Options']      = 'Opciones';
+$lang['Board']        = 'Forum';
+$lang['Contact']      = '&#304;leti&#351;im';
+$lang['Options']      = 'Ayarlar';
 
-$lang['Logout']       = 'Desconectarse';
+$lang['Logout']       = '&#199;&#305;k&#305;&#351;';
 
-$lang['Help']         = 'Ayuda';
-$lang['Rules']        = 'Reglas';
-$lang['support_system'] = 'Gesti&oacute;n de Incidencias';
+$lang['Help']         = 'Yard&#305;m';
+$lang['Rules']        = 'Kurallar';
+$lang['support_system'] = 'Destek Sistemi';
 
 // User menu titles
-$lang['devlp']        = 'Desarrollo';
-$lang['navig']        = 'Navegaci&oacute;n';
-$lang['observ']       = 'Observatorio';
-$lang['commun']       = 'Comunicaci&oacute;n';
-$lang['infog']        = 'Informaci&oacute;n';
+$lang['devlp']        = 'Geli&#351;im';
+$lang['navig']        = 'Navigasyon';
+$lang['observ']       = 'G&#246;zlem';
+$lang['commun']       = 'Topluluk';
+$lang['infog']        = 'Bilgilendirme';
 
 // Administrator menu links
-$lang['adm_over']     = 'Visi&oacute;n General';
-$lang['adm_conf']     = 'Configuraci&oacute;n';
-$lang['adm_reset']    = 'Resetar Universo';
-$lang['server_inf']   =  'Informaci&#243;n Servidor';
+$lang['adm_over']     = 'Genel Durum';
+$lang['adm_conf']     = 'Ayarlar';
+$lang['adm_reset']    = 'Evren Resetle';
+$lang['server_inf']   =  'Sunucu Bilgileri';
 
-$lang['adm_plrlst']   = 'Lista de Jugadores';
-$lang['adm_plrsch']   = 'Buscar un Jugador';
-$lang['adm_addres']   = 'A&ntilde;adir Recursos';
+$lang['adm_plrlst']   = '&#220;ye Listesi';
+$lang['adm_plrsch']   = 'Panel Y&#246;netim';
+$lang['adm_addres']   = 'Hammadde Ekle';
 
-$lang['adm_pltlst']   = 'Lista de Planetas';
-$lang['adm_actplt']   = 'Planetas Activos';
+$lang['adm_pltlst']   = 'Gezegen Listesi';
+$lang['adm_actplt']   = 'Aktif Gezegenler';
 
-$lang['adm_moonlst']  = 'Lista de Lunas';
-$lang['adm_addmoon']  = 'A&ntilde;adir Lunas';
+$lang['adm_moonlst']  = 'Ay Listesi';
+$lang['adm_addmoon']  = 'Ay Ekle';
 
-$lang['adm_fleet']    = 'Flotas en vuelo';
+$lang['adm_fleet']    = 'Filo Hareketleri';
 
-$lang['adm_ban']      = 'Banear';
-$lang['adm_unban']    = 'Remover Baneo';
+$lang['adm_ban']      = '&#220;ye Banla';
+$lang['adm_unban']    = '&#220;ye Ban&#305; A&#231;';
 
-$lang['adm_chat']     = 'Administraci&oacute;n chat';
-$lang['adm_updpt']    = 'Actualizar Puntos';
-$lang['adm_list_inact']    = 'Listado inactivos';
-$lang['adm_msg']      = 'Lista de mensajes';
-$lang['adm_md5']      = 'Cifrar contrase&ntilde;a';
-$lang['adm_build']    = 'Cola de construcci&oacute;n';
-$lang['adm_banned_ip'] = 'Banneo por IP';
-$lang['adm_support'] = 'Admin. de Incidencias';
+$lang['adm_chat']     = 'Sohbet Y&#246;netimi';
+$lang['adm_updpt']    = 'Puanlar&#305; G&#252;ncelle';
+$lang['adm_list_inact']    = '&#304naktif Listesi';
+$lang['adm_msg']      = 'Haber Listesi';
+$lang['adm_md5']      = '&#350;ifre Olu&#351;tur';
+$lang['adm_build']    = 'Binalar&#305; G&#252;ncelle';
+$lang['adm_banned_ip'] = 'Banlanm&#305;&#351; IP adresleri';
+$lang['adm_support'] = 'Admin Destek';
 
-$lang['adm_error']    = 'Errores';
-$lang['adm_help']     = 'Foro';
-$lang['adm_back']     = 'Volver';
-$lang['adm_cfg_stat'] = "Configuracion de estadisticas";
+$lang['adm_error']    = 'Hatalar';
+$lang['adm_help']     = 'Forum';
+$lang['adm_back']     = 'Oyuna D&#246;n';
+$lang['adm_cfg_stat'] = "Yap&#305;land&#305;rma istatistikleri";
 // Administrator menu titles
-$lang['admin']        = 'Administraci&oacute;n';
-$lang['player']       = 'Jugadores';
-$lang['tool']         = 'Herramientas';
+$lang['admin']        = 'Y&#246;netim';
+$lang['player']       = 'Oyuncular';
+$lang['tool']         = 'Uygulama';
 
 // Informations serveur
-$lang['lm_ifo_serv']  = "Recursos";
-$lang['lm_ifo_game']  = "Juego";
-$lang['lm_ifo_fleet'] = "Flota";
-$lang['lm_ifo_queue'] = "Cola";
+$lang['lm_ifo_serv']  = "&#220;retim";
+$lang['lm_ifo_game']  = "Bina";
+$lang['lm_ifo_fleet'] = "Filo";
+$lang['lm_ifo_queue'] = "Puanlama";
 
 // Created by Perberos. All rights reserved (C) 2006 
+// Translated TR By T3mp14R. All rights reversed (C) 2009
 ?>

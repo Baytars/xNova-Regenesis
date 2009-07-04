@@ -114,7 +114,7 @@ if (!defined('INSIDE'))
 	$QryInsertConfig    .= "('initial_fields'        , '163'), ";
 	$QryInsertConfig    .= "('COOKIE_NAME'           , 'PrjXnova'), ";
 	$QryInsertConfig    .= "('game_name'             , 'Proyecto XNova'), ";
-	$QryInsertConfig    .= "('game_disable'          , '1'), ";
+	$QryInsertConfig    .= "('game_disable'          , '0'), ";
 	$QryInsertConfig    .= "('close_reason'          , 'Le jeu est installe, mais on a pas encore mis les parametre !'), ";
 	$QryInsertConfig    .= "('metal_basic_income'    , '20'), ";
 	$QryInsertConfig    .= "('crystal_basic_income'  , '10'), ";

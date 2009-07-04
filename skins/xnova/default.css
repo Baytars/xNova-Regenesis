@@ -15,11 +15,11 @@
 }
 
 .inactive {
-  color: CCCCCC;
+  color: #CCCCCC;
 }
 
 .longinactive {
-  color: 999999;
+  color: #999999;
 }
 
 .banned {
@@ -76,7 +76,7 @@
 }
 
 *.ownfederation {
-  color: 33CC00;
+  color: #33CC00;
 }
 
 .flight .ownfederation a {
@@ -156,7 +156,7 @@
 }
 
 *.federation { 
-  color: CC0000;
+  color: #CC0000;
 }
 
 .flight .federation a {

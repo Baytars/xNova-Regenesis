@@ -48,10 +48,12 @@ $lang['commun']       = 'Comunicaci&oacute;n';
 $lang['infog']        = 'Informaci&oacute;n';
 
 // Administrator menu links
-$lang['adm_over']     = 'Visi&oacute;n General';
-$lang['adm_conf']     = 'Configuraci&oacute;n';
-$lang['adm_reset']    = 'Resetar Universo';
-$lang['server_inf']   =  'Informaci&#243;n Servidor';
+$lang['adm_over']		= 'Visi&oacute;n General';
+$lang['adm_conf']		= 'Configuraci&oacute;n';
+$lang['adm_reg_conf']	= 'Configuraci&oacute;n de registro';
+$lang['adm_cleaner']	= 'TheCleaner';
+$lang['adm_reset']		= 'Resetar Universo';
+$lang['server_inf']		=  'Informaci&#243;n Servidor';
 
 $lang['adm_plrlst']   = 'Lista de Jugadores';
 $lang['adm_plrsch']   = 'Buscar un Jugador';

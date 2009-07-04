@@ -1,34 +1,53 @@
 <?php
 
-$lang['adm_opt_title']				= "Configuración general";
-$lang['adm_opt_game_settings'] 		= "Parámetros del sistema";
-$lang['adm_opt_game_name']     		= "Nombre para mostrar";
-$lang['adm_opt_game_gspeed']   		= "Velocidad del Juego<br>(estándar = 2500)";
-$lang['adm_opt_game_fspeed']   		= "Velocidad de Flotas<br>(estándar = 2500)";
-$lang['adm_opt_game_pspeed']   		= "Velocidad de Producción<br>(estándar = 1)";
-$lang['adm_opt_game_forum']    		= "URL al Foro";
-$lang['adm_opt_game_copyrigh'] 		= "Derechos de Copia";
-$lang['adm_opt_game_online']   		= "Mostrar estado en línea";
-$lang['adm_opt_game_offreaso'] 		= "Motivos de cierre";
-$lang['adm_opt_plan_settings'] 		= "Parámetros de los planetas";
-$lang['adm_opt_plan_initial']  		= "Tamaño por defecto<br>del Planeta Principal";
-$lang['adm_opt_plan_base_inc'] 		= "Actualización en ";
-$lang['adm_opt_game_debugmod'] 		= "Modo de revisión<br>y ajustes (DEBUG)";
-$lang['adm_opt_game_maintenance']	= "Modo mantenimiento.";
-$lang['adm_opt_game_oth_info'] 		= "Otros datos";
-$lang['adm_opt_game_oth_news'] 		= "Contenido:<br>Marco de noticias";
-$lang['adm_opt_game_oth_chat'] 		= "Contenido:<br>Marco superior";
-$lang['adm_opt_game_oth_adds'] 		= "Contenido:<br>Marco inferior";
-$lang['adm_opt_game_oth_lstc'] 		= "últimas coordenadas del planeta principal";
-$lang['adm_opt_game_oth_gala'] 		= "Galaxia";
-$lang['adm_opt_game_oth_syst'] 		= "Sistema";
-$lang['adm_opt_game_oth_plan'] 		= "Planeta";
-$lang['adm_opt_btn_save']      		= "Guardar Cambios";
-$lang['changes_applied']       		= "Los cambios fueron aplicados correctamente.";
-$lang['success']    		   		= "éxito";
-$lang['adm_succes']  = 'Opciones Guardadas con Exito';
-$lang['adm_succes_title'] = 'Opciones Guardadas';
+$lang['lg_adm_title']         = "Sunucu Konfig&#252;rasyonu";
+$lang['lg_adm_general']         = "Genel Ayarlar";
+$lang['lg_adm_game_name']     = "Oyun &#304;smi:";
+$lang['lg_adm_game_forum']    = "Forum Adresi:";
+$lang['lg_adm_game_disable']   = "Websayfas&#305;:";
+$lang['lg_adm_close_reason'] = "Kapatma Nedeni:";
+$lang['lg_adm_debug'] = "Debug Modu:";
+$lang['lg_adm_game_settings'] = "Oyun Ayarlar&#305;";
+$lang['lg_adm_speed'] = "H&#305;z";
+$lang['lg_adm_game_gspeed']   = "Oyun H&#305;z&#305;<br />(normal = 2500)";
+$lang['lg_adm_game_fspeed']   = "Filo H&#305;z&#305;<br />(normal = 2500)";
+$lang['lg_adm_game_pspeed']   = "&#220;retim H&#305;z&#305;<br />(normal = 1)";
+$lang['lg_adm_game_gal'] = "Galaksi";
+$lang['lg_adm_game_sys'] = "Sistem";
+$lang['lg_adm_game_pla'] = "Gezegen";
+$lang['adm_opt_game_copyrigh'] = "Telif Hakk&#305;";
+$lang['lg_adm_initial']  = "Ana Gezegen<br /> B&#252;y&#252;kl&#252;&#287;&#252;:";
+$lang['lg_adm_base_inc'] = "Temel Gelir ";
 
-// Traduction By Sr.Nene.All rights reversed (C) 2008
+
+$lang['lg_adm_attack'] = " Sald&#305;r&#305;";
+$lang['lg_adm_attack_disabled'] = " Sald&#305;r&#305;ya Kapal&#305;";
+$lang['lg_adm_attack_block_time'] = " Sald&#305;r&#305;larda Zaman S&#305;n&#305;rlamas&#305;";
+$lang['lg_adm_hours'] = " saat";
+
+$lang['lg_adm_game_oth_info'] = "Ekstra Ayarlar";
+$lang['lg_adm_game_news'] = "Reklam Penceresini Etkinle&#351;tir:";
+$lang['lg_adm_game_announce'] = "Reklam:";
+$lang['lg_adm_game_adds'] = "Sayfa Kodunda Reklamlar&#305; Etkinle&#351;tir:";
+$lang['lg_adm_game_adds_code'] = "Reklam i&#231;in HTML kodu:";
+$lang['lg_adm_game_chat'] = "Sohbeti Etkinle&#351;tir:";
+$lang['lg_adm_game_chat_code'] = "Sohbet Adresi:";
+$lang['lg_adm_yes'] = "Evet";
+$lang['lg_adm_no'] = "Hay&#305;r";
+$lang['lg_hide'] = "Gizle";
+$lang['lg_show'] = "G&#246;ster";
+$lang['lg_adm_opt_btn_save']   = "De&#287;i&#351;iklikleri Kaydet";
+$lang['changes_applied']       = "De&#287;i&#351;iklikleri Kaydedildi";
+$lang['adm_succes_title'] = 'Ayarlar Kaydedildi';
+
+$lang['success']    = "Ba&#351;ar&#305;l&#305;";
+$lang['adm_succes']  = 'De&#287;i&#351;iklikleri Kaydedildi';
+
+
+$lang['adm_opt_game_oth_lstc'] = "Son Ana Gezegen Koordinat&#305;";
+
+$lang['adm_opt_game_maintenance']   = "Juego en mantenimiento";
+// Tanslated by angelus_ira. All rights reversed (C) 2008
+// Translated TR By T3mp14R. All rights reversed (C) 2009
 
 ?>
