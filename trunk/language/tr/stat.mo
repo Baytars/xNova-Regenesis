@@ -1,27 +1,28 @@
 <?php
 
 // Language file for Statistic module
-$lang['stat_title']    = "Estad&iacute;sticas";
-$lang['stat_show']     = "Clasificaci&oacute;n de";
-$lang['stat_by']       = "seg&uacute;n";
-$lang['stat_range']    = "Rango";
+$lang['stat_title']    = "&#304;statistikler";
+$lang['stat_show']     = "S&#305;ralama Turu";
+$lang['stat_by']       = "S&#305;ralama Tipi";
+$lang['stat_range']    = "S&#305;ralama";
 
-$lang['stat_player']   = "jugador";
-$lang['stat_allys']    = "alianzas";
-$lang['stat_main']     = "General";
-$lang['stat_fleet']    = "Flota";
-$lang['stat_research'] = "Investigaciones";
-$lang['stat_building'] = "Edificios";
-$lang['stat_defenses'] = "Defensa";
+$lang['stat_player']   = "Oyuncu";
+$lang['stat_allys']    = "&#304;ttifak";
+$lang['stat_main']     = "Genel";
+$lang['stat_fleet']    = "Filolar";
+$lang['stat_research'] = "Ara&#351;t&#305;rmalar";
+$lang['stat_building'] = "Binalar";
+$lang['stat_defenses'] = "Savunma";
 
-$lang['Position']      = "Posici&oacute;n";
-$lang['Difference']    = "Diferencia.";
-$lang['Player']        = "Jugador";
-$lang['Alliance']      = "Alianzas";
-$lang['Points']        = "Puntos";
-$lang['Members']       = "Miembros";
-$lang['PerMember']     = "Por Miembros";
-$lang['Ecrire']        = "Ecribir un mensaje";
+$lang['Position']      = "Pozisyon";
+$lang['Difference']    = "De&#287;i&#351;iklik";
+$lang['Player']        = "Oyuncu";
+$lang['Alliance']      = "&#304;ttifak";
+$lang['Points']        = "Puanlar";
+$lang['Members']       = "&#220;yeler";
+$lang['PerMember']     = "&#220;ye Say&#305;s&#305;";
+$lang['Ecrire']        = "Mesaj Gonder";
 // Created by Perberos. All rights reversed (C) 2006 
 // Translated by Sr.Nene. All rights reversed (C) 2006 
+// Translated TR By T3mp14R. All rights reversed (C) 2009
 ?>

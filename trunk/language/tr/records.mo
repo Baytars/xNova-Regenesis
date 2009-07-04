@@ -1,18 +1,18 @@
 <?php
 
 //Record
-$lang['rec_title']  = "Records del Universo";
-$lang['rec_build']  = "Edificios";
-$lang['rec_specb']  = "Edificios Especiales";
-$lang['rec_playe']  = "Jugador";
-$lang['rec_defes']  = "Defensas";
-$lang['rec_fleet']  = "Flota";
-$lang['rec_techn']  = "Tecnolog&iacute;as";
-$lang['rec_level']  = "Nivel";
-$lang['rec_nbre']   = "Nombre";
+$lang['rec_title']  = "Evren Bilgileri";
+$lang['rec_build']  = "&#304;n&#351;aat Puan&#305;";
+$lang['rec_specb']  = "&#214;zel Yap&#305lar";
+$lang['rec_playe']  = "Oyuncu";
+$lang['rec_defes']  = "Savunmac&#305;";
+$lang['rec_fleet']  = "Filo";
+$lang['rec_techn']  = "Teknoloji";
+$lang['rec_level']  = "Seviye";
+$lang['rec_nbre']   = "Adet";
 $lang['rec_rien']   = "-";
 
 // Created by Chlorel (XNova Team). All rights reversed (C) 2008
 // Traduction By LOgam3.All rights reversed (C) 2008
-
+// Translated TR By T3mp14R. All rights reversed (C) 2009
 ?>

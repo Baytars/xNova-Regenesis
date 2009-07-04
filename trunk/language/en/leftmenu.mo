@@ -52,7 +52,7 @@ $lang['adm_over']     = 'Overview';
 $lang['adm_conf']     = 'Configuration';
 $lang['adm_reset']    = 'Reset';
 $lang['server_inf']   = 'Server Information';
-
+$lang['adm_cleaner']	= 'TheCleaner';
 $lang['adm_plrlst']   = 'Player list';
 $lang['adm_plrsch']   = 'Player search';
 $lang['adm_addres']   = 'Add resources';

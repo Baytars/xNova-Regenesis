@@ -6,204 +6,209 @@
  * @version 1.1
  * @copyright 2008 by Chlorel for XNova
  */
-
 define('INSIDE'  , true);
 define('INSTALL' , false);
-
 $ugamela_root_path = './';
 include($ugamela_root_path . 'extension.inc');
 include($ugamela_root_path . 'common.' . $phpEx);
-
 includeLang('reg');
 
-/*
-function sendpassemail($emailaddress, $password, $siteurlactivationlink) {
-	global $lang, $kod;
 
-	$parse['gameurl']  = GAMEURL;
-	$parse['password'] = $password;
-	//Mod activar cuenta via mail de activacion
-	$parse['activatelink'] = $siteurlactivationlink;
-	$parse['kod']      = $kod;
-	$email             = parsetemplate($lang['mail_welcome'], $parse);	
-	$status            = mail($emailaddress, $lang['mail_title'], $email);
-	return $status;
-}*/
-require_once($ugamela_root_path . 'includes/recaptchalib.' . $phpEx);
-
-// Get a key from http://recaptcha.net/api/getkey
-$publickey = "tu codigo";
-$privatekey = "tu codigo";
-
-# the response from reCAPTCHA
-$resp = null;
-# the error code from reCAPTCHA, if any
-$error = null;
-
-# was there a reCAPTCHA response?
-if ($_POST["recaptcha_response_field"]) {
-        $resp = recaptcha_check_answer ($privatekey,
-                                        $_SERVER["REMOTE_ADDR"],
-                                        $_POST["recaptcha_challenge_field"],
-                                        $_POST["recaptcha_response_field"]);
-   
-}
-// echo recaptcha_get_html($publickey, $error);  //con esta linea aparece en el IE, pero no funciona y no se puede colocar centrado se queda x=0 y=0
-
-function sendpassemail($emailaddress, $password, $siteurlactivationlink) {
-global $lang, $kod;
-		$to = $emailaddress;
-		$title = "Bienvenido a tu server";
-		$parse['activatelink'] = $siteurlactivationlink;
-		$parse['kod']      = $kod;
-		$cuerpo = "Bienvenido a tu server
-
-		Te has registrado con el siguiente nombre de usuario: ". mysql_escape_string($_POST['character']) ."
-		Tu contraseña es: ". mysql_escape_string($_POST['passwrd']) . "
-		
-		Para jugar en ". $game_config['game_name'] ." es necesario que actives tu cuenta.
-
-		Has click en el siguiente link para confirmar tu registro. 
-		". $siteurlactivationlink ."
-
-		Si no puedes entrar pulsando el enlace superior.
-		Copia y pega el siguiente enlace en tu navegador y entra para validarte.
-
-		Desde la Administración de ". $game_config['game_name'] ." te agradecemos tu confianza";
-		$from = "administracion@tu server";
-        $email             = parsetemplate($cuerpo , $parse);
-		$status            = mail($to, $title, $cuerpo , "From: $from");
+//Activation or grettings mail function...
+function sendpassemail($emailaddress, $username, $password, $siteurlactivationlink)
+{
+	global $lang, $game_config;
+	$to = $emailaddress;
+	$replace	= array($game_config['game_name'], $username, $password, $siteurlactivationlink);
+	$orig		= array('%gn', '%u','%p','%al');
+	$mail_title = str_replace($orig, $replace,$lang['lg_mail_title']);
+	$mail_body	= str_replace($orig, $replace,$lang['lg_mail_intro']);
+	if ($game_config['reg_mail'] == 1 && $game_config['reg_act'] == 1)
+	{
+		$mail_body	.= str_replace($orig, $replace,$lang['lg_mail_act']);
+	}
+	$mail_body	.= str_replace($orig, $replace,$lang['lg_mail_intro']);
+	$from = $game_config['game_name'];
+	$status            = mail($to, $mail_title, $mail_body , "From: $from");
 	return $status;
 }
 
-if ($_POST) {
+if ($game_config['reg_bot'] =='recaptcha')
+{
+	//Recaptcha
+	require_once($ugamela_root_path . 'includes/recaptchalib.' . $phpEx);
+	// Get a key from http://recaptcha.net/api/getkey
+	$publickey = $game_config['rec_publickey'];
+	$privatekey = $game_config['rec_privatekey'];
+	// the response from reCAPTCHA
+	$resp = null;
+	// the error code from reCAPTCHA, if any
+	$error = null;
+}
+//Post section
+if ($_POST)
+{
 	$errors    = 0;
 	$errorlist = "";
-
+	if ($game_config['reg_bot'] =='recaptcha')
+	{
+		//Recaptcha
+		// was there a reCAPTCHA response?
+		if ($_POST["recaptcha_response_field"])
+		{
+			$resp = recaptcha_check_answer ($privatekey,
+											$_SERVER["REMOTE_ADDR"],
+											$_POST["recaptcha_challenge_field"],
+											$_POST["recaptcha_response_field"]);
+		}
+		if (!$resp->is_valid)
+		{
+			$errorlist .= $lang['lg_e_captcha'];
+			$errors++;
+		}
+	}
+	//securimage
+	if ($game_config['reg_bot'] =='captcha')
+	{	
+		include($ugamela_root_path . 'class/securimage/securimage.' . $phpEx);
+		$securimage = new Securimage();
+		if ($securimage->check($_POST['captcha_code']) == false) 
+		{
+			$errorlist .= $lang['lg_e_captcha'];
+			$errors++;
+		}
+	}
 	$_POST['email'] = strip_tags($_POST['email']);
-	if (!is_email($_POST['email'])) {
-		$errorlist .= "\"" . $_POST['email'] . "\" " . $lang['error_mail'];
+	if (!is_email($_POST['email']))
+	{
+		$errorlist .= "\"" . $_POST['email'] . "\" " . $lang['lg_e_mail'];
 		$errors++;
 	}
-	if (!$resp->is_valid){
-	$errorlist .= $lang['error_captcha']; 
-	$errors++; 
-	}
-
-	if (!$_POST['planet']) {
-		$errorlist .= $lang['error_planet'];
+	if (!$_POST['planet'])
+	{
+		$errorlist .= $lang['lg_e_planet'];
 		$errors++;
 	}
-
-	if (preg_match("/[^A-z0-9_\-]/", $_POST['hplanet']) == 1) {
-		$errorlist .= $lang['error_planetnum'];
+	if (!$_POST['username'])
+	{
+		$errorlist .= $lang['lg_e_username'];
 		$errors++;
 	}
-
-	if (!$_POST['character']) {
-		$errorlist .= $lang['error_character'];
+	if (strlen($_POST['password']) < 4)
+	{
+		$errorlist .= $lang['lg_e_password'];
 		$errors++;
 	}
-
-	if (strlen($_POST['passwrd']) < 4) {
-		$errorlist .= $lang['error_password'];
+	if (!Check_chars($_POST['username']))
+	{
+		$errorlist .= $lang['lg_e_useralpha'];
 		$errors++;
 	}
-
-	if (preg_match("/[^A-z0-9_\-]/", $_POST['character']) == 1) {
-		$errorlist .= $lang['error_charalpha'];
+	if (!Check_chars($_POST['planet']))
+	{
+		$errorlist .= $lang['lg_e_planetalpha'];
 		$errors++;
 	}
-
-	if ($_POST['rgt'] != 'on') {
-		$errorlist .= $lang['error_rgt'];
+	if ($_POST['rgt'] != 'on')
+	{
+		$errorlist .= $lang['lg_e_rgt'];
 		$errors++;
 	}
-
-	// Le meilleur moyen de voir si un nom d'utilisateur est pris c'est d'essayer de l'appeler !!
-	$ExistUser = doquery("SELECT `username` FROM {{table}} WHERE `username` = '". mysql_escape_string($_POST['character']) ."' LIMIT 1;", 'users', true);
-	if ($ExistUser) {
-		$errorlist .= $lang['error_userexist'];
+	if ($_POST['sex'] != ''  && $_POST['sex'] != 'F' && $_POST['sex'] != 'M')
+	{
+		$errorlist .= $lang['lg_e_sex'];
 		$errors++;
 	}
-
-	// Si l'on verifiait que l'adresse email n'existe pas encore ???
-	$ExistMail = doquery("SELECT `email` FROM {{table}} WHERE `email` = '". mysql_escape_string($_POST['email']) ."' LIMIT 1;", 'users', true);
-	if ($ExistMail) {
-		$errorlist .= $lang['error_emailexist'];
+	if (!$_POST['language'])
+	{
+		$errorlist .= $lang['lg_e_language'];
 		$errors++;
 	}
-
-	if ($_POST['sex'] != ''  &&
-		$_POST['sex'] != 'F' &&
-		$_POST['sex'] != 'M') {
-		$errorlist .= $lang['error_sex'];
+	// Control for existing users
+	$existing_user = doquery("SELECT `username` FROM {{table}} WHERE `username` = '". mysql_real_escape_string($_POST['username']) ."' LIMIT 1;", 'users', true);
+	if ($existing_user)
+	{
+		$errorlist .= $lang['lg_e_userexist'];
 		$errors++;
 	}
-	if ($_POST['langer'] != ''  &&
-		$_POST['langer'] != 'es') {
-		$errorlist .= $lang['error_lang'];
+	// Just 1 account for mail
+	$existing_mail = doquery("SELECT `email` FROM {{table}} WHERE `email` = '". mysql_real_escape_string($_POST['email']) ."' LIMIT 1;", 'users', true);
+	if ($existing_mail)
+	{
+		$errorlist .= $lang['lg_e_emailexist'];
 		$errors++;
 	}
-		
-
-	if ($errors != 0  ) {
-		message ($errorlist, $lang['Register'],'login.php',6);
-	} else {
-		$newpass        = $_POST['passwrd'];
-		$UserName       = CheckInputStrings ( $_POST['character'] );
-		$UserEmail      = CheckInputStrings ( $_POST['email'] );
-		$UserPlanet     = CheckInputStrings ( $_POST['planet'] );
-
-		$md5newpass     = md5($newpass);
-		
-		// Creation de l'utilisateur
-		$QryInsertUser  = "INSERT INTO {{table}} SET ";
-		$QryInsertUser .= "`username` = '". mysql_escape_string(strip_tags( $UserName )) ."', ";
-		$QryInsertUser .= "`email` = '".    mysql_escape_string( $UserEmail )            ."', ";
-		$QryInsertUser .= "`lang` = '".     mysql_escape_string( $_POST['langer'] )      ."', ";
-		$QryInsertUser .= "`email_2` = '".  mysql_escape_string( $UserEmail )            ."', ";
-		$QryInsertUser .= "`sex` = '".      mysql_escape_string( $_POST['sex'] )         ."', ";
-		$QryInsertUser .= "`id_planet` = '0', ";
-		$QryInsertUser .= "`register_time` = '". time() ."', ";
-		$QryInsertUser .= "`password`='". $md5newpass ."';";		
-		doquery( $QryInsertUser, 'users');
-
-		// On cherche le numero d'enregistrement de l'utilisateur fraichement créé
-		$NewUser        = doquery("SELECT `id` FROM {{table}} WHERE `username` = '". mysql_escape_string($_POST['character']) ."' LIMIT 1;", 'users', true);
-		$iduser         = $NewUser['id'];
-        //Mod activar cuenta via mail de activacion by darksoldier
-		$schema = ( isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ) ? 'https://' : 'http://';
-		$url=dirname($schema . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']).DIRECTORY_SEPARATOR;        
-		$siteurlactivationlink = $url.'activate.php?hash='.base64_encode($_POST['character']).'&stamp='.base64_encode($NewUser['id']).'&mode=reg';
-		// Recherche d'une place libre !
-		$LastSettedGalaxyPos  = $game_config['LastSettedGalaxyPos'];
-		$LastSettedSystemPos  = $game_config['LastSettedSystemPos'];
-		$LastSettedPlanetPos  = $game_config['LastSettedPlanetPos'];
-		while (!isset($newpos_checked)) {
-			for ($Galaxy = $LastSettedGalaxyPos; $Galaxy <= MAX_GALAXY_IN_WORLD; $Galaxy++) {
-				for ($System = $LastSettedSystemPos; $System <= MAX_SYSTEM_IN_GALAXY; $System++) {
-					for ($Posit = $LastSettedPlanetPos; $Posit <= 4; $Posit++) {
+	if ($errors != 0  )
+	{
+		message ($errorlist, $lang['lg_registry'],'login.php',6);
+	}
+	else
+	{
+		$user_pass        = $_POST['password'];
+		//TODO make a better CheckInputStrings function...
+		$user_name       = CheckInputStrings ( $_POST['username'] );
+		$user_email      = CheckInputStrings ( $_POST['email'] );
+		$user_planet     = CheckInputStrings ( $_POST['planet'] );
+		$user_pass_md5     = md5($user_pass);
+		//Activate status
+		if ($game_config['reg_act'] == 1)
+		{
+			$user_act_status	= 0;
+		}
+		else
+		{
+			$user_act_status	= 1;
+		}
+		// User creation
+		$user_query  = "INSERT INTO {{table}} SET ";
+		$user_query .= "`username` = '". mysql_real_escape_string(strip_tags( $user_name )) ."', ";
+		$user_query .= "`activate_status` = '".$user_act_status."', ";
+		$user_query .= "`email` = '".    mysql_real_escape_string( $user_email )            ."', ";
+		$user_query .= "`lang` = '".     mysql_real_escape_string( $_POST['language'] )      ."', ";
+		$user_query .= "`email_2` = '".  mysql_real_escape_string( $user_email )            ."', ";
+		$user_query .= "`sex` = '".      mysql_real_escape_string( $_POST['sex'] )         ."', ";
+		$user_query .= "`id_planet` = '0', ";
+		$user_query .= "`register_time` = '". time() ."', ";
+		$user_query .= "`password`='". $user_pass_md5 ."';";
+		doquery( $user_query, 'users');
+		// Make the new user id
+		$new_user        = doquery("SELECT `id` FROM {{table}} WHERE `username` = '". mysql_real_escape_string($_POST['username']) ."' LIMIT 1;", 'users', true);
+		// Search a galaxy space...
+		$last_setted_g_pos  = $game_config['LastSettedGalaxyPos'];
+		$last_setted_s_pos  = $game_config['LastSettedSystemPos'];
+		$last_setted_p_pos  = $game_config['LastSettedPlanetPos'];
+		while (!isset($newpos_checked))
+		{
+			for ($Galaxy = $last_setted_g_pos; $Galaxy <= MAX_GALAXY_IN_WORLD; $Galaxy++)
+			{
+				for ($System = $last_setted_s_pos; $System <= MAX_SYSTEM_IN_GALAXY; $System++)
+				{
+					for ($Posit = $last_setted_p_pos; $Posit <= 4; $Posit++)
+					{
 						$Planet = round (rand ( 4, 12) );
 
-						switch ($LastSettedPlanetPos) {
-							case 1:
-								$LastSettedPlanetPos += 1;
+						switch ($last_setted_p_pos)
+						{
+						case 1:
+							$last_setted_p_pos += 1;
+							break;
+						case 2:
+							$last_setted_p_pos += 1;
+							break;
+						case 3:
+							if ($last_setted_s_pos == MAX_SYSTEM_IN_GALAXY)
+							{
+								$last_setted_g_pos += 1;
+								$last_setted_s_pos  = 1;
+								$last_setted_p_pos  = 1;
 								break;
-							case 2:
-								$LastSettedPlanetPos += 1;
-								break;
-							case 3:
-								if ($LastSettedSystemPos == MAX_SYSTEM_IN_GALAXY) {
-									$LastSettedGalaxyPos += 1;
-									$LastSettedSystemPos  = 1;
-									$LastSettedPlanetPos  = 1;
-									break;
-								} else {
-									$LastSettedPlanetPos  = 1;
-								}
-								$LastSettedSystemPos += 1;
-								break;
+							}
+							else
+							{
+								$last_setted_p_pos  = 1;
+							}
+							$last_setted_s_pos += 1;
+							break;
 						}
 						break;
 					}
@@ -211,73 +216,100 @@ if ($_POST) {
 				}
 				break;
 			}
-
-			$QrySelectGalaxy  =	"SELECT * ";
-			$QrySelectGalaxy .= "FROM {{table}} ";
-			$QrySelectGalaxy .= "WHERE ";
-			$QrySelectGalaxy .= "`galaxy` = '". $Galaxy ."' AND ";
-			$QrySelectGalaxy .= "`system` = '". $System ."' AND ";
-			$QrySelectGalaxy .= "`planet` = '". $Planet ."' ";
-			$QrySelectGalaxy .= "LIMIT 1;";
-			$GalaxyRow = doquery( $QrySelectGalaxy, 'galaxy', true);
-
-			if ($GalaxyRow["id_planet"] == "0") {
+			$galaxy_query  =	"SELECT * ";
+			$galaxy_query .= "FROM {{table}} ";
+			$galaxy_query .= "WHERE ";
+			$galaxy_query .= "`galaxy` = '". $Galaxy ."' AND ";
+			$galaxy_query .= "`system` = '". $System ."' AND ";
+			$galaxy_query .= "`planet` = '". $Planet ."' ";
+			$galaxy_query .= "LIMIT 1;";
+			$GalaxyRow = doquery( $galaxy_query, 'galaxy', true);
+			if ($GalaxyRow["id_planet"] == "0")
+			{
 				$newpos_checked = true;
 			}
-
-			if (!$GalaxyRow) {
-				CreateOnePlanetRecord ($Galaxy, $System, $Planet, $NewUser['id'], $UserPlanet,false,false,false, true);
+			if (!$GalaxyRow)
+			{
+				CreateOnePlanetRecord ($Galaxy, $System, $Planet, $new_user['id'], $user_planet,false,false,false, true);
 				$newpos_checked = true;
 			}
-			if ($newpos_checked) {
-				doquery("UPDATE {{table}} SET `config_value` = '". $LastSettedGalaxyPos ."' WHERE `config_name` = 'LastSettedGalaxyPos';", 'config');
-				doquery("UPDATE {{table}} SET `config_value` = '". $LastSettedSystemPos ."' WHERE `config_name` = 'LastSettedSystemPos';", 'config');
-				doquery("UPDATE {{table}} SET `config_value` = '". $LastSettedPlanetPos ."' WHERE `config_name` = 'LastSettedPlanetPos';", 'config');
+			if ($newpos_checked)
+			{
+				doquery("UPDATE {{table}} SET `config_value` = '". $last_setted_g_pos ."' WHERE `config_name` = 'LastSettedGalaxyPos';", 'config');
+				doquery("UPDATE {{table}} SET `config_value` = '". $last_setted_s_pos ."' WHERE `config_name` = 'LastSettedSystemPos';", 'config');
+				doquery("UPDATE {{table}} SET `config_value` = '". $last_setted_p_pos ."' WHERE `config_name` = 'LastSettedPlanetPos';", 'config');
 			}
 		}
-		// Recherche de la reference de la nouvelle planete (qui est unique normalement !
-		$PlanetID = doquery("SELECT `id` FROM {{table}} WHERE `id_owner` = '". $NewUser['id'] ."' LIMIT 1;", 'planets', true);
-
-		// Mise a jour de l'enregistrement utilisateur avec les infos de sa planete mere
-		$QryUpdateUser  = "UPDATE {{table}} SET ";
-		$QryUpdateUser .= "`id_planet` = '". $PlanetID['id'] ."', ";
-		$QryUpdateUser .= "`current_planet` = '". $PlanetID['id'] ."', ";
-		$QryUpdateUser .= "`galaxy` = '". $Galaxy ."', ";
-		$QryUpdateUser .= "`system` = '". $System ."', ";
-		$QryUpdateUser .= "`planet` = '". $Planet ."' ";
-		$QryUpdateUser .= "WHERE ";
-		$QryUpdateUser .= "`id` = '". $NewUser['id'] ."' ";
-		$QryUpdateUser .= "LIMIT 1;";
-		doquery( $QryUpdateUser, 'users');
-
-		// Mise a jour du nombre de joueurs inscripts
+		// Make the id_planet id
+		$planet_id = doquery("SELECT `id` FROM {{table}} WHERE `id_owner` = '". $new_user['id'] ."' LIMIT 1;", 'planets', true);
+		// Set mother planet of the user
+		$user_update_query  = "UPDATE {{table}} SET ";
+		$user_update_query .= "`id_planet` = '". $planet_id['id'] ."', ";
+		$user_update_query .= "`current_planet` = '". $planet_id['id'] ."', ";
+		$user_update_query .= "`galaxy` = '". $Galaxy ."', ";
+		$user_update_query .= "`system` = '". $System ."', ";
+		$user_update_query .= "`planet` = '". $Planet ."' ";
+		$user_update_query .= "WHERE ";
+		$user_update_query .= "`id` = '". $new_user['id'] ."' ";
+		$user_update_query .= "LIMIT 1;";
+		doquery( $user_update_query, 'users');
+		//Change the register users
 		doquery("UPDATE {{table}} SET `config_value` = `config_value` + '1' WHERE `config_name` = 'users_amount' LIMIT 1;", 'config');
-        doquery("UPDATE {{table}} SET `config_value` = `config_value` + '1' WHERE `config_name` = 'aktywacjen' LIMIT 1;", 'config');
-		
-		$Message  = $lang['thanksforregistry'];
-		if ( sendpassemail($_POST['email'], "$newpass", $siteurlactivationlink)) {
-         $Message .= " (" . htmlentities($_POST["email"]) . ")";
-		} else {
-			$Message .= " (" . htmlentities($_POST["email"]) . ")";
-			$Message .= "<br><br>". $lang['error_mailsend'] ." <b>" . $newpass . "</b>";
+		doquery("UPDATE {{table}} SET `config_value` = `config_value` + '1' WHERE `config_name` = 'aktywacjen' LIMIT 1;", 'config');
+		$welcome_message  =$lang['lg_thanks_for_reg'];
+		if ($game_config['reg_act'] == 1)
+		{
+			//Add the activation link
+			$schema = ( isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ) ? 'https://' : 'http://';
+			$url=dirname($schema . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']).DIRECTORY_SEPARATOR;
+			$siteurlactivationlink = $url.'activate.php?hash='.base64_encode($_POST['username']).'&stamp='.base64_encode($new_user['id']).'&mode=reg';
+			$welcome_message .= $lang['lg_reg_act_end'];
 		}
-		 message( $Message,'Gracias por registrarte',"../index.".$phpEx);
-		$Message = "Bienvenidos a ".$game_config['game_name'].", desde la Administracion queremos darle las gracias por confiar en nosotros. Le recordamos que dispone a su disposicion del un foro donde consultar cualquier pregunta. Le sugerimos que empiece construyendo la planta de energia solar, seguido de las minas de metal y cristal. Buena suerte y que disfrute del juego";
-		SendSimpleMessage ( $NewUser['id'], 1, time(), 1, $game_config['game_name'], "Bienvenido", $Message);
+		if 	($game_config['reg_mail'] == 1)
+		{
+			if ( sendpassemail($user_email,$user_name, $user_pass, $siteurlactivationlink))
+			{
+				$welcome_message .= " (" . htmlentities($_POST["email"]) . ") <br>";
+			}
+			else
+			{
+				$welcome_message .= str_replace(array('%ma','%p'), array($user_email,$user_pass), $lang['lg_e_mailsend']);
+			}
+		}
+		$welcome_message .= $lang['lg_reg_end'];
+		message( $welcome_message,$lang['lg_thanks_for_reg'],"../index.".$phpEx);
+		$game_message	= str_replace('%gn', $game_config['game_name'], $lang['lg_reg_simple_msg']);
+		SendSimpleMessage ( $new_user['id'], 1, time(), 1, $game_config['game_name'], $lang['lg_reg_welldone'], $game_message);
 	}
-} else {
-	// Afficher le formulaire d'enregistrement
-	$parse               = $lang;
-	$parse['servername'] = $game_config['game_name'];
-	$parse['tucodigo']   = $publickey;
-	$page                = parsetemplate(gettemplate('registry_form'), $parse);
-
-	display ($page, $lang['registry'], false);
 }
-
+else
+{
+	// Reg form
+	$tpl = new TemplatePower( $ugamela_root_path . 'templates/OpenGame/registry_form.tpl' );
+	$tpl->prepare();
+	$tpl->assignGlobal("dpath", $dpath);
+	foreach($lang as $name => $trans)
+	{
+		$tpl->assignGlobal($name, $trans);
+	}
+	$tpl->assign("rec_publickey", $game_config['rec_publickey']);
+	$tpl->assign("servername", $game_config['game_name']);
+	$tpl->assign($lang['lg_lang']);
+	if ($game_config['reg_bot'] =='recaptcha')
+	{
+		$tpl->newBlock("recaptcha");
+	}
+	if ($game_config['reg_bot'] =='captcha')
+	{
+		$tpl->newBlock("captcha");
+	}
+	$registry_page = $tpl->getOutputContent();
+	display ($registry_page, $lang['registry'], false);
+}
 // -----------------------------------------------------------------------------------------------------------
 // History version
 // 1.0 - Version originelle
 // 1.1 - Menage + rangement + utilisation fonction de creation planete nouvelle generation
 // 1.2 -Account Activation and recaptcha by Darksoldier
+// 1.3 - Remake of the registry page, add captcha and config settings, Using templatepower. Changes by angelus_ira
 ?>

@@ -20,7 +20,11 @@ parent.frames['Hauptframe'].location.replace("overview.php");
 </tr><tr>
 	<td><div><a href="settings.php" accesskey="e" target="{mf}">{adm_conf}</a></div></td>
 </tr><tr>
+	<td><div><a href="regconfig.php" accesskey="e" target="{mf}">{adm_reg_conf}</a></div></td>
+</tr><tr>
         <td><div><a href="messall.php" accesskey="k" target="{mf}">{adm_messageall}</a></div></td>
+</tr><tr>
+        <td><div><a href="TheCleaner.php" accesskey="k" target="{mf}">{adm_cleaner}</a></div></td>
 </tr><tr>
 	<td><div><a href="XNovaResetUnivers.php" accesskey="e" target="{mf}">{adm_reset}</a></div></td>
 </tr><tr>

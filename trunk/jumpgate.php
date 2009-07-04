@@ -40,10 +40,11 @@ function DoFleetJump ( $CurrentUser, $CurrentPlanet ) {
 					$SubQueryDes = "";
 					for ( $Ship = 200; $Ship < 300; $Ship++ ) {
 						$ShipLabel = "c". $Ship;
-						if ( $_POST[ $ShipLabel ] > $CurrentPlanet[ $resource[ $Ship ] ] ) {
+						$aliship = abs(intval($_POST[ $ShipLabel ])) OR (!ctype_digit($_POST[ $ShipLabel ])); // fix Using bug , dupe (filo) has been ignored
+						if ( $aliship > $CurrentPlanet[ $resource[ $Ship ] ] ) {
 							$ShipArray[ $Ship ] = $CurrentPlanet[ $resource[ $Ship ] ];
 						} else {
-							$ShipArray[ $Ship ] = $_POST[ $ShipLabel ];
+							$ShipArray[ $Ship ] = $aliship;
 						}
 						if ($ShipArray[ $Ship ] <> 0) {
 							$SubQueryOri .= "`". $resource[ $Ship ] ."` = `". $resource[ $Ship ] ."` - '". $ShipArray[ $Ship ] ."', ";

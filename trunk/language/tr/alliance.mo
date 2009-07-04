@@ -1,49 +1,49 @@
 <?php
 
-$lang['alliance'] = 'Alianzas';
-$lang['your_alliance'] = 'Su alianza';
-$lang['make_alliance_owner'] = 'Fundar su propia alianza';
-$lang['search_alliance'] = 'Buscar una alianza';
-$lang['make_alliance'] = 'Fundar su propia alianza';
-$lang['search_alliance'] = 'Buscar';
+$lang['alliance'] = '&#304;ttifaklar';
+$lang['your_alliance'] = '&#304;ttifak Sayfas&#305;';
+$lang['make_alliance_owner'] = '&#304;ttifak Kurulumu';
+$lang['search_alliance'] = '&#304;ttifak Arama';
+$lang['make_alliance'] = '&#304;ttifak Kur';
+$lang['search_alliance'] = 'Arama';
 $lang['descripcion_new']= 'No hay ninguna descripcion de esta alianza';
 $lang['searchd_ally_avail'] = 'Se encontraron las siguientes alianzas::';
-$lang['searched_alliance_availables'] = 'Se han encontrado las siguientes alianzas:';
-$lang['ally_been_maked'] = 'La alianza fue creada:';
-$lang['have_not_tag'] = 'La allianza no tiene &iacute;ndice';
-$lang['have_not_name'] = 'La allianza no tiene nombre';
-$lang['always_exist'] = '%s ya existe';
-$lang['ally_maked'] = '%s crear';
-$lang['ally_notexist'] = 'La alianza ya no existe.';
+$lang['searched_alliance_availables'] = 'A&#351;a&#287;&#305;daki &#304;ttifaklar Bulunmu&#351;tur:';
+$lang['ally_been_maked'] = '&#304;ttifak Kurulmu&#351;tur:';
+$lang['have_not_tag'] = '&#304;ttifak TAG&#305; bulunmuyor.';
+$lang['have_not_name'] = '&#304;ttifak &#304;smi Bulunmuyor.';
+$lang['always_exist'] = '%s &#304;ttifak Bulunuyor;';
+$lang['ally_maked'] = '%s Kuruldu';
+$lang['ally_notexist'] = '&#304;ttifak art&#305k Bulunmuyor';
 $lang['Have_not_a_alliance'] = 'Tu perteneces a nungúna alianza.';
-$lang['Send_circular_mail'] = 'Enviar un correo electr&oacute;nico colectivo';
-$lang['Text_mail'] = 'Enviar un correo electr&oacute;nico colectivo';
-$lang['Members_list'] = 'Lista de los miembros';
-$lang['ally_admin'] = 'Administrar la alianza';
-$lang['Range'] = 'Su rango';
-$lang['Members'] = 'Miembros';
-$lang['Name'] = 'Nombre';
-$lang['Tag'] = 'Etiqueta';
-$lang['Circular_message'] = 'Correo circular';
-$lang['Inner_section'] = 'Texto interno';
-$lang['Main_Page'] = 'P&aacute;gina inicial';
-$lang['Alliance_logo'] = 'Logo de la alianza';
+$lang['Send_circular_mail'] = 'Toplu Mesaj G&#246;nder';
+$lang['Text_mail'] = 'G&#246;nderilecek Mesaj';
+$lang['Members_list'] = '&#220;ye Listesi';
+$lang['ally_admin'] = '&#304;ttifak Y&#246;neticisi';
+$lang['Range'] = 'S&#305;ralaman&#305;z';
+$lang['Members'] = '&#220;yeler';
+$lang['Name'] = '&#304;sim';
+$lang['Tag'] = 'TAG';
+$lang['Circular_message'] = 'Toplu Mesaj';
+$lang['Inner_section'] = '&#214;zel Alan';
+$lang['Main_Page'] = 'Ana Sayfa';
+$lang['Alliance_logo'] = '&#304;ttifak Logosu';
 
-$lang['alliance_tag'] = 'TAG de la allianza';
-$lang['allyance_name'] = 'Nombre de la allianza';
-$lang['members'] = 'Miembros';
-$lang['member'] = 'Miembro';
-$lang['Novate'] = 'Novato';
+$lang['alliance_tag'] = '&#304;ttifak TAG&#305; ';
+$lang['allyance_name'] = '&#304;ttifak &#304;smi';
+$lang['members'] = '&#220;yeler';
+$lang['member'] = '&#220;ye';
+$lang['Novate'] = 'Acemi';
 
-$lang['Founder'] = 'Fundador';
+$lang['Founder'] = 'Kurucu';
 
-$lang['Circular_sended'] = 'Los siguientes jugadores recibieron el correo circular';
+$lang['Circular_sended'] = '&#220;yelere Toplu Mesaj G&#246;nderilmi&#351;tir';
 
 //Solicitud
-$lang['Apply_ally_overview'] = "Vision general de las solicitudes de la alianza";
+$lang['Apply_ally_overview'] = "&#304;ttifak Kat&#305;l&#305;m Ba&#351;vurular&#305;";
 $lang['There_is_hanging_request'] = "Hay %n solicitudes pendientes. Haz clic en el jugador deseado para ver su solicitud.";
-$lang['Candidate'] = 'Candidato';
-$lang['Date_of_the_request'] = 'Fecha de la solicitud';
+$lang['Candidate'] = 'Oyuncu';
+$lang['Date_of_the_request'] = 'Ba&#351;vuru Tarihi';
 $lang['not_possible_app'] =  'Imposible de esta manera';
 $lang['write_apply'] = 'Escribir Solicitud';
 $lang['your_apply'] = 'Tu Solicitud';
@@ -52,43 +52,42 @@ $lang['apply_cantbeadded'] = 'La solicitud no tuvo &eacute;xito.';
 $lang['Request_responde'] = 'Reacción a esta solicitud';
 $lang['Motive_optional'] = 'Motivos (opcional)';
 
-$lang['Desert'] = 'Salir de esta alianza';
-$lang['Continue'] = 'continuar';
-$lang['All_players'] = 'Todos los jugadores';
-$lang['Send_Apply'] = 'Registrar la solicitud';
-$lang['Delete_apply'] = 'Borrar solicitud';
-$lang['Send'] = 'Enviar';
-$lang['Ok'] = 'Aceptar';
+$lang['Continue'] = "Devam Et";
+$lang['All_players'] = 'T&#252;m Oyuncular';
+$lang['Send_Apply'] = 'Ba&#351;vuru &#304;ste&#287;i';
+$lang['Delete_apply'] = 'Ba&#351;vurunuzu Silin';
+$lang['Send'] = 'G&#246;nder';
+$lang['Ok'] = 'Tamam';
 $lang['Repel'] = 'Rechazar';
-$lang['Reload'] = 'Recargar';
-$lang['Clear'] = 'Limpiar';
-$lang['Back'] = 'Volver';
-$lang['Help'] = 'Ayuda';
-$lang['Message'] = 'Mensaje';
-$lang['characters'] = 'caracteres';
-$lang['Destiny'] = 'Destino';
+$lang['Reload'] = '&#214;rnek Metin';
+$lang['Clear'] = 'Temizle';
+$lang['Back'] = 'Geri';
+$lang['Help'] = 'Yard&#305;m';
+$lang['Message'] = 'Mesaj';
+$lang['characters'] = 'Kalan Karakter';
+$lang['Destiny'] = 'Al&#305;c&#305;lar';
 $lang['max'] = 'max.';
 
-$lang['Write_to_alliance'] = 'Enviar una solicitud a la alianza [%s]';
+$lang['Write_to_alliance'] = '&#304;ttifak &#220;yelerine G&#246;nderece&#287;iniz Metin [%s]';
 
-$lang['no_req_text'] = 'No se ha escrito texto de solicitud';
-$lang['Waiting_req_text'] = 'Ya has enviado tu solicitud a la alianza [%s]. Debes esperar su respuesta o retirar tu solicitud.';
-$lang['Canceld_req_text'] = 'La allianza [%s] no acept&oacute; su candidatura. Ahora puedes escribir una nueva solicitud o crear su propia alianza.';
+$lang['no_req_text'] = 'L&#252;tfen ba&#351;vurunuzu buraya yaz&#305;n.';
+$lang['Waiting_req_text'] = '[%s] &#304;ttifak&#305;na ba&#351;vurunuz bulunmaktad&#305;r. L&#252;tfen bir yan&#305;t bekleyin.';
+$lang['Canceld_req_text'] = '[%s] &#304;ttifak&#305; ba&#351;vurunuzu kabul etmemi&#351;tir. Yeniden ba&#351;vurabilir ya da kendi &#304;ttifak&#305;n&#305;z&#305; kurabilirsiniz.';
 
-$lang['Online'] = 'En linea';
-$lang['Ammount'] = 'N&uacute;mero';
-$lang['Name'] = 'Nombre';
-$lang['Number'] = 'No.';
-$lang['Position'] = 'Posici&oacute;n';
-$lang['Points'] = 'Puntos';
-$lang['Coordinated'] = 'Coordenadas';
-$lang['Member_from'] = 'Adhesi&oacute;n';
-$lang['Function'] = 'En linea';
-$lang['Write_message'] = 'Escribir un mensaje';
-$lang['On'] = 'Conectado';
-$lang['15_min'] = '15 min';
-$lang['Off'] = 'Desconectado';
-$lang['Inactive'] = 'Inactivo';
+$lang['Online'] = 'Oyunda';
+$lang['Ammount'] = 'Ki&#351;i';
+$lang['Name'] = '&#304;sim';
+$lang['Number'] = 'Nr.';
+$lang['Position'] = 'Pozisyon';
+$lang['Points'] = 'Puanlar';
+$lang['Coordinated'] = 'Koord';
+$lang['Member_from'] = '&#220;yelik Zaman&#305;';
+$lang['Function'] = 'Online';
+$lang['Write_a_message'] = 'Mesaj Yaz';
+$lang['On'] = 'Oyunda';
+$lang['15_min'] = '15 dk';
+$lang['Off'] = 'Oyunda De&#287;il';
+$lang['Inactive'] = '&#304;naktif';
 $lang['Inactive_days'] = '%sd';// %s = days in numbers...
 
 //Admin
@@ -96,43 +95,43 @@ $lang['Ally_transfer'] = 'Ceder/reanudar esta alianza';
 $lang['Texts'] = 'Administraci&oacute;n del texto';
 $lang['Make'] = 'Crear';
 $lang['Options'] = 'Opciones';
-$lang['External_text'] = 'Texto externo';
-$lang['Internal_text'] = 'Texto interno';
-$lang['Request_text'] = 'Texto de solicitud';
-$lang['Show_of_request_text'] = 'Muestra de texto de solicitud';
+$lang['External_text'] = 'Herkese A&#231;&#305;k Metin';
+$lang['Internal_text'] = '&#304;ttifak &#304;&#231;i Yaz&#305;';
+$lang['Request_text'] = 'Herkese A&#231;&#305;k &#304;ttifak Metni';
+$lang['Show_of_request_text'] = 'Herkese A&#231;&#305;k Metin';
 $lang['Internal_text_of_alliance'] = 'Texto interno de la alianza';
 $lang['Public_text_of_alliance'] = 'Texto publico de la alianza';
-$lang['Law_settings'] = 'Configura los rangos';
-$lang['members_admin'] = 'Administra los miembros';
+$lang['Law_settings'] = 'Yetkileri D&#252;zenle';
+$lang['members_admin'] = '&#220;yeleri Y&#246;net';
 
-$lang['Return_to_overview'] = 'Volver a la p&aacute;gina de alianza';
-$lang['laws_config'] = 'Configura las leyes';
-$lang['Range_name'] = 'Nombre de rango';
-$lang['Range_make'] = 'Crear rango';
+$lang['Return_to_overview'] = '&#304;ttifak Sayfas&#305;na Geri D&#246;n';
+$lang['laws_config'] = 'Yap&#305;land&#305;rma Haklar&#305;';
+$lang['Range_name'] = 'Yetki S&#305;ralamas&#305;';
+$lang['Range_make'] = 'Yeni Yetki Olu&#351;tur';
 $lang['Delete_range'] = '<img src="/images/ally/delete.gif"';
-$lang['Make'] = 'Crear';
-$lang['Law_leyends'] = 'Lista de leyes';
-$lang['ally_dissolve'] = 'Disolver esta alianza';
-$lang['Expel_users'] = 'Expulsar jugadores';
-$lang['requests_view'] = 'Ver Solicitudes';
-$lang['memberlist_view'] = 'Ver Lista de Miembros';
+$lang['Make'] = 'Olu&#351;tur';
+$lang['Law_leyends'] = 'haklar&#305;n A&#231;&#305;klamas&#305;';
+$lang['ally_dissolve'] = '&#304;ttifak&#305; Da&#287;&#305;t';
+$lang['Expel_users'] = '&#220;yeyi &#304;ttifaktan At';
+$lang['requests_view'] = 'Ba&#351;vurulara G&#246;zat';
+$lang['memberlist_view'] = '&#220;ye Listesine G&#246;zat';
 $lang['requests_admin'] = 'Administrar solicitudes';
-$lang['memberlist_online'] = 'Ver estado de conexi&oacute;n de la lista de miembros';
-$lang['make_circular'] = 'Enviar mail colectivo';
-$lang['Left_hand_text'] = "'Mano derecha' (Necesario para transmitir el rango de fundador)";
-$lang['Save'] = 'Guardar';
+$lang['memberlist_online'] = '&#252;ye Listesindeki Online Durumuna Bak';
+$lang['make_circular'] = 'Toplu Mesaj G&#246;nder';
+$lang['Left_hand_text'] = "'Sa&#287; Kol' (Kurucu &#220;nvan&#305;n&#305;n Aktar&#305;m&#305; &#304;&#231;in Gerekli)";
+$lang['Save'] = 'Kaydet';
 $lang['range_emptyfield'] = 'No hay rango';
 $lang['s'] = '[N/A]';
 
-$lang['ch_allytag'] = 'Cambiar el TAG de la allianza';
-$lang['ch_allyname'] = 'Cambiar el Nombre de la allianza';
-$lang['Options'] = "Opciones";
-$lang['ally_logo'] = "Logotipo Alianza";
-$lang['Requests'] = 'Solicitud';
-$lang['No_allow_request'] = 'No están permitidas (la alianza está cerrada)';
-$lang['Allow_request'] = 'Permitidas (la alianza está abierta)';
-$lang['Founder_name'] = 'Nombre del Fundador';
-$lang['Reset'] = "Reinicializar";
+$lang['ch_allytag'] = '&#304;ttifak TAG&#305;n&#305; De&#287;i&#351;tir';
+$lang['ch_allyname'] = '&#304;ttifak &#304;smini De&#287;i&#351;tir';
+$lang['Options'] = "Se&#231;enekler";
+$lang['ally_logo'] = "&#304;ttifak Logosu";
+$lang['Requests'] = '&#304;stekler';
+$lang['No_allow_request'] = 'M&#252;mk&#252;n De&#287;il (&#304;ttifak Kapal&#305;)';
+$lang['Allow_request'] = 'Herkese A&#231;&#305;k (&#304;ttifak A&#231;&#305;k)';
+$lang['Founder_name'] = 'Kurucu &#304;smi';
+$lang['Reset'] = "Temizle";
 
 //agregado de angelus_ira
 $lang['Expel_user'] = 'Expulsar un jugador';
@@ -185,4 +184,5 @@ $lang['Denied_access'] = '¡No dispones de los derechos necesarios!';
 // Created by Ichigo. All rights reversed (C) 2006 
 // Modified by Angelus_ira. 2008
 // Modified by ch0tcodes. 2008
+// Translated TR By T3mp14R. All rights reversed (C) 2009
 ?>

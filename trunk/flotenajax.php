@@ -219,6 +219,12 @@ if ($IsUserChecked == false) {
 		$FleetDBArray    .= $Ship .",". $Count .";";
 		$FleetSubQRY     .= "`".$resource[$Ship] . "` = `" . $resource[$Ship] . "` - " . $Count . " , ";
 	}
+	
+	//Fix no envias, si no puedes pagar el combustible, xD
+	if($consumption>$planetrow["deuterium"]){
+		die ( "No tienes suficientes deuterio para enviarla flota" );
+	}
+	//Fin fix
 	$consumption = round($consumption) + 1;
 
 	if ($TargetRow['id_level'] > $user['authlevel']) {
