@@ -12,7 +12,10 @@ $lang['lg_male']			= 'Hombre';
 $lang['lg_female']			= 'Mujer';
 $lang['lg_reload_captcha']	= 'Recargar im&aacute;gen';
 
-$lang['lg_accept_tac']		= 'Yo acepto Los t&eacute;rminos y condiciones del juego';
+$lang['lg_accept_tac']		= 'Yo acepto las: ';
+$lang['lg_and']				= 'y los ';
+$lang['lg_rules']			= ' Reglas';
+$lang['lg_tac']				= 'Terminos y Condiciones';
 $lang['lg_register']		= 'Registrarse';
 
 $lang['lg_universe']		= 'Universo';

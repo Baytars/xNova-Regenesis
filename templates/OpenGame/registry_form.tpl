@@ -91,7 +91,7 @@
       </tr>
 	  <!-- END BLOCK : captcha -->
       <tr>
-        <th colspan="2"><input name="rgt" type="checkbox" />{lg_accept_tac}</th>
+        <th colspan="2"><input name="rgt" type="checkbox" />{lg_accept_tac}<a href="#" onClick="f('rules.php', '');" accesskey="c">{lg_rules}</a> {lg_and} <a href="#" onClick="f('rules.php?mode=tac', '');" accesskey="c">{lg_tac}</a></th>
       </tr>
       <tr>
         <th colspan="2" >
@@ -101,3 +101,9 @@
   </table>
 </form>
 
+<script language="JavaScript">
+function f(target_url,win_name) {
+  var new_win = window.open(target_url,win_name,'resizable=yes,scrollbars=yes,menubar=no,toolbar=no,width=550,height=280,top=0,left=0');
+  new_win.focus();
+}
+</script>
