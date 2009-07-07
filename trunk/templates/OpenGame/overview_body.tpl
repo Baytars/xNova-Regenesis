@@ -77,6 +77,10 @@
 	<th>{Temperature}</th>
 	<th colspan="3">{approx} {planet_temp_min}{Centigrade} {to} {planet_temp_max}{Centigrade}</th>
 </tr>
+</tr>
+	<th>Test</th>
+	<th colspan="3">{test_class_function}</th>
+</tr>
 <tr>
 <th class="s" colspan ="4">
 		<table class="s" align="top" border="0" style="background-color: transparent;">
