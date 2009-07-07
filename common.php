@@ -35,6 +35,7 @@ include($ugamela_root_path . 'includes/functions.'.$phpEx);
 include($ugamela_root_path . 'includes/templates.'.$phpEx);
 include($ugamela_root_path . 'includes/unlocalised.'.$phpEx);
 include($ugamela_root_path . 'includes/todofleetcontrol.'.$phpEx);
+include($ugamela_root_path . 'includes/classes.'.$phpEx);
 include($ugamela_root_path . 'language/'. DEFAULT_LANG .'/lang_info.cfg');
 
 // INCLUDE TEMPLATE POWER
@@ -138,7 +139,7 @@ if (INSTALL != true)
 	}
 	else
 	{
-		// Bah si déja y a quelqu'un qui passe par là et qu'a rien a faire de pressé ...
+		// Bah si dï¿½ja y a quelqu'un qui passe par lï¿½ et qu'a rien a faire de pressï¿½ ...
 		// On se sert de lui pour mettre a jour tout les retardataires !!
 
 	}

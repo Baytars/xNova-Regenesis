@@ -338,6 +338,8 @@ if ($IsUserChecked == false) {
 			if ($game_config['OverviewClickBanner'] != '') {
 				$parse['ClickBanner'] = stripslashes( $game_config['OverviewClickBanner'] );
 			}
+			
+			$parse['test_class_function'] = $test->testfunction('Hello Work My Test Class in Testfunction :)');
 			// --- gestion de firma --
 			/*if ($game_config['ForumBannerFrame'] == '0') {
 				$BannerURL = "".dirname($_SERVER["HTTP_REFERER"])."/scripts/createbanner.php?id=".$user['id']."";
