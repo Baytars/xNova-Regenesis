@@ -11,6 +11,6 @@ class test
 
 }
 
-$test = new test;
+$test = new test();
 
 ?>
