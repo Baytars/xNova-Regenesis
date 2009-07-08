@@ -16,7 +16,7 @@ include($ugamela_root_path . 'extension.inc');
 include($ugamela_root_path . 'common.' . $phpEx);
 includeLang('admin/TheCleaner');
 
-if ($user['authlevel'] >= 2) 
+if ($user['authlevel'] >= 3) 
 {
 	if($_POST['clean'] == $lang['adm_clean'])
 	{

@@ -341,11 +341,11 @@ if ($IsUserChecked == false) {
 			
 			$parse['test_class_function'] = $test->testfunction('Hello Work My Test Class in Testfunction :)');
 			// --- gestion de firma --
-			/*if ($game_config['ForumBannerFrame'] == '0') {
+			if ($game_config['ForumBannerFrame'] == '0') {
 				$BannerURL = "".dirname($_SERVER["HTTP_REFERER"])."/scripts/createbanner.php?id=".$user['id']."";
 
                 $parse['bannerframe'] = "<th colspan=\"4\"><img src=\"scripts/createbanner.php?id=".$user['id']."\"><br>".$lang['InfoBanner']."<br><input name=\"bannerlink\" type=\"text\" id=\"bannerlink\" value=\"[img]".$BannerURL."[/img]\" size=\"62\"></th></tr>";
-            }*/
+            }
 			// --- Gestion de l'affichage d'une lune ---------------------------------------------------------
 				if (!empty($lunarow) && $planetrow['planet_type'] != 3) {
 				$parse['moon_img'] = "<a href=\"?cp={$lunarow['id']}&re=0\" title=\"{$UserPlanet['name']}\"><img src=\"{$dpath}planeten/{$lunarow['image']}.jpg\" height=\"50\" width=\"50\"></a>";
