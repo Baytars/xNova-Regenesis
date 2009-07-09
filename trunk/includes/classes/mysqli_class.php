@@ -177,4 +177,18 @@ class Baglanti
 }
 
 $vt = new Baglanti();
+/*
+Sample Old code;
+	$query = doquery("SELECT * FROM {{table}}",'config');
+	while ( $row = mysql_fetch_assoc($query) )
+	{
+		$game_config[$row['config_name']] = $row['config_value'];
+	}
+Sample New code;
+	$query = $vt->doquery("SELECT * FROM {{table}}",'config');
+	while ( $row = $vt->fetchArray($query) )
+	{
+		$game_config[$row['config_name']] = $row['config_value'];
+	}
+*/
 ?>
