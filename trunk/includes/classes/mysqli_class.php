@@ -3,17 +3,7 @@
 if(!defined("INSIDE")){ die("attemp hacking"); }
 
 class Baglanti
-{
-	//=============================================================================
-	//Alttaki 4 Satırı Veritabanı Bilgilerinize Göre Düzenleyiniz...
-	//Sabit Degişkenler
-	//private $sunucu   = 'localhost'; // Sunucu - Server
-	//private $kuladi   = 'cagdas'; // Veritabanı Kullanıcı Adı - MySQL User
-	//private $sifre    = 'cagdas'; // Veritabanı Şifresi - MysQL Password
-	//private $vtadi    = 'can'; // Veritabanı Adı - MySQL Name
-	// Sadece Yukarıdaki Dört Satırı Değiştiriniz
-    //==============================================================================
-	
+{	
 	private $vt;
   	public $db;
 	private $result;
@@ -25,13 +15,11 @@ class Baglanti
 	require($ugamela_root_path.'config.php');
     try
     {
-		  //MySQL Baglantisi";
 		  $this->vt = @ mysqli_connect($dbsettings['server'],$dbsettings['user'],$dbsettings['pass'],$dbsettings['name']);
       if (mysqli_connect_errno())
       {
         throw new Exception ('Hata: Veritabani Baglantisi Kurulamadi');
       }
-			//Veritabani Secimi
 			$this->db = @ mysqli_select_db($this->vt,$dbsettings['name']);
 		  if (!$this->db )
 			{
@@ -48,7 +36,6 @@ class Baglanti
     }
   }
 
-  //Veritabanında Tablo Olup Olmadıgini Kontrol Eder
   public function tablo_kontrol($tabloadi)
   {
     $sonuc = false;
@@ -89,7 +76,6 @@ class Baglanti
     }
   }
 
-  //Kayit Ekleme veya Update Icin Kullanilabilir
   public function query2($sql2)
   {
   try
@@ -110,25 +96,21 @@ class Baglanti
     }
   }
 	
-	//Verileri Dizi Değişkeni Olarak Listele 'Kolon İsimli Dizi'
 	public function fetchAssoc()
 	{
 	  return ( @mysqli_fetch_assoc($this->result) );
 	}
 	
-	//Verileri Dizi Degiskeni Olarak Listele 'Sayili Dizi'
 	public function fetchArray()
 	{
 	  return ( @mysqli_fetch_array($this->result) );
 	}
 	
-	//Verileri Dizi Degiskeni Olarak Listele 'Obje Olarak'
 	public function fetchObject()
 	{
 	  return ( @mysqli_fetch_object($this->result) );
 	}
 	
-	//Satır Sayisi
 	public function numRows()
   {
     return ( @mysqli_num_rows($this->result) );
@@ -153,7 +135,6 @@ class Baglanti
 		return $this->kayit_sayi;
 	}
 	
-	//Hafiza Bosaltimi
 	public function freeResult()
 	{
 	  return (@mysqli_free_result($this->result));
@@ -169,7 +150,7 @@ class Baglanti
 		$metin = mysqli_real_escape_string($this->vt, $metin);
 		return $metin;
 	}
-  //MySQL Baglantisini Kapatma
+
 	function __destruct()
 	{
 		return @ mysqli_close($this->vt);
