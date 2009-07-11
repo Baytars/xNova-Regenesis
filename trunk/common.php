@@ -35,13 +35,13 @@ include($ugamela_root_path . 'includes/functions.'.$phpEx);
 include($ugamela_root_path . 'includes/templates.'.$phpEx);
 include($ugamela_root_path . 'includes/unlocalised.'.$phpEx);
 include($ugamela_root_path . 'includes/todofleetcontrol.'.$phpEx);
-include($ugamela_root_path . 'includes/classes.'.$phpEx);
 include($ugamela_root_path . 'language/'. DEFAULT_LANG .'/lang_info.cfg');
 
 // INCLUDE TEMPLATE POWER
 include($ugamela_root_path . 'includes/tmpPower/class.TemplatePower.inc.'.$phpEx);
 if (INSTALL != true)
 {
+	include($ugamela_root_path . 'includes/classes.'.$phpEx);
 	include($ugamela_root_path . 'includes/vars.'.$phpEx);
 	include($ugamela_root_path . 'includes/db.'.$phpEx);
 	include($ugamela_root_path . 'includes/strings.'.$phpEx);
