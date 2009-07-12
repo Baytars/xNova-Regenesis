@@ -3,7 +3,7 @@
 /**
  * StatFunctions.php
  * @Moded version by angelus_ira
- * @version 1.c
+ * @version 1.d
  * @copyright 2008 by Chlorel for XNova
  */
 
@@ -166,7 +166,12 @@ function MakeStats()
 	{
 		$LastQuery = floor($total_users['count'] / $amount_per_block);
 	}
+	else
+	{
+		$LastQuery = 1;
+	}
 	$Query = 0;
+	
 	while ($Query < $LastQuery) 
 	{
 		$QueryValue      = ($Query * $amount_per_block);
@@ -339,6 +344,10 @@ function MakeStats()
 		if ($total_ally > $amount_per_block) 
 		{
 			$LastQuery = floor($total_ally / $amount_per_block);
+		}
+		else
+		{
+			$LastQuery = 1;
 		}
 		$Query = 0;
 		while ($Query < $LastQuery) 
