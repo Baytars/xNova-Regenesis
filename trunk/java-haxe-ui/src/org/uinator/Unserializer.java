@@ -41,60 +41,76 @@ public class Unserializer {
             }
 
             Object result = context.newInstance();
-            ArrayList<Node> attrs = contextNode.getAttributes();
-            for (Node attr : attrs) {
-                System.out.println("Process attributes list");
-                System.out.println("Property: " + attr.getName());
-                String name = StringUtils.toCamelCase(attr.getName(), "_", StringCase.LOWER);
+            
+            this.processAttributes( result, contextNode.getAttributes() );
 
-                try {
-                    this.getReflectionProvider().setFieldValue(name, attr.getValue(), result);
-                } catch (Exception e) {
-                    System.out.println("Field " + name + " does not exists");
-                }
-            }
-
-            for (Node subElement : contextNode.getChilds()) {
-                String targetPkg = null;//subElement.getNamespaceURI() != null ? subElement.getNamespaceURI() : Unserializer.class.getPackage().getName();
-                Class targetCls = null;
-                try {
-                    String targetClsName = subElement.getName().contains(":") ? subElement.getName().split(":")[1]
-                            : subElement.getName().split(":")[0];
-                    targetCls = this.getReflectionProvider().findClass(targetClsName, targetPkg);
-                } catch (ClassNotFoundException e) {
-                    continue;
-                }
-
-                Field[] clsFields = context.getDeclaredFields();
-                for (int i = 0; i < clsFields.length; i++) {
-                    Class type = clsFields[i].getType();
-                    Field field = clsFields[i];
-
-                    if ( this.getReflectionProvider().isParent(AbstractCollection.class, type) ) {
-                        type = this.getReflectionProvider().getClassForType((ParameterizedType) field.getGenericType());
-                        Object newItem = this.process(type, subElement);
-
-                        if ( this.getReflectionProvider().isParent(type, targetCls)) {
-                            try {
-                                this.getReflectionProvider().invokeMethod("add".concat(StringUtils.toCamelCase(field.getName(), "", StringCase.UPPER)), result, newItem);
-                            } catch (Exception e) {
-                                this.getReflectionProvider().invokeMethod("add", this.getReflectionProvider().initializeField(field, result), newItem);
-                            }
-                        }
-                    } else if (targetCls.getName().equals(field.getName() ) || type.getName().equals( targetCls.getName() ) ) {
-                        Object fieldValue = this.process(type, subElement);
-                        try {
-                            this.getReflectionProvider().invokeMethod("set".concat(StringUtils.toCamelCase(field.getName(), "", StringCase.UPPER)), result, fieldValue);
-                        } catch (Exception e) {
-                            this.getReflectionProvider().setFieldValue(field.getName(), result, fieldValue);
-                        }
-                    }
-                }
-            }
-
+            this.processChilds( contextNode.getChilds(), context, result );
             return result;
         } catch (Exception e) {
-            throw new UnserializerException(e);
+        	throw new UnserializerException(e);
+        }
+    }
+    
+    protected void processChilds( List<Node> childs, Class context, Object result ) throws UnserializerException {
+    	try {
+	    	for (Node subElement : childs) {
+	            String targetPkg = "org.uinator";
+	        	
+	        	Namespace elNamespace = subElement.getRegisteredNamespace( subElement.getNamespace() );
+	            if ( elNamespace != null && !elNamespace.equals("") ){
+	            	targetPkg = elNamespace.getPath();
+	            }
+	            
+	            Class targetCls = null;
+	            try {
+	                String targetClsName = subElement.getName();
+	                targetCls = this.getReflectionProvider().findClass(targetClsName, targetPkg);
+	            } catch (ClassNotFoundException e) {
+	                continue;
+	            }
+	
+	            Field[] clsFields = context.getDeclaredFields();
+	            for (int i = 0; i < clsFields.length; i++) {
+	                Class type = clsFields[i].getType();
+	                Field field = clsFields[i];
+	
+	                if ( this.getReflectionProvider().isParent(AbstractCollection.class, type) ) {
+	                    type = this.getReflectionProvider().getClassForType((ParameterizedType) field.getGenericType());
+	                    Object newItem = this.process(type, subElement);
+	
+	                    if ( this.getReflectionProvider().isParent(type, targetCls)) {
+	                        try {
+	                            this.getReflectionProvider().invokeMethod("add".concat(StringUtils.toCamelCase(field.getName(), "", StringCase.UPPER)), result, newItem);
+	                        } catch (Exception e) {
+	                            this.getReflectionProvider().invokeMethod("add", this.getReflectionProvider().initializeField(field, result), newItem);
+	                        }
+	                    }
+	                } else if (targetCls.getName().equals(field.getName() ) || type.getName().equals( targetCls.getName() ) ) {
+	                    Object fieldValue = this.process(type, subElement);
+	                    try {
+	                        this.getReflectionProvider().invokeMethod("set".concat(StringUtils.toCamelCase(field.getName(), "", StringCase.UPPER)), result, fieldValue);
+	                    } catch (Exception e) {
+	                        this.getReflectionProvider().setFieldValue(field.getName(), result, fieldValue);
+	                    }
+	                }
+	            }
+	    	}
+    	} catch ( Exception e ) {
+    		throw new UnserializerException(e);
+    	}
+    }
+    
+    protected void processAttributes( Object result, List<Node> attributes ) {
+    	for (Node attr : attributes ) {
+            System.out.println("Process attributes list");
+            System.out.println("Property: " + attr.getName());
+            String name = StringUtils.toCamelCase(attr.getName(), "_", StringCase.LOWER);
+
+            try {
+                this.getReflectionProvider().setFieldValue(name, attr.getValue(), result);
+            } catch (Exception e) {
+                System.out.println("Field " + name + " does not exists");
+            }
         }
     }
 
@@ -110,7 +126,12 @@ public class Unserializer {
 
 class UnserializerException extends Exception {
 
-    public UnserializerException(Exception e) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5253230702722468037L;
+
+	public UnserializerException(Exception e) {
         this.setStackTrace(e.getStackTrace());
     }
 }

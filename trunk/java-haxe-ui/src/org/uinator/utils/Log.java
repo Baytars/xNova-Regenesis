@@ -35,6 +35,10 @@ public class Log {
     public void setDebug( boolean mode ) {
         this._debug = mode;
     }
+    
+    public boolean isDebug() {
+    	return this._debug;
+    }
 
     public String read() {
         try {

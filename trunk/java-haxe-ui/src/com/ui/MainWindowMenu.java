@@ -5,6 +5,10 @@ import java.awt.event.*;
 import com.commands.UXMLFileOpen;
 
 public class MainWindowMenu extends MenuBar implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -395938098596373575L;
 	private Menu fileMenu;
 	private MainWindow parent;
 	

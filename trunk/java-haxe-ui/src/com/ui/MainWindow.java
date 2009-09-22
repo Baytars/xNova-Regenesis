@@ -11,7 +11,11 @@ import org.uinator.UI;
 
 public class MainWindow extends JFrame implements ActionListener {
 
-    private JFileChooser fc;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8021496943753621233L;
+	private JFileChooser fc;
     private JButton fileChooseButton;
     private JButton fileCreateButton;
 

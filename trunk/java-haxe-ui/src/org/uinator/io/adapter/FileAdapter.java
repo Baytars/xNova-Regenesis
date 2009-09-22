@@ -5,7 +5,6 @@
 
 package org.uinator.io.adapter;
 
-import org.uinator.io.*;
 import java.io.*;
 
 /**

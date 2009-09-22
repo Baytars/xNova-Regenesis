@@ -58,6 +58,10 @@ public class Node {
         this._parent = parent;
         return this;
     }
+    
+    public Node getParent() {
+    	return this._parent;
+    }
 
     public String getName() {
         return this._name;
@@ -74,5 +78,19 @@ public class Node {
 
     public void registerNamespace( Namespace ns ) {
         this._namespaces.add(ns);
+    }
+
+    public String getNamespace() {
+        return this._namespace;
+    }
+
+    public Namespace getRegisteredNamespace( String name ) {
+        for( Namespace namespace : this._namespaces) {
+            if ( namespace.getName().equals(name) ) {
+                return namespace;
+            }
+        }
+
+        return null;
     }
 }

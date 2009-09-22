@@ -32,4 +32,9 @@ public class Registry {
     }
 }
 
-class Registry_NotFoundException extends Exception {}
+class Registry_NotFoundException extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7747529005497091717L;}
