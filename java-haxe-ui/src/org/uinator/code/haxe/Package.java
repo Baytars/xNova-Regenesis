@@ -1,23 +1,24 @@
 package org.uinator.code.haxe;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.uinator.code.*;
 import org.uinator.code.haxe.printers.PackagePrinter;
 
 public class Package extends Statement {
 	private String _name;
-	private ArrayList<Import> _imports;
-	private ArrayList<Class> _classes;
+	private List<Import> _imports;
+	private List<Class> _classes;
 	
 	public Package() {
-		this._imports = new ArrayList<Import>();
-		this._classes = new ArrayList<Class>();
+            this._imports = new ArrayList<Import>();
+            this._classes = new ArrayList<Class>();
 	}
 	
 	public Package( String name ) {
-		this();
-		this._name = name;
+            this();
+            this._name = name;
 	}
 	
 	public Import addImport( Import imp ) {
@@ -30,7 +31,7 @@ public class Package extends Statement {
 		return this._name;
 	}
 	
-	public ArrayList<Import> getImports() {
+	public List<Import> getImports() {
 		return this._imports;
 	}
 	
@@ -39,7 +40,7 @@ public class Package extends Statement {
 		return cls;
 	}
 	
-	public ArrayList<Class> getClasses() {
+	public List<Class> getClasses() {
 		return this._classes;
 	}
 
@@ -47,5 +48,9 @@ public class Package extends Statement {
 	public Printer getPrinter() {
 		return new PackagePrinter(this);
 	}
+
+        public static Package createEmpty() {
+            return new Package("");
+        }
 
 }
