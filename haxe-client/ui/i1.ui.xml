@@ -1,0 +1,49 @@
+<ui>
+    <imports>
+        <import name="form" path="core.ui.Form"/>
+    </imports>
+    <frame name="login">
+        <textfield id="welcom_label">Welcom to xNovaes!</textfield>
+        
+        <uform:form id='login'>
+            <action>
+            <![CDATA[ 
+                try {
+                    var adapter:core.Auth.Adapter.LoginPassword = new core.Auth.Adapter.LoginPassword(
+                                                                    target.getValue("login"),
+                                                                    target.getValue("password")
+                                                                  );
+                    if ( target.getValue("remember") ) {
+                        adapater.rememberFor( Register.get("constants").week );
+                    }
+                    
+                    Auth.getInstance()->authentificate( adapter );
+                } catch ( e ) {
+                    target.showError( e.message );
+                }
+            ]]>
+            </action>
+            <elements>
+                <element name="login" type="text" required="true">>
+                    <label align="top">Your login:</label>
+                    <validators>
+                        <validator name="Length" value="25"/>
+                    </validators>
+                </element>
+                <element name="password" type="password" required="true">
+                    <label align="top">Password:</label>
+                </element>
+                <element name="remember" type="checkbox">
+                    <label align="right">for two weeks</label>
+                </element>
+                <element name="login" type="button"/>
+            </elements>
+        </uform:form>
+    </frame>
+    <frame name="logout">
+    
+    </frame>
+    <frame name="error">
+    
+    </frame>
+</ui>

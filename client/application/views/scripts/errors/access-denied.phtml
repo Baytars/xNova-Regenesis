@@ -1,0 +1,7 @@
+<div class="error_text">
+    <h2><?= _("Доступ запрещён") ?></h2>
+    <p><?= _("Вы не можете посетить эту страницу. Извините.") ?></p>
+    <?php if ($this->message) { ?>
+        <p><?= $this->escape($this->message) ?></p>
+    <?php } ?>
+</div>

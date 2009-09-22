@@ -1,0 +1,236 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-07-14 20:21+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/site/views/scripts/errors/auth-required.phtml:2
+msgid "Представьтесь, пожалуйста"
+msgstr "Please, name yourself"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/site/views/scripts/errors/auth-required.phtml:3
+#, php-format
+msgid "Для просмотра этой страницы необходимо <a href='%s'>представиться</a>."
+msgstr "You have not such permissions"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/site/views/scripts/errors/page-not-found.phtml:2
+msgid "Четыреста четыре"
+msgstr "Fourthy Four"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/site/views/scripts/errors/page-not-found.phtml:3
+msgid "Страница не найдена."
+msgstr "Page not found"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/site/views/scripts/errors/access-denied.phtml:2
+msgid "Доступ запрещён"
+msgstr "Access denied"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/site/views/scripts/errors/access-denied.phtml:3
+msgid "Вы не можете посетить эту страницу. Извините."
+msgstr "You cannot view this page"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/site/views/scripts/errors/other-error.phtml:2
+msgid "Ошибка"
+msgstr "Error"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/site/views/scripts/errors/other-error.phtml:3
+msgid ""
+"Возникла непредвиденная ошибка. Пожалуйста, сообщите нам, при каких "
+"обстоятельствах это произошло. Спасибо!"
+msgstr ""
+"It's unexpected error happened. Please, tell us about how and when it "
+"happened. Thanks!"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/buildings/_one.phtml:50
+msgid "Build"
+msgstr "Build"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/buildings/_one.phtml:53
+msgid "Construction will be complete in"
+msgstr "Construction will be complete in"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:4
+msgid "Growing"
+msgstr "Growing"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:5
+msgid "Overview"
+msgstr "Overview"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:6
+msgid "Buildings"
+msgstr "Buildings"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:7
+msgid "Research"
+msgstr "Research"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:8
+msgid "Docs"
+msgstr "Docs"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:9
+msgid "Defence"
+msgstr "Defence"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:10
+msgid "Fleet"
+msgstr "Fleet"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:11
+msgid "Officers"
+msgstr "Officers"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:16
+msgid "Trading:"
+msgstr "Trading:"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:17
+msgid "Black list"
+msgstr "Black list"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:18
+msgid "Services"
+msgstr "Black list"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:23
+msgid "Observatory:"
+msgstr "Black list"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:24
+msgid "Galaxy"
+msgstr "Galaxy"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:25
+msgid "Impire"
+msgstr "Impire"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:26
+msgid "Resources"
+msgstr "Resources"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:27
+msgid "Technologies"
+msgstr "Technologies"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:28
+msgid "Federations"
+msgstr "Federations"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:33
+msgid "Other:"
+msgstr "Other:"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:34
+msgid "Statistics"
+msgstr "Statistics"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:35
+msgid "Records"
+msgstr "Records"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:36
+msgid "Search"
+msgstr "Search"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:37
+msgid "Blacklist"
+msgstr "Blacklist"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:42
+msgid "Communications"
+msgstr "Communications"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:43
+msgid "Messages"
+msgstr "Messages"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:44
+msgid "Forum"
+msgstr "Forum"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:45
+msgid "Send bug report"
+msgstr "Send bug report"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:46
+msgid "Friends"
+msgstr "Friends"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:47
+msgid "Notes"
+msgstr "Notes"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:48
+msgid "Settings"
+msgstr "Settings"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:49
+msgid "Rules"
+msgstr "Rules"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/common/navigation.phtml:50
+msgid "Contacts"
+msgstr "Contacts"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/index/_one_planet.phtml:6
+msgid "Diameter"
+msgstr "Diameter"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/index/_one_planet.phtml:7
+msgid "ml"
+msgstr "ml"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/index/_one_planet.phtml:10
+msgid "Fields usage"
+msgstr "Fields usage"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/index/_one_planet.phtml:14
+msgid "Temperature"
+msgstr "Temperature"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/index/_one_planet.phtml:15
+#, fuzzy
+msgid "From"
+msgstr "From"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/index/_one_planet.phtml:15
+#, fuzzy
+msgid "to"
+msgstr "to"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/index/_one_planet.phtml:18
+msgid "Coordinates"
+msgstr "Coordinates"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/application/game/views/scripts/index/_one_planet.phtml:22
+msgid "Infrastructure"
+msgstr "Infrastructure"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/models/Form/Auth/Register.php:85
+msgid "selected galaxy does not exists"
+msgstr "selected galaxy does not exists"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/models/Form/Auth/Register.php:90
+msgid "is not available in selected galaxy"
+msgstr "is not available in selected galaxy"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/models/Form/Auth/Login.php:8
+msgid "Login"
+msgstr "Login"
+
+#: /home/nikelin/projects/projectxnovaes/branches/zf_based/trunk/models/Form/Auth/Login.php:17
+msgid "Password"
+msgstr "Password"

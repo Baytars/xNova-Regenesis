@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget:ui xmlns:widget='org.uinator.widget' xmlns:script='org.uinator'>    
+    <import as="Person" path="core.auth.Person"/>
+    <widget:form name='auth_form'>
+        <layout:border/>
+        <script:action>
+        <![CDATA[
+            /**
+            * Code field to provide some form proceed logic
+            */
+            trace(this.getValue("login") + this.getValue("password") );
+            
+            trace( Person.create().setLogin( this.getValue() ).getLogin() );
+        ]]> 
+        </script:action>
+        <style> 
+            <dimension width="500" height="400"/>
+            <position x="100" height="200"/>
+        </style>
+        <widget:label>
+            <text>Authorization Form</text>
+            <region><const>BorderLayout.NORTH</const></region>    
+        </widget:label>
+        <widget:fieldset>
+            <widget:textfield name="login" required="true">
+                <widget:label><text>Enter your login</text></widget:label>
+                <validators>
+                    <validator:length minsize="5" maxsize="25"/>
+                </validators>
+            </widget:textfield>
+            <widget:password name="login" required="true">
+                <widget:label><text>And password</text></widget:label>
+            </widget:password>
+        </widget:fieldset>  
+    </widget:form>
+</widget:ui>

@@ -1,0 +1,58 @@
+<?php
+$id = $this->building->getId();
+$dependencies = $this->building->getDependencies();
+
+if ( FALSE !== ( $user_building = $this->planet->getBuilding( $this->building ) ) ) {
+    $this->building = $user_building;    
+}
+?>
+<tr>
+    <td>
+        <? //@TODO replace with real statement ?>
+        <img src="/img/default_building.gif" />
+    </td>
+    <td>
+    <?php if ( $dependencies->count() != 0 ) { ?>
+        <?= _("Depends on"); ?>:<br/>
+        <ul>
+        <?php foreach( $dependencies as $dependency ) { ?>
+            <?php
+                $hasDep = $this->planet->hasDependency($dependency);
+            ?>
+            <li>
+                <?php if ( !$hasDep ) { ?>
+                    <span class="error">
+                <?php } ?>
+                    <?= $dependency->getObject()->getName(); ?>, <?= _("Level"); ?> <?= $dependency->getLevel(); ?>
+                <?php if ( !$hasDep ) { ?>
+                    </span>
+                <?php } ?>
+            </li>
+        <?php } ?>
+        </ul>
+    </td>
+    <?php } ?>
+</tr>
+<tr>
+    <td>
+        <strong><?= $this->building->getName(); ?> ( <?= $this->building->getLevel(); ?>th level )</strong>
+    </td>
+    <td>
+        <?= $this->building->getDescription(); ?>
+
+        <?= $this->partial("common/resources.phtml", array( "resources" => $this->building->getResourceAmounts() ) ); ?>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <?php if ( $this->building->isReady() && $this->planet->canBuild( $this->building, $this->user ) ) { ?>
+            <form action="/new-building/<?= $this->planet->getId(); ?>/<?= $id; ?>" method="post">
+                <input type="submit" value="<?= _("Build"); ?> (<?= $this->timePeriod( $this->building->getConstructionTime() ); ?>)"/>
+            </form>
+        <?php } else if ( !$this->building->isReady() ){ ?>
+            <?= _("Construction will be complete in") ?>: <?= $this->timePeriod( $this->building->getRemainingTime() ); ?>
+        <?php
+        }
+        ?>
+    </td>
+</tr>

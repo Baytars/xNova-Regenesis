@@ -1,0 +1,6 @@
+<div class='user_cp'>
+    <?= _("Hello"); ?>, <?= $this->user->getLogin(); ?> <?= _("nice to see you again"); ?>!<br/>
+    <form action='/auth/logout' method='post'>
+        <button><?= _("Logout"); ?></button>
+    </form>
+</div>

@@ -1,0 +1,207 @@
+Resource:
+  R1:
+    id : 1
+    name : "Steel"
+    image:
+      id : 1
+      path : "/home/nikelin/projects/projectxnovaes/trunk/public/img/resources/r1.png"
+  R2:
+    id : 2
+    name : "Crystal"
+    image:
+      id : 2
+      path : "/home/nikelin/projects/projectxnovaes/trunk/public/img/resources/r2.png"
+  R3:
+    id : 3
+    name : "Deiterium"
+    image:
+      id : 3
+      path : "/home/nikelin/projects/projectxnovaes/trunk/public/img/resources/r3.png"
+  R4:
+    id : 4
+    name : "Gold"
+    image:
+      id : 4
+      path : "/home/nikelin/projects/projectxnovaes/trunk/public/img/resources/r4.png"
+  R5:
+    id : 5
+    image :
+      id : 5
+      path : "/home/nikelin/projects/projectxnovaes/trunk/public/img/resources/r5.png"
+    name : "Energy"
+
+Galaxy:
+  U1:
+    id : 1
+    name : "Alpha"
+  U2:
+    id : 2
+    name : "Beta"
+  U3:
+    id : 3
+    name : "Gamma"
+  U4:
+    id : 4
+    name : "Delta"
+  U5:
+    id : 5
+    name : "Kappa"
+  U6:
+    id : 6
+    name : "Omega"
+
+User:
+    U_1:
+      id : 1
+      galaxy_id : 1
+      login : "test"
+      password : "test"
+      email : "test@example.com"
+      empire_name : "Z2"
+      
+    U_2:
+      id : 2
+      galaxy_id : 2
+      login : "admin"
+      password : "admin"
+      email : "admin@example.com"
+      empire_name : "DDDD2"
+      is_admin : 1
+
+System_Profile:
+  SP1:
+    id : 1
+    name : "Dark"
+
+System:
+  SS2:
+    id : 1
+    profile_id : 1
+    galaxy_id : 1
+    user_id : 1
+
+Planet_Profile:
+  PP1:
+    id : 1
+    diameter : 50043
+    min_temperature : -50
+    max_temperature : -6
+  PP2:
+    id : 2
+    diameter : 5332
+    min_temperature : -50
+    max_temperature : -6
+
+Planet:
+  PA:
+    id : 1
+    name : "Zelda-NH6"
+    system_id : 1
+    profile_id : 1
+    resources:
+          R1:
+            resource_id : 1
+            subject_id : 1
+            type : 2
+            amount : 400
+          R2:
+            resource_id : 2
+            subject_id : 1
+            type : 2
+            amount : 300
+          R3:
+            resource_id : 3
+            subject_id : 1
+            type : 2
+            amount : 100
+          R4:
+            resource_id : 4
+            subject_id : 1
+            type : 2
+            amount : 5
+          R5:
+            resource_id : 5
+            subject_id : 1
+            type : 2
+            amount : 50
+    
+  PB:
+    id : 2
+    name : "Omicron-HD5"
+    system_id : 1
+    profile_id : 2
+    resources:
+          R1:
+            resource_id : 1
+            subject_id : 2
+            type : 2
+            amount : 400
+          R2:
+            resource_id : 2
+            subject_id : 2
+            type : 2
+            amount : 300
+          R3:
+            resource_id : 3
+            subject_id : 2
+            type : 2
+            amount : 100
+          R4:
+            resource_id : 4
+            subject_id : 2
+            type : 2
+            amount : 5
+          R5:
+            resource_id : 5
+            subject_id : 2
+            type : 2
+            amount : 50
+
+Building:
+  B1:
+    id : 1
+    name : "Robots Factory"
+    construction_time : 1200
+    dependency_buildings:
+      D1:
+        id : 1
+        subject_id : 1
+        object_id : 2
+        type : 1
+      
+    resource_amounts :
+      I1:
+        subject_id : 1
+        resource_id : 1
+        type : 1
+        amount : 250
+      I2:
+        subject_id : 1
+        resource_id : 2
+        type : 1
+        amount : 300
+  B2:
+    id : 2
+    name : "Metal mine"
+    construction_time : 900
+    resource_modifiers:
+      M1:
+        id : 1
+        subject_id : 2
+        resource_id : 1
+        type : 1
+        amount_type : 2
+        amount : 10
+
+    resource_amounts:
+      R1:
+          subject_id : 2
+          resource_id : 1
+          type : 1
+          amount : 300
+
+
+Technology:
+  T1:
+    id : 1
+    name : "Metal mining"
