@@ -1,0 +1,16 @@
+<?php
+//	$this->headScript()->appendFile("/js/auth/login.js");
+?>
+
+<h1>Sign In</h1>
+
+<form action='/auth/login' method='post' id='login-form'>
+	<ul id='errors-shape'></ul>
+	
+	Login: <?= $this->form->login; ?><br/>
+	Password: <?= $this->form->password; ?><br/>
+	
+	<?= $this->form->captcha; ?>
+	
+	<?= $this->form->submit; ?>
+</form>

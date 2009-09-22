@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<quadrants>
+		<quadrant cell="1" row="1">
+			<src>1.jpg</src>
+		</quadrant>
+		<quadrant cell="2" row="1">
+		    <src>1.jpg</src>
+		</quadrant>
+	</quadrants>
+	<settings>
+		<width>2000</width>
+		<height>2000</height>
+		<view>
+		  <rows>60</rows>
+		  <columns>50</columns>
+		  <width>20</width>
+		  <height>20</height>
+		</view>
+		<player>
+			<position x="20" y="20" />
+		</player>
+	</settings>
+</map>

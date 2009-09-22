@@ -1,0 +1,20 @@
+<?php
+//	$this->headScript()->appendFile("/js/auth/register.js");
+?>
+<h1>Sign Up</h1>
+
+<form action='/auth/register' method='post'>
+
+	Login: <?= $this->form->login; ?><br/>
+	Email: <?= $this->form->email; ?><br/>
+	Password: <?= $this->form->password; ?><br/>
+	Re-type, please: <?= $this->form->password_retype; ?><br/>
+        
+	Empire name: <?= $this->form->empire_name; ?><br/>
+        Choose your galaxy:<br/>
+        <?= $this->form->galaxies; ?>
+
+	<?= $this->form->captcha; ?>
+	
+	<?= $this->form->submit; ?> 
+</form>

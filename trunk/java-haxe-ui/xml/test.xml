@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ui xmlns:widget='org.uinator.Widget' xmlns:validator="org.uinator.Validator">
+    <import as="Person" path="core.auth.Person"/>
+    <form name='auth_form'>
+        <action>
+        <![CDATA[
+            /**
+            * Code field to provide some form proceed logic
+            */
+            trace(this.getValue("login") + this.getValue("password") );
+            
+            trace( Person.create().setLogin( this.getValue() ).getLogin() );
+        ]]> 
+        </action>
+        <style>
+            <dimension width="500" height="400"/>
+            <position x="100" height="200"/>
+        </style>
+        <widget>Authorization Form</widget>
+        <widget>
+            <widget name="login" required="true">
+                <widget>Enter your login</widget>
+                <validators>
+                    <validator minsize="5" maxsize="25"/>
+                </validators>
+            </widget>
+            <password name="login" required="true">
+                <label>And password</label>
+            </password>
+        </widget>  
+          
+    </form>
+</ui>

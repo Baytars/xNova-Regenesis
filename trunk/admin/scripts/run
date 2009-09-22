@@ -1,0 +1,6 @@
+#!/usr/bin/php
+<?php
+/** Запуск консольных скриптов. */
+require_once realpath(dirname(__FILE__) . "/../bootstrap.php");
+$script = new ConsoleScript_Run();
+$script->run();

@@ -1,0 +1,25 @@
+Galaxy:
+  G_1:
+    id : 1
+    name : "Alpha"
+  G_2:
+    id : 2
+    name : "Beta"
+  G_3:
+    id : 3
+    name : "Gamma"
+  G_4:
+    id : 4
+    name : "Delta"
+  G_5:
+    id : 5
+    name : "Omega"
+
+Planet:
+  P1:
+    id : 1
+    profile:
+      coords : 444222
+      max_temperature : 3
+      min_temperature : -45
+      diameter : 13332
