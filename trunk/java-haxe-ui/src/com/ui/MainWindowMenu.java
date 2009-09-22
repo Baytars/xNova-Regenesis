@@ -1,12 +1,8 @@
 package com.ui;
 
-import java.awt.Menu;
-import java.awt.MenuItem;
-import java.awt.MenuBar;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.*;
+import java.awt.event.*;
 import com.commands.UXMLFileOpen;
-import com.ui.MainWindow;
 
 public class MainWindowMenu extends MenuBar implements ActionListener {
 	private Menu fileMenu;
@@ -28,7 +24,7 @@ public class MainWindowMenu extends MenuBar implements ActionListener {
 	
 	public void actionPerformed( ActionEvent e ) {
 		if ( e.getSource() == this.fileMenu ) {
-			if ( e.getActionCommand() == "New" ) {
+			if ( e.getActionCommand().equals("New") ) {
 				UXMLFileOpen.play(this.parent);
 			}
 		}	

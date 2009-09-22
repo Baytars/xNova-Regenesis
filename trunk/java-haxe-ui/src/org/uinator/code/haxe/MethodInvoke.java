@@ -15,29 +15,29 @@ public class MethodInvoke extends Statement {
 	}
 	
 	public MethodInvoke( Variable objectContext, String methodName, Variable... args ) {
-		this();
-		this._objectContext = objectContext;
-		this._methodName = methodName;
-		
-		if ( args != null ) {
-			this._args = Arrays.asList(args);
-		}
+            this();
+            this._objectContext = objectContext;
+            this._methodName = methodName;
+
+            if ( args != null ) {
+                this._args = Arrays.asList(args);
+            }
 	}
 	
 	public String getMethodName() {
-		return this._methodName;
+            return this._methodName;
 	}
 	
 	public List<Variable> getArgs() {
-		return this._args;
+            return this._args;
 	}
 	
 	public Variable getObjectContext() {
-		return this._objectContext;
+            return this._objectContext;
 	}
 	
 	public Printer getPrinter() {
-		return new MethodInvokePrinter(this);
+            return new MethodInvokePrinter(this);
 	}
 
 }
