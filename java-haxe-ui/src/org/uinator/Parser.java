@@ -7,7 +7,6 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import org.uinator.Unserializer;
-import org.uinator.readers.*;
 import org.uinator.readers.dom.*;
 
 public class Parser {
@@ -32,7 +31,12 @@ public class Parser {
 
 class ParserException extends Exception {
 
-    public ParserException(Exception e) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3986689428368743565L;
+
+	public ParserException(Exception e) {
         this.setStackTrace(e.getStackTrace());
     }
 }

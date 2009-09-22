@@ -14,6 +14,11 @@ import java.awt.GridLayout;
 
 public class CodegenerationConfigWindow extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5262747335759871315L;
+
 	public CodegenerationConfigWindow() {
 		super();
 		

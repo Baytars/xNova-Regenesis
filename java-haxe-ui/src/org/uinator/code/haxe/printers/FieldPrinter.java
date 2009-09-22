@@ -4,8 +4,6 @@ import org.uinator.code.*;
 import org.uinator.code.haxe.Field;
 
 public class FieldPrinter extends Printer {
-
-	private VariablePrinter _variablePrinter;
 	
 	public FieldPrinter(Statement context) {
 		super(context);
