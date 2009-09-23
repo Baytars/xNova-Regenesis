@@ -6,7 +6,7 @@
  */
 abstract class Record extends Doctrine_Record {
 
-    const SUBCLASS_FIELD = "type"; // Поле, в котором записывается класс текущей модели
+    const SUBCLASS_FIELD = "subclass"; // Поле, в котором записывается класс текущей модели
 
     /**
      * Хак, который помогает с хаком наследования.
