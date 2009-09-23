@@ -15,9 +15,12 @@ public class Parser {
 
     public UI parse(File file) throws ParserException {
         try {
-            Unserializer processor = new Unserializer(new org.uinator.readers.dom.DOMReader(), new org.uinator.reflection.BaseReflectionProvider() );
-            processor.setSource(new DOMNodeSource(this.getXmlDocument(file).getDocumentElement()));
-            return (UI) processor.process(UI.class, null);
+            Unserializer processor = new Unserializer( new org.uinator.reflection.BaseReflectionProvider() );
+            
+            return (UI) processor.process(UI.class, new org.uinator.readers.dom.DOMReader().process( 
+        												new DOMNodeSource(this.getXmlDocument(file).getDocumentElement() 
+            										) 
+            							  ) );
         } catch (Exception e) {
             e.printStackTrace();
             throw new ParserException(e);

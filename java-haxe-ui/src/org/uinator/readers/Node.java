@@ -83,6 +83,16 @@ public class Node {
     public String getNamespace() {
         return this._namespace;
     }
+    
+    public Node getAttribute( String name ) {
+    	for( Node attr : this.getAttributes() ) {
+    		if ( attr.getName().equals(name) ) {
+    			return attr;
+    		}
+    	}
+    	
+    	return null;
+    }
 
     public Namespace getRegisteredNamespace( String name ) {
         for( Namespace namespace : this._namespaces) {
