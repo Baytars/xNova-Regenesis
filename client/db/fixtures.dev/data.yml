@@ -100,26 +100,31 @@ Planet:
     profile_id : 1
     resources:
           R1:
+            subclass : Resource_Amount_Planet
             resource_id : 1
             subject_id : 1
             type : 2
             amount : 400
           R2:
+            subclass : Resource_Amount_Planet
             resource_id : 2
             subject_id : 1
             type : 2
             amount : 300
           R3:
+            subclass : Resource_Amount_Planet
             resource_id : 3
             subject_id : 1
             type : 2
             amount : 100
           R4:
+            subclass : Resource_Amount_Planet
             resource_id : 4
             subject_id : 1
             type : 2
             amount : 5
           R5:
+            subclass : Resource_Amount_Planet
             resource_id : 5
             subject_id : 1
             type : 2
@@ -132,26 +137,31 @@ Planet:
     profile_id : 2
     resources:
           R1:
+            subclass : Resource_Amount_Planet
             resource_id : 1
             subject_id : 2
             type : 2
             amount : 400
           R2:
+            subclass : Resource_Amount_Planet
             resource_id : 2
             subject_id : 2
             type : 2
             amount : 300
           R3:
+            subclass : Resource_Amount_Planet
             resource_id : 3
             subject_id : 2
             type : 2
             amount : 100
           R4:
+            subclass : Resource_Amount_Planet
             resource_id : 4
             subject_id : 2
             type : 2
             amount : 5
           R5:
+            subclass : Resource_Amount_Planet
             resource_id : 5
             subject_id : 2
             type : 2
@@ -162,20 +172,24 @@ Building:
     id : 1
     name : "Robots Factory"
     construction_time : 1200
-    dependency_buildings:
+    dependencies:
       D1:
         id : 1
+        subject_class: Building
+        object_class: Building
         subject_id : 1
         object_id : 2
         type : 1
       
     resource_amounts :
       I1:
+        subclass : Resource_Amount_Building
         subject_id : 1
         resource_id : 1
         type : 1
         amount : 250
       I2:
+        subclass : Resource_Amount_Building
         subject_id : 1
         resource_id : 2
         type : 1
@@ -195,10 +209,10 @@ Building:
 
     resource_amounts:
       R1:
-          subject_id : 2
-          resource_id : 1
-          type : 1
-          amount : 300
+        subject_id : 2
+        resource_id : 1
+        type : 1
+        amount : 300
 
 
 Technology:

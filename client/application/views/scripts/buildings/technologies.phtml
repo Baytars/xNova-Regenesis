@@ -1,7 +1,0 @@
-<h1><?= _("Technologies"); ?> <?= _("on"); ?> <?= $this->planet->getName(); ?></h1>
-
-<table class="items">
-<?php foreach( $this->technologies as $technology ) { ?>
-    <?= $this->partial("buildings/_one_technology.phtml", array( "planet" => $this->planet, "technology" => $building, "user" => $this->user ) ); ?>
-<?php } ?>
-</table>
