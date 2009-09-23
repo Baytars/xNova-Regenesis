@@ -106,8 +106,8 @@ public class MainWindow extends JFrame implements ActionListener {
             UI resultObject = parser.parse(file);
 
             // @TODO: configuring codegeneration issues
-//			CodegenerationConfigWindow configWnd = new CodegenerationConfigWindow();
-//			configWnd.setVisible(true);
+			CodegenerationConfigWindow configWnd = new CodegenerationConfigWindow();
+			configWnd.setVisible(true);
 
             HaxeGenerator generator = new HaxeGenerator();
             System.out.println(generator.process(resultObject));

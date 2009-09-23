@@ -25,7 +25,7 @@ public class HaxeGeneratorTest {
 	
 	protected UI getTestMoc() {
 		UI moc = new UI();
-		moc.addImport( new org.uinator.Import("core.ui.form.*") );
+		moc.addImport( new org.uinator.Import("core.ui.form.*") ); 
 		moc.addImport( new org.uinator.Import("libs.json.*") );
 		Widget formWidget = moc.addWidget( new Form() );
 		formWidget.setLayout( new Layout() );

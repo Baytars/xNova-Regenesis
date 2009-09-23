@@ -28,7 +28,7 @@ public class HaxeGenerator {
         for (org.uinator.Import imp : object.getImports()) {
             mainPkg.addImport(new Import(imp.getPath()));
         }
-
+        
         Method entryPointMethod = mainCls.addMethod(new Method("main", Class.ACCESS_PUBLIC, "void", true));
         Variable mainClsContext = (Variable) entryPointMethod.addStatement(new Variable("main", "Main", "getInstance()"));
 
@@ -45,7 +45,7 @@ public class HaxeGenerator {
      * @return
      */
     protected Variable getObjectInstance(Object v, Variable... constructionArgs ) {
-        return new Variable(this.getVariableName(v), this.getClassName(v), null, Arrays.asList( constructionArgs ) );
+        return new VariableInstance(this.getVariableName(v), this.getClassName(v), null, Arrays.asList( constructionArgs ) );
     }
 
     protected String getClassName(Object v) {
@@ -83,11 +83,11 @@ public class HaxeGenerator {
      * @return void
      */
     protected HaxeGenerator processWidget(Widget w, Block context) {
-        Variable v = (Variable) context.addStatement(this.getObjectInstance(w));
+        Variable v = (Variable) context.addStatement( this.getObjectInstance(w) );
         for (Widget wC : w.getWidgets()) {
             this.processWidget(wC, context);
 
-            context.addStatement(new MethodInvoke(v, "addWidget", this.getObjectInstance(w)));
+            context.addStatement(new MethodInvoke(v, "addWidget", this.getObjectInstance(wC)));
         }
 
         if (w.getLayout() != null) {
