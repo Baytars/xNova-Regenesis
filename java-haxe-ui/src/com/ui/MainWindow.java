@@ -4,12 +4,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
-import org.uinator.Parser;
+import org.uinator.*;
 import org.uinator.code.haxe.*;
 
-import org.uinator.UI;
+import com.commands.*;
+import com.Application;
 
-public class MainWindow extends JFrame implements ActionListener {
+public class MainWindow extends JFrame implements ActionListener, Commander {
 
     /**
 	 * 
@@ -85,52 +86,32 @@ public class MainWindow extends JFrame implements ActionListener {
         return this.fileChooseButton;
     }
 
-    public void processFile(File file) {
-        String data = "";
-
-        try {
-            int res = 0;
-            FileReader reader = new FileReader(file);
-            do {
-                char buff[] = new char[2048];
-                res = reader.read(buff, res, 1024);
-                data = data.concat(String.valueOf(buff));
-            } while (res != -1);
-        } catch (Exception e) {
-            showException("Error while proceeding file ( check it's validity )");
-        }
-
-        Parser parser = new Parser();
-
-        try {
-            UI resultObject = parser.parse(file);
-
-            // @TODO: configuring codegeneration issues
-			CodegenerationConfigWindow configWnd = new CodegenerationConfigWindow();
-			configWnd.setVisible(true);
-
-            HaxeGenerator generator = new HaxeGenerator();
-            System.out.println(generator.process(resultObject));
-        } catch (Exception e) {
-            e.printStackTrace();
-            showException("Document parsing error... See to log");
-        }
+    public void processCommand( CommandType ct, Object data) {
+    	switch( ct ) {
+    	case UXML_FILE_OPEN:
+    		CodegenerationConfigWindow configWnd = new CodegenerationConfigWindow();
+			configWnd.setFile( (File)data );
+	    	configWnd.setVisible(true);
+	    break;
+    	}
     }
 
-    public static void showException(String message) {
+    public static void showException(String message, Exception e) {
         JFrame wnd = new JFrame();
         wnd.setSize(300, 60);
         wnd.setTitle("Unexpected exception!");
         wnd.add(new JLabel(message));
 
         wnd.setVisible(true);
+        
+        Application.getErrorLog().write( e.getMessage() );
     }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.fileChooseButton) {
             com.commands.UXMLFileOpen.play(this);
         } else if (e.getSource() == this.fileCreateButton) {
-            System.out.println("Create new file");
+            com.commands.UXMLFileCreate.play(this);
         }
     }
 }

@@ -9,16 +9,24 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JFileChooser;
 
+import org.uinator.Parser;
+import org.uinator.UI;
+import org.uinator.code.haxe.HaxeGenerator;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+
+import java.io.File;
+import java.io.FileReader;
 
 public class CodegenerationConfigWindow extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5262747335759871315L;
-
+	private File _data_file;
+	
 	public CodegenerationConfigWindow() {
 		super();
 		
@@ -27,6 +35,10 @@ public class CodegenerationConfigWindow extends JFrame {
 		this.setLayout( new BorderLayout() );
 		
 		this.initUI();
+	}
+	
+	public void setFile( File f ) {
+		this._data_file = f;
 	}
 	
 	protected void initUI() {
@@ -56,11 +68,44 @@ public class CodegenerationConfigWindow extends JFrame {
 		return panel;
 	}
 	
+	public void processFile() {
+        try {
+            Parser parser = new Parser();
+            
+            UI resultObject = parser.parse(this._data_file);
+
+            // @TODO: configuring codegeneration issues
+			
+
+            HaxeGenerator generator = new HaxeGenerator();
+            System.out.println(generator.process(resultObject));
+        } catch (Exception e) {
+            MainWindow.showException("Document parsing error... See to log", e);
+        }
+	}
+	
 	protected JPanel getSouthPanel() {
 		JPanel panel = new JPanel();
 		
-		panel.add( new JButton("Process") );
-		panel.add( new JButton("Cancel") );
+		JButton processBtn = new JButton("Process");
+		processBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				CodegenerationConfigWindow.this.processFile();
+			}
+			
+		});
+		panel.add( processBtn );
+		
+		JButton cancelBtn = new JButton("Cancel");
+		cancelBtn.addActionListener( new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CodegenerationConfigWindow.this.setVisible(false);
+			}
+		});
+		panel.add( cancelBtn );
 		
 		return panel;
 	}
