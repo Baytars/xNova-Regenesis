@@ -21,4 +21,132 @@ Thu Oct 01 19:18:03 MSD 2009 - web.xnova.controllers.IndexController
 Thu Oct 01 20:17:41 MSD 2009 - MainAction
 Thu Oct 01 20:17:41 MSD 2009 - MainAction
 Thu Oct 01 20:29:57 MSD 2009 - java.lang.NullPointerException
+Fri Oct 02 00:29:20 MSD 2009 - java.lang.ClassNotFoundException: org.mvc.views.View
+Fri Oct 02 01:04:39 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method getParameter(java.lang.String)
+location: interface javax.servlet.http.HttpSession
+
+
+Fri Oct 02 01:09:51 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method getParameter(java.lang.String)
+location: class java.lang.Object
+
+
+Fri Oct 02 01:10:12 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : class View
+location: class org.apache.jsp.jsp.index.main_jsp
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method getParameter(java.lang.String)
+location: class java.lang.Object
+
+
+Fri Oct 02 01:10:27 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method getParameter(java.lang.String)
+location: class java.lang.Object
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method write(org.mvc.view.View)
+location: class javax.servlet.jsp.JspWriter
+
+
+Fri Oct 02 01:10:28 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method getParameter(java.lang.String)
+location: class java.lang.Object
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method write(org.mvc.view.View)
+location: class javax.servlet.jsp.JspWriter
+
+
+Fri Oct 02 01:10:52 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method write(java.lang.Object)
+location: class javax.servlet.jsp.JspWriter
+
+
+Fri Oct 02 01:10:53 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: cannot find symbol
+symbol  : method write(java.lang.Object)
+location: class javax.servlet.jsp.JspWriter
+
+
+Fri Oct 02 01:11:04 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:47: inconvertible types
+found   : org.mvc.view.View
+required: java.lang.String
+
+
+Fri Oct 02 01:11:19 MSD 2009 - java.lang.NullPointerException
+Fri Oct 02 01:13:33 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:50: ')' expected
+
+
+Fri Oct 02 01:13:43 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:48: cannot find symbol
+symbol  : class View
+location: class org.apache.jsp.jsp.index.main_jsp
+
+
+Fri Oct 02 01:14:07 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 4 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:52: concat(java.lang.String) in java.lang.String cannot be applied to (java.lang.Object)
+
+
+Fri Oct 02 01:14:52 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6199: Generated servlet error:
+string:///main_jsp.java:6: class, interface, or enum expected
+
+
+Fri Oct 02 01:15:01 MSD 2009 - PWC6033: Unable to compile class for JSP
+
+PWC6197: An error occurred at line: 4 in the jsp file: /jsp/index/main.jsp
+PWC6199: Generated servlet error:
+string:///main_jsp.java:53: concat(java.lang.String) in java.lang.String cannot be applied to (java.lang.Object)
+
+
 

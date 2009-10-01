@@ -50,7 +50,7 @@ public class Dispatcher {
 	 */
 	public void dispatch( HttpServlet servlet, HttpServletRequest request, HttpServletResponse response ) throws Throwable {
 		HttpRequest req = new HttpRequest( request ); 
-		
+		HttpSession session = request.getSession();
 //		Enumeration<String> params = request.getParameterNames();
 //		for( String param = params.nextElement(); params.hasMoreElements(); param = params.nextElement() ) {
 //			if ( param.equals("route") ) {
@@ -63,16 +63,15 @@ public class Dispatcher {
 		controller.setRequest(req);
 		
 		View vc = controller.processAction( req.getActionName() );
-		/**
-		 * @FIXME replace with regexp matching
-		 */
-		vc.setScriptPath( Main.root_path.concat("/views/")
+		
+		session.setAttribute("view", vc);
+
+		request.getRequestDispatcher( 	"/jsp/"
 										.concat( req.getControllerName() )
 										.concat("/")
 										.concat( req.getActionName() )
-										.concat(".jsp") );
-		
-		vc.service( request, response );
+										.concat(".jsp") )
+									.forward(request, response);
 	}
 	
 	/**
