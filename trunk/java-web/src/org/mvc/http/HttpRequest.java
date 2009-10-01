@@ -34,19 +34,11 @@ public class HttpRequest {
 		this.processParams();
 	}
 	
-	public String getURL() {
-		return this.original_request.getRequestURL().toString();
+	public HttpServletRequest getOriginalRequest() {
+		return this.original_request;
 	}
 	
-	public String getURI() {
-		return this.original_request.getRequestURI();
-	}
-	
-	public String getMethod() {
-		return this.original_request.getMethod();
-	}
-	
-	@SuppressWarnings("unchecked")
+
 	protected void processParams() {
 		Enumeration<String> names = (Enumeration<String>) this.original_request.getParameterNames();
 		if ( !names.hasMoreElements() ) {

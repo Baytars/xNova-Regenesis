@@ -2,8 +2,10 @@ package web.xnova.entities;
 
 import javax.persistence.*;
 
-@Entity
-public class Person {
+@Table(name="persons")
+public class Person extends javax.persistence.Persistence {
+	@Id
+	private int id;
 	
 	@Column
 	private String name;
