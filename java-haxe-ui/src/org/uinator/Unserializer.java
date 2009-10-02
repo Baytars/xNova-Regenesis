@@ -14,6 +14,14 @@ public class Unserializer {
         this._reflectionProvider = _provider;
     }
 
+    /**
+     * Generate reflection of data node into context class
+     * 
+     * @param Class<T> context
+     * @param Node contextNode
+     * @return T
+     * @throws UnserializerException
+     */
     public Object process(Class context, Node contextNode) throws UnserializerException {
         try {
         	Object instance = this.getReflectionProvider().createInstance(context);

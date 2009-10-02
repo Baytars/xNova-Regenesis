@@ -2,6 +2,9 @@ package com.commands;
 
 import com.ui.EditWindow;
 
+/**
+ * @author nikelin
+ */
 public class UXMLFileCreate implements Command {
 	private static EditWindow editWindow;
 	

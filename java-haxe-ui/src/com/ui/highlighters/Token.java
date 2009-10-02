@@ -2,13 +2,13 @@ package com.ui.highlighters;
 
 public class Token {
 
-	int type;
-	int pos;
-	char smb;
+	private int type;
+	private int pos;
+	private String string;
 	
-	public Token( int type, char smb, int pos ) {
+	public Token( int type, String string, int pos ) {
 		this.type = type;
-		this.smb = smb;
+		this.string = string;
 		this.pos = pos;
 	}
 	
@@ -16,8 +16,8 @@ public class Token {
 		return this.type;
 	}
 	
-	public char getSmb() {
-		return this.smb;
+	public String getString() {
+		return this.string;
 	}
 	
 	public int getPos() {
