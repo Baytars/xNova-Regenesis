@@ -23,26 +23,26 @@ public class Unserializer {
      * @throws UnserializerException
      */
     public Object process(Class context, Node contextNode) throws UnserializerException {
-        try {
-        	Object instance = this.getReflectionProvider().createInstance(context);
-        	if ( instance == null ) {
-        		throw new UnserializerException();
-        	}
-        	
-        	
-            for (Node attr : contextNode.getAttributes() ) {
-            	this.processAttribute( instance, attr );
-            }
-
-            for (Node subElement : contextNode.getChilds() ) {
-            	this.processChild( subElement, context, instance );
-            }
-            
-            return instance;
-        } catch (Exception e) {
-        	e.printStackTrace();
-        	throw new UnserializerException(e);
-        }
+    	Object instance = null;
+    	try {
+	    	instance = this.getReflectionProvider().createInstance(context);
+	    	if ( instance == null ) {
+	    		throw new UnserializerException();
+	    	}
+	    	
+	    	
+	        for (Node attr : contextNode.getAttributes() ) {
+	        	this.processAttribute( instance, attr );
+	        }
+	
+	        for (Node subElement : contextNode.getChilds() ) {
+	        	this.processChild( subElement, context, instance );
+	        }
+    	} catch( Exception e ) {
+    		e.printStackTrace();
+    	}
+    	
+        return instance;
     }
     
     protected void processChild( Node subElement, Class context, Object result ) throws UnserializerException {
@@ -56,7 +56,7 @@ public class Unserializer {
             
             Class targetCls = null;
             try {
-                String targetClsName = subElement.getName();
+                String targetClsName = StringUtils.toCamelCase( subElement.getName(), "_", StringCase.UPPER );
                 targetCls = this.getReflectionProvider().findClass(targetClsName, targetPkg);
             } catch (ClassNotFoundException e) {
             	return;
@@ -93,18 +93,14 @@ public class Unserializer {
     }
     
     protected void processAttribute( Object instance, Node attr ) {
-        System.out.println("Property: " + attr.getName());
         String name = StringUtils.toCamelCase(attr.getName(), "_", StringCase.LOWER);
-
         try {
-            this.getReflectionProvider().setFieldValue(name, this.processStringValue( (String)attr.getValue() ), instance);
+            this.getReflectionProvider().setFieldValue(name, (String)attr.getValue(), instance);
         } catch (Exception e) {
-        	e.printStackTrace();
         	try {
-        		this.getReflectionProvider().invokeMethod( StringUtils.toCamelCase("set_".concat(name), "_", StringCase.UPPER ), instance, attr.getValue() );
         		System.out.println("Field " + name + " does not exists");
-        	} catch ( Exception s ) {
-        		s.printStackTrace();
+        		this.getReflectionProvider().invokeMethod( StringUtils.toCamelCase("set_".concat(name), "_", StringCase.UPPER ), instance, attr.getValue() );
+    		} catch ( Exception s ) {
         		System.out.println("Setter for field " + name + " does not exists");
         	}
         }

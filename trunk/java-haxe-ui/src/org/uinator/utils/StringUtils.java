@@ -31,7 +31,7 @@ public class StringUtils {
                     break;
                 case LOWER:
                     if (i == 0 || currChar.toUpperCase().equals(currChar)) {
-                        if (last_delimiter_pos < i - 2) {
+                        if ( i == 0 || ( last_delimiter_pos <= i - 2 ) ) {
                             last_delimiter_pos = i;
                             result = result.concat(delimiter);
                         }

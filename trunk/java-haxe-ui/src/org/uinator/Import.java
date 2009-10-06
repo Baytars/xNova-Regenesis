@@ -3,6 +3,7 @@ package org.uinator;
 public class Import {
 	
 	public String _path;
+	public String _as;
 	
 	public Import() {
 		

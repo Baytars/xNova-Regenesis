@@ -103,8 +103,6 @@ public class MainWindow extends JFrame implements ActionListener, Commander {
         wnd.add(new JLabel(message));
 
         wnd.setVisible(true);
-        
-        Application.getErrorLog().write( e.getMessage() );
     }
 
     public void actionPerformed(ActionEvent e) {

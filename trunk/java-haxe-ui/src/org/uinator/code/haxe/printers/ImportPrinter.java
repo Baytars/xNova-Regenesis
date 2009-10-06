@@ -7,7 +7,7 @@ public class ImportPrinter extends Printer{
 
 	public ImportPrinter(Statement context) {
 		super(context);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
