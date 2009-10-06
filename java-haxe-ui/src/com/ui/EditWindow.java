@@ -84,4 +84,8 @@ public class EditWindow extends JFrame implements Commander {
 		
 		this.add(mainPanel);
 	}
+	
+	public void setCode( String code ) { 
+		this.codeArea.setText(code);
+	}
 }

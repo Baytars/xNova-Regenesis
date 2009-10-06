@@ -38,7 +38,7 @@ public class Parser {
         												new DOMNodeSource(this.getXmlDocument(file).getDocumentElement() 
             										) 
             							  ) );
-        } catch (Exception e) {
+        } catch ( Exception e) {
             throw new ParserException(e);
         }
     }

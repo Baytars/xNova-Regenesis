@@ -1,14 +1,8 @@
 package com.ui;
 
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButtonMenuItem;
-import javax.swing.JFileChooser;
+import com.ui.EditWindow;
 
+import javax.swing.*;
 import org.uinator.Parser;
 import org.uinator.UI;
 import org.uinator.code.haxe.HaxeGenerator;
@@ -24,11 +18,14 @@ import java.io.FileReader;
 
 public class CodegenerationConfigWindow extends JFrame {
 
+	private EditWindow editWindow;
 	private static final long serialVersionUID = -5262747335759871315L;
 	private File _data_file;
 	
 	public CodegenerationConfigWindow() {
 		super();
+		
+		this.editWindow = new EditWindow();
 		
 		this.setTitle("Codegeneration options");
 		this.setSize( 500, 400 );
@@ -78,10 +75,18 @@ public class CodegenerationConfigWindow extends JFrame {
 			
 
             HaxeGenerator generator = new HaxeGenerator();
-            System.out.println(generator.process(resultObject));
+            
+            this.showGenerated( generator.process(resultObject) );
         } catch (Exception e) {
+        	e.printStackTrace();
             MainWindow.showException("Document parsing error... See to log", e);
         }
+	}
+	
+	protected void showGenerated( String data ) {
+		this.setVisible(false);
+		this.editWindow.setCode(data);
+		this.editWindow.setVisible(true);
 	}
 	
 	protected JPanel getSouthPanel() {
