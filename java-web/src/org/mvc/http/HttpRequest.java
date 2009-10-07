@@ -55,24 +55,17 @@ public class HttpRequest {
 	}
 	
 	protected void processUri() {
-		String uri = this.original_request.getRequestURI();
-		if ( !uri.startsWith("/") ) {
-			uri = "/".concat(uri);
+		String uri = this.original_request.getRequestURI().replace(".jsp", "");
+		if ( uri.startsWith("/") ) {
+			uri = uri.substring(1);
 		}
 		
 		
 		// for temprorary value to represent current request param name 
 		// when processing params part
 		String paramName = new String();
-		// for temprorary value to represent current request param value 
-		// when processing params part
 		String paramValue = new String();
-		
-		String currentContextPath = this.original_request.getContextPath();
-		if ( currentContextPath.startsWith("/") ) {
-			currentContextPath = currentContextPath.substring(1);
-		}
-		
+
 		int pos = 0;
 		int context = 0;
 		while ( pos < uri.length() ) {
@@ -81,16 +74,7 @@ public class HttpRequest {
 			switch ( context ) {
 			case TOKEN_CONTROLLER_NAME:
 				if ( currChar == '/' ) {
-					if ( !this.controllerName.equals( currentContextPath )
-							&& pos == currentContextPath.length() ) {
-						context = TOKEN_ACTION_NAME;
-					} else {
-						/**
-						 *  if current value of controller name equals context path (including position)
-						 *  empty it and continue from the start without changing context
-						 */
-						this.controllerName = "";
-					}
+					context = TOKEN_ACTION_NAME;
 				} else {
 					this.controllerName = this.controllerName.concat( String.valueOf( currChar ) );
 				}
@@ -124,7 +108,6 @@ public class HttpRequest {
 					}
 				}
 			break;
-				
 			default:
 				if ( currChar == '/' ) {
 					context = TOKEN_CONTROLLER_NAME;

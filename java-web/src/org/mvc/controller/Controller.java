@@ -31,9 +31,9 @@ abstract public class Controller {
 		return this._response;
 	}
 	
-	 public void mainAction() throws PageException {
-		 
-	 }
+	public void mainAction() throws PageException {
+		throw new PageExceptionNotFound();
+	}
 	
 	public void setRequest( HttpRequest request ) {
 		this._request = request;

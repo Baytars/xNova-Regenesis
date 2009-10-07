@@ -19,7 +19,9 @@ public class WebApplication extends HttpServlet {
 	
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 		try {
-			Dispatcher.getInstance().dispatch( this, request, response );
+			if ( !request.getRequestURI().contains(".jsp") ) {
+				Dispatcher.getInstance().dispatch( this, request, response );
+			}
 		} catch( Throwable e ) {
 			this.logException( e, response.getWriter() );
 		}
@@ -27,7 +29,9 @@ public class WebApplication extends HttpServlet {
 	
 	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 		try {
-			Dispatcher.getInstance().dispatch( this, request, response );
+			if ( !request.getRequestURI().contains(".jsp") ) {
+				Dispatcher.getInstance().dispatch( this, request, response );
+			}
 		} catch ( Throwable e) {
 			this.logException( e, response.getWriter() );
 		}
@@ -35,7 +39,11 @@ public class WebApplication extends HttpServlet {
 	
 	protected void logException( Throwable e, PrintWriter output ) {
 		if ( WebApplication.debug ) {
-			e.printStackTrace( output );
+			if ( output != null ) {
+				e.printStackTrace( output );
+			} else {
+				e.printStackTrace();
+			}
 		}
 		
 		Main.error_log.write( e.getMessage() );
