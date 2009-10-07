@@ -1,3 +1,9 @@
-<h1>Afla!</h1>
+<%@page import="org.mvc.view.*, org.mvc.*"%>
+<%
+View view = (View) session.getAttribute("view");
+%>
+<h1>Welcom, to xNova!</h1>
 
-<% %afla; %>
+<form action='/auth/login'>
+
+</form>
