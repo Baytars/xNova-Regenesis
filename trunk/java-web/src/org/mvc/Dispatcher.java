@@ -51,21 +51,16 @@ public class Dispatcher {
 	public void dispatch( HttpServlet servlet, HttpServletRequest request, HttpServletResponse response ) throws Throwable {
 		HttpRequest req = new HttpRequest( request ); 
 		HttpSession session = request.getSession();
-//		Enumeration<String> params = request.getParameterNames();
-//		for( String param = params.nextElement(); params.hasMoreElements(); param = params.nextElement() ) {
-//			if ( param.equals("route") ) {
-//				this.routeRequest( request.getParameter(param), req );
-//			}
-//		}
 		
 		Controller controller = (Controller) this.getController( req.getControllerName() );
 		controller.init();
 		controller.setRequest(req);
+		controller.setResponse(response);
 		
 		View vc = controller.processAction( req.getActionName() );
 		
 		session.setAttribute("view", vc);
-
+		
 		request.getRequestDispatcher( 	"/jsp/"
 										.concat( req.getControllerName() )
 										.concat("/")
