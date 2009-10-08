@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>web.xnova</groupId>
+  <artifactId>java-web</artifactId>
+  <packaging>pom</packaging>
+  <name>xNova Web</name>
+  <version>1.0.0-ALPHA</version>
+
+  <developers>
+  	<developer>
+  		<id>1</id>
+  		<name>Cyril A. Karpenko</name>
+  		<email>nikelin@metaid.ru</email>
+  		<url>http://nikelin.ru</url>
+  		<timezone>UTF+02:00</timezone>
+  	</developer>
+  </developers>
+  <scm>
+  	<connection>http://projectxnovaes.svn.sourceforge.net/svnroot/projectxnovaes/trunk/java-web</connection>
+  	<developerConnection>nikelin</developerConnection>
+  	<url>http://projectxnovaes.svn.sourceforge.net/svnroot/projectxnovaes/trunk/java-web</url>
+  </scm>
+  <organization>
+  	<name>Strange Company</name>
+  	<url>http://strangecompany.ru</url>
+  </organization>
+  <build>
+  	<defaultGoal>install</defaultGoal>
+  	<finalName>xnova-build</finalName>
+  	<sourceDirectory>/home/nikelin/workspace/xnovaes-zend/trunk/java-web/src</sourceDirectory>
+  	<scriptSourceDirectory>/home/nikelin/workspace/xnovaes-zend/trunk/java-web/web/jsp</scriptSourceDirectory>
+  	<outputDirectory>/home/nikelin/workspace/xnovaes-zend/trunk/java-web/web/WEB-INF/classes</outputDirectory>
+  	<plugins>
+  	
+    </plugins>
+
+  	<extensions>
+  	</extensions>
+  </build>
+  <dependencies>
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>j2ee</artifactId>
+        <version>1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate3</artifactId>
+        <version>1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.mysql.jdbc</groupId>
+        <artifactId>mysql-driver</artifactId>
+        <version>1.0</version>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  	</dependencies>
+  </dependencyManagement>
+  <properties>
+    	
+  </properties>
+</project>
