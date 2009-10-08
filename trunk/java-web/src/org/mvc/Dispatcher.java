@@ -17,8 +17,10 @@ public class Dispatcher {
 	private static Dispatcher instance;
 	private String controllers_package;
 	
-	public void init() {
-	}
+	private HttpServletRequest request;
+	private HttpServletResponse response;
+	private HttpSession session;
+	private HttpRouter router;
 	
 	/**
 	 * 
@@ -30,6 +32,18 @@ public class Dispatcher {
 		}
 		
 		return instance;
+	}
+	
+	public HttpServletRequest getRequest() {
+		return this.request;
+	}
+	
+	public HttpServletResponse getResponse() {
+		return this.response;
+	}
+	
+	public HttpSession getSession() {
+		return this.session;
 	}
 	
 	public void setControllersPackage( String pkg ) {
@@ -49,22 +63,25 @@ public class Dispatcher {
 	 * @throws IOException
 	 */
 	public void dispatch( HttpServlet servlet, HttpServletRequest request, HttpServletResponse response ) throws Throwable {
-		HttpRequest req = new HttpRequest( request ); 
-		HttpSession session = request.getSession();
+		this.request = request;
+		this.response = response;
+		this.session = request.getSession();
+		this.router = new HttpRouter(request);
 		
-		Controller controller = (Controller) this.getController( req.getControllerName() );
+		
+		Controller controller = (Controller) this.getController( this.router.getControllerName() );
 		controller.init();
-		controller.setRequest(req);
+		controller.setRequest(request);
 		controller.setResponse(response);
 		
-		View vc = controller.processAction( req.getActionName() );
+		View vc = controller.processAction( this.router.getActionName() );
 		
 		session.setAttribute("view", vc);
 		
 		request.getRequestDispatcher( 	"/jsp/"
-										.concat( req.getControllerName() )
+										.concat( this.router.getControllerName() )
 										.concat("/")
-										.concat( req.getActionName() )
+										.concat( this.router.getActionName() )
 										.concat(".jsp") )
 									.forward(request, response);
 	}
@@ -101,13 +118,4 @@ public class Dispatcher {
 		return (Controller)Main.getReflectionProvider().createInstance(controllerClass);
 	}
 	
-	/**
-	 * Process user request throught routerClass given from servlet context
-	 * 
-	 * @param routerClass
-	 * @param request
-	 */
-	protected void routeRequest( String routerClass, HttpRequest request ) {
-		
-	}
 }

@@ -1,6 +1,9 @@
 package web.xnova.forms;
 
+import org.mvc.Dispatcher;
 import org.mvc.form.*;
+import org.mvc.http.*;
+
 import org.mvc.form.elements.*;
 
 public class LoginForm extends Form {
@@ -8,7 +11,7 @@ public class LoginForm extends Form {
 	public LoginForm() throws FormException {
 		super();
 		
-		this.setAction("/auth/login");
+		this.setAction( Dispatcher.getInstance().getRequest().getContextPath().concat( "/auth/login") );
 		this.setMethod("POST");
 		
 		TextField loginEl = (TextField) this.addElement( new TextField("login") );
@@ -21,8 +24,8 @@ public class LoginForm extends Form {
 		submitBtn.setValue("Sign In");
 	}
 	
-	public Result process() {
-		return null;
+	@Override
+	protected void mainProcess() throws FormException {
+		this.getElement("login").setAttribute("label", "AFla!!!");
 	}
-	
 }

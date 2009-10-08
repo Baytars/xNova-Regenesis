@@ -1,19 +1,14 @@
 package org.mvc.controller;
 
-import java.lang.reflect.InvocationTargetException;
-
 import javax.servlet.http.*;
 
-import org.mvc.utils.StringCase;
-import org.mvc.utils.StringUtils;
 import org.mvc.view.*;
-import org.mvc.http.*;
 import org.mvc.*;
 import org.mvc.exceptions.*;
 
 abstract public class Controller {
 	protected View _view;
-	private HttpRequest _request;
+	private HttpServletRequest _request;
 	private HttpServletResponse _response;
 	
 	public static String defaultAction = "main";
@@ -35,11 +30,11 @@ abstract public class Controller {
 		throw new PageExceptionNotFound();
 	}
 	
-	public void setRequest( HttpRequest request ) {
+	public void setRequest( HttpServletRequest request ) {
 		this._request = request;
 	}
 	
-	public HttpRequest getRequest() {
+	public HttpServletRequest getRequest() {
 		return this._request;
 	}
 	

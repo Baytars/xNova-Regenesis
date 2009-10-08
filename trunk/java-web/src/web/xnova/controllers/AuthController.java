@@ -17,6 +17,10 @@ public class AuthController extends Controller {
 		try {
 			LoginForm authForm = new LoginForm();
 			
+			if ( this.getRequest().getMethod().equals("POST") ) {
+				authForm.process( this.getRequest() ); 
+			}
+			
 			this._view.setParameter("loginForm", authForm);
 		} catch ( Exception e ) {
 			this._view.setParameter("exception", e);
