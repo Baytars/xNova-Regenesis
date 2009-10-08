@@ -13,22 +13,26 @@ public class AuthController extends Controller {
 		throw new PageExceptionNotFound();
 	}
 	
-	public void loginAction() throws PageExceptionNotFound {
+	public void registerAction() throws PageException {
 		try {
-			LoginForm authForm = new LoginForm();
+			RegisterForm form = new RegisterForm();
+			form.process( this.getRequest() );
 			
-			if ( this.getRequest().getMethod().equals("POST") ) {
-				authForm.process( this.getRequest() ); 
-			}
-			
-			this._view.setParameter("loginForm", authForm);
-		} catch ( Exception e ) {
-			this._view.setParameter("exception", e);
+			this._view.setParameter("form", form);
+		} catch( FormException e ) {
+			this._view.setParameter("exception", new Exception().initCause(e)  );
 		}
-		
-		
-		this._view.setParameter("password", this.getRequest().getParameter("password") );
-		this._view.setParameter("login", this.getRequest().getParameter("login") );
+	}
+	
+	public void loginAction() throws PageException {
+		try {
+			LoginForm form = new LoginForm();
+			form.process( this.getRequest() ); 
+			
+			this._view.setParameter("form", form);
+		} catch ( FormException e ) {
+			this._view.setParameter("exception", new Exception().initCause(e) );
+		}
 	}
 	
 }

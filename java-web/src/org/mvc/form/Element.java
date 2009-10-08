@@ -1,36 +1,47 @@
 package org.mvc.form;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Arrays;
 
 import org.mvc.form.decorators.*;
 import org.mvc.form.renderers.*;
-import org.mvc.form.validators.Validator;
+import org.mvc.validators.Validator;
 
 
 abstract public class Element {
-	public static final String ATTR_LABEL = "label";
-	
-	private Renderer renderer;
-	private String renderResult;
+	public static final String ATTR_LABEL	 = "label";
+	public static final String ATTR_ID 		 = "id";
 	
 	protected String type;
 	protected String name;
 	protected String value;
-	protected List<Validator> validators;
-	protected List<Decorator> decorators;
-	protected List<Element> pathMap;
-	protected Map<String, Object> attributes;
+	
+	private boolean is_error;
+	private List<String> errors;
+	private Renderer renderer;
+	private String renderResult;	
+	private List<Validator> validators;
+	private List<Decorator> decorators;
+	private List<Element> pathMap;
+	private Map<String, Object> attributes;
 	
 	public Element() {
 		this.validators = new ArrayList<Validator>();
 		this.decorators = new ArrayList<Decorator>();
 		this.pathMap = new ArrayList<Element>();
 		this.attributes = new HashMap<String, Object>();
+		this.errors = new ArrayList<String>();
 		
 		this.addDecorator( new FormElement() );
+	}
+	
+	public Element markAsError() {
+		this.is_error = true;
+		return this;
 	}
 	
 	public String getType() {
@@ -74,6 +85,9 @@ abstract public class Element {
 	public boolean isValid() {
 		for ( Validator v : this.validators ) {
 			if ( !v.validate( this.getValue() ) ) {
+				this.markAsError();
+				this.errors.add( v.getMessage() );
+				
 				return false;
 			}
 		}
@@ -87,7 +101,10 @@ abstract public class Element {
 	}
 	
 	public Element addDecorator( Decorator decorator ) {
-		this.decorators.add(decorator);
+		if ( !this.decorators.contains(decorator) ) {
+			this.decorators.add(decorator);
+		}
+		
 		return this;
 	}
 	
@@ -149,11 +166,31 @@ abstract public class Element {
 		return this.getRenderer().render(this);
 	}
 	
+	public Element addError( String error ) {
+		this.errors.add(error);
+		
+		this.is_error = true;
+		
+		return this;
+	}
+	
+	public List<String> getErrors() {
+		return this.errors;
+	}
+	
 	public String render() {
 		String result = new String();
 		
+		if ( this.is_error ) {
+			this.addDecorator( new ErrorWrapper() );
+		}
+		
 		if ( !this.getDecorators().isEmpty() ) {
-			for ( Decorator d : this.getDecorators() ) {
+			Decorator [] decorators =  this.getDecorators().toArray( new Decorator[this.getDecorators().size()] );
+			// sort decorators by order ( which must be applied first, and which must be applied last )
+			Arrays.sort( decorators, AbstractDecorator.getOrderSorter() );
+			
+			for ( Decorator d : decorators ) {
 				result = result.concat( d.decorate(this) );
 			}
 		} else {
@@ -161,5 +198,14 @@ abstract public class Element {
 		}
 		
 		return result;
+	}
+	
+	public String getId() {
+		String id = (String) this.getAttribute( Element.ATTR_ID );
+		if ( null ==  id ) {
+			id = this.getName();
+		} 
+		
+		return id;
 	}
 }

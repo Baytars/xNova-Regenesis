@@ -1,5 +1,6 @@
 package org.mvc.form.decorators;
 
+import java.util.Comparator;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -26,5 +27,11 @@ abstract public class AbstractDecorator implements Decorator {
 	public void setAttribute(String name, Object value) {
 		this.attributes.put(name, value);
 	}
+	
+	public static Comparator<Decorator> getOrderSorter() {
+		return new OrderComparator();
+	}
+	
+	abstract public int getOrder();
 
 }

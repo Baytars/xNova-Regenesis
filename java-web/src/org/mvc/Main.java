@@ -8,7 +8,8 @@ import org.mvc.io.adapter.*;
 
 public class Main {
 	
-	public static String root_path = "/home/nikelin/workspace/xnovaes-zend/trunk/java-web/logs";
+	public static String root_path = "/home/nikelin/workspace/xnovaes-zend/trunk/java-web";
+	
 	public static Log log;
 	public static Log error_log;
 	public static String defaultNotFoundPage = "/404";
@@ -20,10 +21,10 @@ public class Main {
 	public static void start() {
 		try {
 			log = new Log();
-			log.setAdapter( new FileAdapter( Main.root_path.concat("/main.log") ) );
+			log.setAdapter( new FileAdapter( Main.root_path.concat("/logs/main.log") ) );
 			
 			error_log = new Log();
-			error_log.setAdapter( new FileAdapter( Main.root_path.concat("/error.log") ) );
+			error_log.setAdapter( new FileAdapter( Main.root_path.concat("/logs/error.log") ) );
 		} catch ( Exception e ) {
 			throw new Error(e);
 		}

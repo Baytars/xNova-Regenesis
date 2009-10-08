@@ -10,6 +10,10 @@ public class FormRenderer implements Renderer {
 		String result = new String();
 		result = result.concat("<form ");
 		
+		if ( element.getId() != null ) {
+			result = result.concat("id='").concat(element.getId()).concat("' ");
+		}
+		
 		if ( element.getAction() != null ) {
 			result = result.concat("action='").concat( element.getAction() ).concat("' ");
 		}

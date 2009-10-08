@@ -26,7 +26,7 @@ public class View {
 	}
 	
 	public Object getParameter( String name ) {
-		return this.parameters.get(name);
+		return this.parameters.containsKey(name) ? this.parameters.get(name) : null;
 	}
 	
 	public HashMap<String, Object> getParameters() {

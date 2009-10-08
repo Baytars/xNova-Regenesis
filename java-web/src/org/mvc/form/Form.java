@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.mvc.form.renderers.*;
-import org.mvc.form.validators.*;
-import org.mvc.http.*;
+import org.mvc.*;
 
 
 abstract public class Form extends Element  {
@@ -24,8 +23,9 @@ abstract public class Form extends Element  {
 		this.removeDecorators();
 	}
 	
-	public void setAction( String action ) {
+	public Form setAction( String action ) {
 		this.action = action;
+		return this;
 	}
 	
 	public String getAction() {
@@ -36,14 +36,16 @@ abstract public class Form extends Element  {
 		return this.method;
 	}
 	
-	public void setMethod( String method ) {
+	public Form setMethod( String method ) {
 		this.method = method;
+		return this;
 	}
 	
 	public boolean isValid() {
 		boolean result = true;
 		for ( Element el : this.getElements() ) {
 			if ( !el.isValid() ) {
+				this.markAsError();
 				result = false;
 				break;
 			}
@@ -76,10 +78,15 @@ abstract public class Form extends Element  {
 	}
 	
 	public void process( HttpServletRequest request ) throws FormException {
+		if ( !Dispatcher.getInstance().getRequest().getMethod().equals("POST") ) {
+			return;
+		}
+		
 		this.initValues(request);
 		
 		if ( !this.isValid() ) {
-			throw new FormException("not valid input");
+			Main.log.write("Error!!!");
+			return;
 		} 
 		
 		this.mainProcess();
@@ -99,12 +106,17 @@ abstract public class Form extends Element  {
 	
 	public Element getElement( String name ) {
 		for ( Element e : this.elements ) {
-			if ( e.getName() == name ) {
+			if ( e.getName().equals( name ) ) {
 				return e;
 			}
 		}
 		
 		return null;
+	}
+	
+	public String getValue( String name ) {
+		Element element = this.getElement(name);
+		return element == null ? null : element.getValue();
 	}
 	
 	public List<Element> getElements() {

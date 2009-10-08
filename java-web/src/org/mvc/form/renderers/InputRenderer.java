@@ -8,7 +8,8 @@ public class InputRenderer implements Renderer {
 		String result = new String();
 		
 		result = result.concat("<input ")
-					   .concat("name='").concat( e.getName() ).concat("' ");
+					   .concat("name='").concat( e.getName() ).concat("' ")
+					   .concat("id='").concat( e.getId() ).concat("' ");
 		
 		if ( e.getType() != null ) {
 			result = result.concat("type='").concat( e.getType() ).concat("' ");
@@ -19,8 +20,7 @@ public class InputRenderer implements Renderer {
 		}
 		
 		if ( !e.getAttributes().isEmpty() ) {
-			for ( Object key : e.getAttributes().keySet().toArray() ) {
-				String name = (String) key;
+			for ( String name : e.getAttributes().keySet().toArray( new String[e.getAttributes().size()] ) ) {
 				Object value = e.getAttribute(name);
 				if ( value instanceof CharSequence ) {
 					result = result.concat( name ).concat("='").concat((String) value).concat("' ");
