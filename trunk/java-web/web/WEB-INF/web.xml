@@ -4,11 +4,7 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>xNovae</display-name>
-    
-    <context-param>
-	   <param-name>webContext</param-name>
-	   <param-value>web</param-value>
-	</context-param>
+
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>web.xnova.WebApplication</servlet-class>

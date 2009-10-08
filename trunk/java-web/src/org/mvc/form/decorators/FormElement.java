@@ -4,6 +4,10 @@ import org.mvc.form.Element;
 
 public class FormElement extends AbstractDecorator {
 
+	public int getOrder() {
+		return Decorator.ORDER_LAST;
+	}
+	
 	@Override
 	public String decorate(Element element ) {
 		String result = new String();

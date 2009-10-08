@@ -3,7 +3,7 @@ Application Server 9.0 Java EE Application 5.0//EN'
 'http://www.sun.com/software/appserver/dtds/sun-application_5_0-0.dtd'>
 <sun-web-application>
     <web>
-        <web-uri>http://localhost:8081</web-uri>
+        <web-uri>http://xnova.test:8081</web-uri>
         <context-root>/web</context-root>
     </web> 
 </sun-web-application> 
