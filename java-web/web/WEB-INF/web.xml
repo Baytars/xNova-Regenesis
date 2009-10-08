@@ -9,15 +9,12 @@
 	   <param-name>webContext</param-name>
 	   <param-value>web</param-value>
 	</context-param>
-    
-    
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>web.xnova.WebApplication</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>index</servlet-name>
-        <url-pattern>/index/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

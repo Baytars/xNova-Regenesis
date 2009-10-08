@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Enumeration;
 
-public class HttpRequest {
+public class HttpRouter {
 	private String controllerName;
 	private String actionName;
 	private HashMap<String, String> params;
@@ -19,13 +19,13 @@ public class HttpRequest {
 	private static final int TOKEN_PARAM_NAME = 3;
 	private static final int TOKEN_PARAM_VALUE = 4;
 	
-	public HttpRequest() {
+	public HttpRouter() {
 		this.controllerName = new String();
 		this.actionName = new String();
 		this.params = new HashMap<String, String>();
 	}
 	
-	public HttpRequest( HttpServletRequest request ) {
+	public HttpRouter( HttpServletRequest request ) {
 		this();
 		
 		this.original_request = request;

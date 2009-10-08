@@ -13,10 +13,10 @@ public class FormElement extends AbstractDecorator {
 			label = new String();
 		}
 		
-		result = result.concat("<dt>")
-					   .concat("<dl>").concat( label ).concat(": </dl>")
-					   .concat("<dl>").concat( element.getRendered() ).concat("</dl>")
-					   .concat("</dt>");
+		result = result.concat("<dd>")
+					   .concat("<dl>").concat( label ).concat( label.length() != 0 ? ":" : "" ).concat("</dl>")
+					   .concat("<dt>").concat( element.getRendered() ).concat("</dt>")
+					   .concat("</dd>");
 		
 		return result;
 	}
