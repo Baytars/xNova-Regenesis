@@ -9,7 +9,7 @@ public class Hibernate {
 	
 	private static SessionFactory sessionFactory;
 	
-	public static String hibernateCfgFile = Main.root_path.concat("/resources/hibernate.cfg.xml");
+	public static String hibernateCfgFile = Main.root_path.concat("/src/resources/hibernate.cfg.xml");
 	
 	private static SessionFactory buildSessionFactory() throws Throwable {
 		return new Configuration().configure( new File( hibernateCfgFile ) )
