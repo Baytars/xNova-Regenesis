@@ -8,7 +8,7 @@ import org.mvc.io.adapter.*;
 
 public class Main {
 	
-	public static String root_path = "/home/nikelin/workspace/xnovaes-zend/trunk/java-web";
+	public static String root_path = "/home/nikelin/workspace/xnovaes-zend/trunk/java-web/";
 	
 	public static Log log;
 	public static Log error_log;

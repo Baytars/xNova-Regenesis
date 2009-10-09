@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="web/WEB-INF/classes" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
-	<classpathentry kind="lib" path="web/WEB-INF/libs/j2ee.jar"/>
-	<classpathentry exported="true" kind="lib" path="web/WEB-INF/libs/mysql-connector-java-5.1.10-bin.jar"/>
-	<classpathentry kind="lib" path="web/WEB-INF/libs/hibernate-annotations.jar"/>
-	<classpathentry kind="lib" path="web/WEB-INF/libs/hibernate-commons-annotations.jar"/>
-	<classpathentry kind="lib" path="web/WEB-INF/libs/hibernate-entitymanager.jar"/>
-	<classpathentry kind="lib" path="web/WEB-INF/libs/hibernate3.jar"/>
-	<classpathentry kind="output" path="web/WEB-INF/classes"/>
+	<classpathentry kind="src" output="target/classes" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
