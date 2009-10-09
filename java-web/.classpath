@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" output="web/WEB-INF/classes" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="lib" path="web/WEB-INF/libs/j2ee.jar"/>
-	<classpathentry kind="lib" path="web/WEB-INF/libs/mysql-connector-java-5.1.10-bin.jar"/>
+	<classpathentry exported="true" kind="lib" path="web/WEB-INF/libs/mysql-connector-java-5.1.10-bin.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/libs/hibernate-annotations.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/libs/hibernate-commons-annotations.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/libs/hibernate-entitymanager.jar"/>
