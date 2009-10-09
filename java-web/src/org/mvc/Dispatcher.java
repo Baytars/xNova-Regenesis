@@ -46,6 +46,18 @@ public class Dispatcher {
 		return this.session;
 	}
 	
+	public String routePath( String path ) {
+		if ( !this.getRequest().getContextPath().isEmpty() ) {
+			path = this.getRequest().getContextPath().concat(path);
+		}
+		
+		return path;
+	}
+	
+	public void redirect( String path ) throws IOException {
+		this.getResponse().sendRedirect( this.routePath( path ) );
+	}
+	
 	public void setControllersPackage( String pkg ) {
 		this.controllers_package = pkg;
 	}

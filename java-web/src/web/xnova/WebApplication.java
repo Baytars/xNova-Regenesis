@@ -46,9 +46,7 @@ public class WebApplication extends HttpServlet {
 			}
 		}
 		
-		Main.error_log.write( e.getMessage() );
-		
-		output.append("Sorry, probably, something going in a wrong way :( <br/>" + e.getMessage() );
+		Main.error_log.error( e.getMessage(), e );
 	}
 	
 	

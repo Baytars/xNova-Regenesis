@@ -1,7 +1,7 @@
 package web.xnova.persistence.managers;
 
 import org.hibernate.Session;
-import org.mvc.*;
+import org.mvc.Main;
 
 import web.xnova.persistence.entities.*;
 
@@ -32,12 +32,27 @@ public class UserManager extends Manager<User> {
 		}
 	}
 	
-	public boolean isExists( String login, String email ) throws ManagerException {
+	public User findByCredentials( String login, String password ) throws ManagerException {
 		try {
-			Session session = this.getSession();
-			session.beginTransaction();
+			Session session = this.openSession();
 			
-			User u = (User)session.createQuery("select user.id from users where user.login = ? or user.email = ?")
+			User u = (User) session.createQuery("select user.* from users where login = ? and password = ?")
+								  .setEntity( 0, login )
+								  .setEntity( 1, password )
+								  .uniqueResult();
+			
+			return u;
+		} catch ( Throwable e ) {
+			Main.error_log.error("Database error!!11", e);
+			throw new ManagerException();
+		}
+	}
+	
+	protected boolean isExists( String login, String email ) throws ManagerException {
+		try {
+			Session session = this.openSession();
+			
+			User u = (User)session.createQuery("select user.id from users where login = ? or email = ?")
 							.setEntity(0, login)
 							.setEntity(1, email)
 							.uniqueResult();

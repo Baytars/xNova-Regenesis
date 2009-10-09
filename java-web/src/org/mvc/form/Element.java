@@ -204,7 +204,7 @@ abstract public class Element {
 		String id = (String) this.getAttribute( Element.ATTR_ID );
 		if ( null ==  id ) {
 			id = this.getName();
-		} 
+		}
 		
 		return id;
 	}

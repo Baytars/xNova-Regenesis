@@ -9,30 +9,36 @@ import web.xnova.forms.*;
 
 public class AuthController extends Controller {
 	
-	public void mainAction() throws PageException {
-		throw new PageExceptionNotFound();
+	public void mainAction() {
+		try {
+			Dispatcher.getInstance().redirect("/auth/login");
+		} catch ( Exception e ) {
+			this.setException(e);
+		}
 	}
 	
-	public void registerAction() throws PageException {
+	public void registerAction() {
+		RegisterForm form = new RegisterForm();
+		
 		try {
-			RegisterForm form = new RegisterForm();
 			form.process( this.getRequest() );
-			
-			this._view.setParameter("form", form);
-		} catch( FormException e ) {
-			this._view.setParameter("exception", new Exception().initCause(e)  );
+		} catch ( Exception e ) {
+			this.setException(e);
 		}
+		
+		this._view.setParameter("form", form);
 	}
 	
-	public void loginAction() throws PageException {
-		try {
-			LoginForm form = new LoginForm();
+	public void loginAction() {
+		LoginForm form = new LoginForm();
+		
+		try {	
 			form.process( this.getRequest() ); 
-			
-			this._view.setParameter("form", form);
 		} catch ( FormException e ) {
-			this._view.setParameter("exception", new Exception().initCause(e) );
+			this.setException(e);
 		}
+		
+		this._view.setParameter("form", form);
 	}
 	
 }

@@ -73,6 +73,13 @@
 			<systemPath>${path}/src/webapp/WEB-INF/lib/j2ee.jar</systemPath>
 		</dependency>
 		<dependency>
+            <groupId>log4j</groupId>
+            <artifactId>logger</artifactId>
+            <version>1.2.15</version>
+            <scope>system</scope>
+            <systemPath>${path}/src/webapp/WEB-INF/lib/log4j-1.2.15.jar</systemPath>
+        </dependency>
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate3</artifactId>
 			<version>3.0</version>
@@ -82,9 +89,9 @@
 		<dependency>
 			<groupId>com.mysql.jdbc</groupId>
 			<artifactId>mysql-driver</artifactId>
-			<version>5.1.10</version>
+			<version>5.0.8</version>
 			<scope>system</scope>
-			<systemPath>${path}/src/webapp/WEB-INF/lib/mysql-connector-java-5.1.10-bin.jar</systemPath>
+			<systemPath>${path}/src/webapp/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar</systemPath>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
