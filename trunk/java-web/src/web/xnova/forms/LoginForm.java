@@ -1,15 +1,19 @@
 package web.xnova.forms;
 
+import java.io.IOException;
+
 import org.mvc.Dispatcher;
 import org.mvc.form.*;
-import org.mvc.http.*;
 
 import org.mvc.form.elements.*;
 import org.mvc.validators.*;
 
+import web.xnova.persistence.managers.*;
+import web.xnova.persistence.entities.User;
+
 public class LoginForm extends Form {
 	
-	public LoginForm() throws FormException {
+	public LoginForm() {
 		super();
 		
 		this.setAction( Dispatcher.getInstance().getRequest().getContextPath().concat( "/auth/login") );
@@ -29,6 +33,21 @@ public class LoginForm extends Form {
 	
 	@Override
 	protected void mainProcess() throws FormException {
-
+		try {
+			User u = UserManager.getInstance().findByCredentials( this.getValue("login"), this.getValue("password") );
+			if ( u != null ) {
+				this.getSession().setAttribute("user", u);
+				
+				try {
+					this.getResponse().sendRedirect("/user/profile");
+				} catch( IOException e ) {
+					throw new FormException( e.getMessage() );
+				}
+			} else {
+				this.getElement("login").addError("User with such login or password is not founds!");
+			}
+		} catch( ManagerException e ) {
+			throw new FormException("Database error!");
+		}
 	}
 }

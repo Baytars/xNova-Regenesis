@@ -36,6 +36,18 @@ abstract public class Form extends Element  {
 		return this.method;
 	}
 	
+	protected HttpServletRequest getRequest() {
+		return Dispatcher.getInstance().getRequest();
+	}
+	
+	protected HttpServletResponse getResponse() {
+		return Dispatcher.getInstance().getResponse();
+	}
+	
+	protected HttpSession getSession() {
+		return Dispatcher.getInstance().getSession();
+	}
+	
 	public Form setMethod( String method ) {
 		this.method = method;
 		return this;
@@ -85,7 +97,6 @@ abstract public class Form extends Element  {
 		this.initValues(request);
 		
 		if ( !this.isValid() ) {
-			Main.log.write("Error!!!");
 			return;
 		} 
 		
@@ -94,11 +105,7 @@ abstract public class Form extends Element  {
 	
 	abstract protected void mainProcess() throws FormException;
 	
-	public Element addElement( Element element ) throws FormException {
-		if ( element.getName() == null ) {
-			throw new FormException("Element must have name");
-		}
-		
+	public Element addElement( Element element ) {
 		this.elements.add( element );
 		
 		return element;

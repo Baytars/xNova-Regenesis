@@ -10,13 +10,20 @@ public class Manager<T> {
 		return Hibernate.getSessionFactory().getCurrentSession();
 	}
 	
-	protected Manager<T> save( T object ) throws Throwable {
-		if ( !this.getSession().getTransaction().isActive() ) {
+	protected Session openSession() throws Throwable {
+		Session s = this.getSession();
+		if ( !s.getTransaction().isActive() ) {
 			this.getSession().beginTransaction();
 		}
 		
-		this.getSession().save(object);
-		this.getSession().getTransaction().commit();
+		return s;
+	}
+	
+	protected Manager<T> save( T object ) throws Throwable {
+		Session s = this.openSession();
+		
+		s.save(object);
+		s.getTransaction().commit();
 		
 		return this;
 	}

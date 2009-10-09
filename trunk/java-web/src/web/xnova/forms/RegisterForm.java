@@ -9,11 +9,11 @@ import web.xnova.persistence.entities.*;;
 
 public class RegisterForm extends Form {
 
-	public RegisterForm() throws FormException {
+	public RegisterForm(){
 		super();
 		 
 		this.setMethod("POST") 
-			.setAction( Dispatcher.getInstance().getRequest().getContextPath().concat("/auth/register") )
+			.setAction( Dispatcher.getInstance().routePath("/auth/register") )
 			.setName("register_form"); 
 		
 		TextField login = (TextField) this.addElement( new TextField("login") )
@@ -42,10 +42,10 @@ public class RegisterForm extends Form {
 			try {
 				User user = UserManager.getInstance().createUser( this.getValue("login"), this.getValue("email"), this.getValue("password") );
 				
-				Dispatcher.getInstance().getSession().setAttribute("user", user);
+				this.getSession().setAttribute("user", user);
 				
 				try {
-					Dispatcher.getInstance().getResponse().sendRedirect("/user/profile");
+					Dispatcher.getInstance().redirect("/user/profile");
 				} catch ( Exception e ) {
 					throw new FormException("Redirection error");
 				}
