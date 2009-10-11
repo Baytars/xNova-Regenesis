@@ -36,9 +36,12 @@ public class UserManager extends Manager<User> {
 		try {
 			Session session = this.openSession();
 			
-			User u = (User) session.createQuery("select user.* from users where login = ? and password = ?")
-								  .setEntity( 0, login )
-								  .setEntity( 1, password )
+			User u = (User) session.createQuery("select user.id " +
+					"							from User as user" +
+					"							where user.login = :login and " +
+					"								  user.password = :password")
+								  .setParameter( "login", login )
+								  .setParameter( "password", password )
 								  .uniqueResult();
 			
 			return u;

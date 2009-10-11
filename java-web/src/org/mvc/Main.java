@@ -22,13 +22,16 @@ public class Main {
 			BasicConfigurator.configure();
 			
 			FileAppender defaultAppender = new FileAppender( new SimpleLayout(), Main.root_path.concat("/logs/main.log") );
+			defaultAppender.setAppend(false);
 			log = Logger.getRootLogger();
 			log.setLevel( Level.ALL );
 			log.addAppender(defaultAppender);
 			
 			FileAppender errorAppender = new FileAppender( new SimpleLayout(), Main.root_path.concat("/logs/errors.log") );
+			errorAppender.setAppend(false);
 			error_log = Logger.getRootLogger();
 			log.setLevel( Level.ERROR );
+			
 			log.addAppender( errorAppender );
 		} catch ( IOException e ) {
 			

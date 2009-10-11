@@ -26,7 +26,11 @@ public class FormRenderer implements Renderer {
 		
 		if ( !element.getElements().isEmpty() ) {
 			for ( Element child : element.getElements() ) {
-				result = result.concat( child.render() );
+				String childResult = child.render();
+				
+				if ( childResult != null ) {
+					result = result.concat( child.render() );
+				}
 			}
 		}
 		
