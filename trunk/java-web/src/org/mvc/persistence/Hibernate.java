@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 import org.mvc.*;
 
 import java.sql.*;
+import java.util.Enumeration;
 import java.util.Properties;
 
 public class Hibernate {
@@ -15,18 +16,8 @@ public class Hibernate {
 	public static String hibernateCfgFile = Main.root_path.concat("/src/webapp/WEB-INF/resources/hibernate.cfg.xml");
 	
 	private static SessionFactory buildSessionFactory() throws Throwable {
-		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        
-        Properties properties=new Properties();
-        properties.setProperty("user","root");
-        properties.setProperty("password","1");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/xnovae", properties);
+		DriverManager.registerDriver( new com.mysql.jdbc.Driver() );
 		
-        Statement statement = conn.createStatement();
-        statement.execute("SHOW DATABASES");
-        
-        Main.log.trace( statement.getResultSet().isFirst() );
-        
 		return new Configuration().configure( new File( hibernateCfgFile ) )
 								  		.buildSessionFactory()
 								  		;

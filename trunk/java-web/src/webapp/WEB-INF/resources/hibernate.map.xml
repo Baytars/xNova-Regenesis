@@ -8,7 +8,7 @@
         <generator class="native"/>    
     </id> 
     
-    <property name="login" type="string"/>
+    <property name="login"/>
     <property name="password"/>
     <property name="email"/>
   </class>

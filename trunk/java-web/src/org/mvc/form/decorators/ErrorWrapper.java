@@ -14,7 +14,9 @@ public class ErrorWrapper extends AbstractDecorator {
 		
 		result = result.concat("<div class='errors'>");
 		for( String error : element.getErrors() ) {
-			result = result.concat("<div class='error'>").concat(error).concat("</div>");
+			if ( error != null ) {
+				result = result.concat("<div class='error'>").concat(error).concat("</div>");
+			}
 		}
 		result = result.concat("</div>");
 		
