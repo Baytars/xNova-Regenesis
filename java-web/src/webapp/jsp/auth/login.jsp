@@ -2,7 +2,6 @@
 <% 
 View context = (View) session.getAttribute("view");
 %>
-
 <h1>Authorization</h1>
 
 <% if ( context.getParameter("exception") != null ) { %>

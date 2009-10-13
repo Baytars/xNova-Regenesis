@@ -50,10 +50,11 @@ public class RegisterForm extends Form {
 					throw new FormException("Redirection error");
 				}
 			} catch ( ManagerException e ) {
+				this.getElement("login").addError( "Database connection error!" );
 				throw new FormException("Database connection error");
 			}
 		} catch ( EntityException e ) {
-			this.getElement("login").addError( e.getMessage() );
+			this.getElement("login").addError( "User with such login already exists!" );
 		}
 	}
 

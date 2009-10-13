@@ -4,10 +4,7 @@ import java.io.File;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.mvc.*;
-
 import java.sql.*;
-import java.util.Enumeration;
-import java.util.Properties;
 
 public class Hibernate {
 	

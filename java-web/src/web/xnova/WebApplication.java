@@ -3,13 +3,14 @@ import javax.servlet.http.*;
 
 import org.mvc.*;
 
+import org.apache.log4j.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class WebApplication extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private static final boolean debug = true;
+	private static final Logger log = Logger.getLogger( web.xnova.WebApplication.class );
 
 	public void init() {
 		Main.start();
@@ -18,35 +19,33 @@ public class WebApplication extends HttpServlet {
 	}
 	
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-		try {
-			if ( !request.getRequestURI().contains(".jsp") ) {
-				Dispatcher.getInstance().dispatch( this, request, response );
-			}
-		} catch( Throwable e ) {
-			this.logException( e, response.getWriter() );
-		}
+		this.doAction( request, response );
 	}
 	
 	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
+		this.doAction( request, response );
+	}
+	
+	/**
+	 * Main point for all types of external requests
+	 * 
+	 * @param HttpServletRequest request
+	 * @param HttpServletResponse response
+	 * @throws IOException
+	 * @return void
+	 */
+	public void doAction( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 		try {
 			if ( !request.getRequestURI().contains(".jsp") ) {
 				Dispatcher.getInstance().dispatch( this, request, response );
 			}
 		} catch ( Throwable e) {
-			this.logException( e, response.getWriter() );
-		}
-	}
-	
-	protected void logException( Throwable e, PrintWriter output ) {
-		if ( WebApplication.debug ) {
-			if ( output != null ) {
-				e.printStackTrace( output );
-			} else {
+			if ( WebApplication.debug ) {
 				e.printStackTrace();
 			}
+			
+			log.error( e.getMessage(), e );
 		}
-		
-		Main.error_log.error( e.getMessage(), e );
 	}
 	
 	

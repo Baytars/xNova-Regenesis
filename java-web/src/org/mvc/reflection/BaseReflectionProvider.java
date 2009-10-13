@@ -23,11 +23,13 @@ public class BaseReflectionProvider implements ReflectionProvider {
             path = clsPackage + '.' + path;
         }
 
-        Class currClass = Class.forName(path);
-
-        return currClass;
+        return Class.forName(path);
     }
 
+    public Object invokeMethod( String name, Object context ) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException  {
+    	return this.invokeMethod(name, context, null);
+    }
+   
     public Object invokeMethod(String name, Object context, Object... args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Class cls = context instanceof Class ? (Class)context : context.getClass();
 

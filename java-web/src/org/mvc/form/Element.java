@@ -101,7 +101,7 @@ abstract public class Element {
 	}
 	
 	public Element addDecorator( Decorator decorator ) {
-		if ( !this.decorators.contains(decorator) ) {
+		if ( -1 == this.decorators.indexOf(decorator) ) {
 			this.decorators.add(decorator);
 		}
 		

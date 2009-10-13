@@ -14,22 +14,22 @@ public class UserManager extends Manager<User> {
 	}
 	
 	public User createUser(String login, String password, String email ) throws EntityException, ManagerException {
-		try {
-			if ( !this.isExists(login, email) ) {
-			   User user = new User();
-			   user.setLogin(login);
-			   user.setPassword(password);
-			   user.setEmail( email );
-			   
+		if ( !this.isExists(login, email) ) {
+		   User user = new User();
+		   user.setLogin(login);
+		   user.setPassword(password);
+		   user.setEmail( email );
+		   
+		   try {
 			   this.save(user);
-			   
-			   return user;
-			} else {
-			   throw new EntityException("User with this login or email alredy exists");
-		    }
-		} catch ( Throwable e ) {
-			throw new EntityException(e);
-		}
+		   } catch ( Throwable e ) {
+			   throw new ManagerException();
+		   }
+		   
+		   return user;
+		} else {
+		   throw new EntityException("User with this login or email alredy exists");
+	    }
 	}
 	
 	public User findByCredentials( String login, String password ) throws ManagerException {
@@ -46,7 +46,6 @@ public class UserManager extends Manager<User> {
 			
 			return u;
 		} catch ( Throwable e ) {
-			Main.error_log.error("Database error!!11", e);
 			throw new ManagerException();
 		}
 	}
@@ -55,12 +54,15 @@ public class UserManager extends Manager<User> {
 		try {
 			Session session = this.openSession();
 			
-			User u = (User)session.createQuery("select user.id from users where login = ? or email = ?")
-							.setEntity(0, login)
-							.setEntity(1, email)
+			User u = (User)session.createQuery("select user.id " +
+					"							from User as user" +
+					"							where user.login = :login or" +
+					"								  user.email = :email")
+							.setParameter("login", login)
+							.setParameter("email", email)
 							.uniqueResult();
 			
-			if ( u != null ) {
+			if ( u.getLogin() != null ) {
 				return true;
 			}
 

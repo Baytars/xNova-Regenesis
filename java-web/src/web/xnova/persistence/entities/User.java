@@ -35,6 +35,10 @@ public class User {
 		return this;
 	}
 	
+	public String getEmail() {
+		return this.email;
+	}
+	
 	public String getLogin() {
 		return this.login;
 	}
@@ -48,8 +52,6 @@ public class User {
 		return this.password.equals(password);
 	}
 	
-	public String getEmail() {
-		return this.email;
-	}
+	
 	
 }

@@ -9,6 +9,10 @@ import web.xnova.forms.*;
 
 public class AuthController extends Controller {
 	
+	protected void _init() {
+		Main.setCurrentLayout("empty");
+	}
+	
 	public void mainAction() {
 		try {
 			Dispatcher.getInstance().redirect("/auth/login");
@@ -26,7 +30,8 @@ public class AuthController extends Controller {
 			this.setException(e);
 		}
 		
-		this._view.setParameter("form", form);
+		this.getView().setParameter("form", form);
+		this.getView().setParameter("pageTitle", "Sign up");
 	}
 	
 	public void loginAction() {
@@ -38,7 +43,8 @@ public class AuthController extends Controller {
 			this.setException(e);
 		}
 		
-		this._view.setParameter("form", form);
+		this.getView().setParameter("form", form);
+		this.getView().setParameter("pageTitle", "Sign In");
 	}
 	
 }
