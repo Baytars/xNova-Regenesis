@@ -82,20 +82,20 @@ public class Dispatcher {
 		
 		
 		Controller controller = (Controller) this.getController( this.router.getControllerName() );
-		controller.init();
-		controller.setRequest(request);
-		controller.setResponse(response);
+		if ( controller == null ) {
+			Dispatcher.getInstance().redirect( Main.defaultNotFoundPage );
+		}
 		
 		View vc = controller.processAction( this.router.getActionName() );
 		
+		vc.setParameter("action", "/jsp/".concat( this.router.getControllerName() )
+										 .concat("/")
+										 .concat( this.router.getActionName().concat(".jsp") ) 
+						);
 		session.setAttribute("view", vc);
 		
-		request.getRequestDispatcher( 	"/jsp/"
-										.concat( this.router.getControllerName() )
-										.concat("/")
-										.concat( this.router.getActionName() )
-										.concat(".jsp") )
-									.forward(request, response);
+		request.getRequestDispatcher( 	"/jsp/layouts/".concat( Main.getCurrentLayout() ).concat(".jsp") )
+			   .forward(request, response); 
 	}
 	
 	/**
@@ -109,25 +109,22 @@ public class Dispatcher {
 	 * @throws IllegalAccessException
 	 */
 	@SuppressWarnings("unchecked")
-	protected Controller getController( String name ) throws ClassNotFoundException, 
-															 InstantiationException, 
-															 InvocationTargetException, 
-															 IllegalAccessException
-	{
-		Controller result = null;
+	protected Controller getController( String name ) {
 		String controllerPackage = this.getControllersPackage();
 		String controllerClassName = StringUtils.toCamelCase( name.concat("_controller"), "_", StringCase.UPPER);
 		
-		Class controllerClass = (Class) Main.getReflectionProvider().findClass( controllerClassName, controllerPackage );
-		if ( controllerClass == null ) {
-			return result;
+		try {
+			Class controllerClass = (Class) Main.getReflectionProvider().findClass( controllerClassName, controllerPackage );
+			
+			if ( !Main.getReflectionProvider().isParent( Controller.class, controllerClass ) ) {
+				throw new ClassNotFoundException("All controller classes must be extedings from org.mvc.Controller");
+			}
+			
+			return (Controller)Main.getReflectionProvider().createInstance(controllerClass);
+
+		} catch( Exception e ) {
+			return null;
 		}
-		
-		if ( !Main.getReflectionProvider().isParent( Controller.class, controllerClass ) ) {
-			throw new ClassNotFoundException("All controller classes must be extedings from org.mvc.Controller");
-		}
-		
-		return (Controller)Main.getReflectionProvider().createInstance(controllerClass);
 	}
 	
 }

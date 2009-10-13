@@ -23,7 +23,7 @@ public class LoginForm extends Form {
 		loginEl.addValidator( new NotEmpty() )
 			   .setAttribute(Element.ATTR_LABEL, "Enter your login");
 		
-		TextField passwordEl = (TextField) this.addElement( new TextField("password") );
+		PasswordField passwordEl = (PasswordField) this.addElement( new PasswordField("password") );
 		passwordEl.setAttribute(Element.ATTR_LABEL, "And password")
 				  .addValidator( new NotEmpty() );
 		

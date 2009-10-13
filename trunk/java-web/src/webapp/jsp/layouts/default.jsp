@@ -1,6 +1,11 @@
+<%@page import="org.mvc.view.*" %>
+<%
+View view = (View) session.getAttribute("view");
+pageContext.setAttribute("currentAction", view.getParameter("action") );
+%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>xNova</title>
+    <title><% view.getParameter("pageTitle"); %></title>
 </head>
 <body>
     <div class='page'>
@@ -16,7 +21,7 @@
                 </ul>
             </div>
             <div class='center'>
-                <h1>Page content</h1>
+                <jsp:include page="${currentAction}"/>
             </div>
         </div>
     </div>

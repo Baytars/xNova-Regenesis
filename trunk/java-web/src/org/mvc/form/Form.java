@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.mvc.form.decorators.ErrorWrapper;
 import org.mvc.form.renderers.*;
 import org.mvc.*;
 

@@ -20,11 +20,14 @@ public class Manager<T> {
 	}
 	
 	protected Manager<T> save( T object ) throws Throwable {
-		Session s = this.openSession();
-		
-		s.save(object);
-		s.getTransaction().commit();
-		
+		try {
+			Session s = this.openSession();
+			
+			s.save(object);
+			s.getTransaction().commit();
+		} catch ( Throwable e ) {
+			Main.error_log.error("", e);
+		}
 		return this;
 	}
 	

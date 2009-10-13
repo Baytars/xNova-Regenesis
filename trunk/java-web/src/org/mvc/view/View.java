@@ -19,7 +19,7 @@ public class View {
 	
 	public View() {
 		this.parameters = new HashMap<String, Object>();
-	}
+	} 
 
 	public void setParameter( String name, Object value ) {
 		this.parameters.put(name, value);

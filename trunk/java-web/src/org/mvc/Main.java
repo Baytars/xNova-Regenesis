@@ -7,15 +7,25 @@ import org.apache.log4j.*;
 
 public class Main {
 	
+	private static String currentLayout = "default";
+	
 	public static String root_path = "/home/nikelin/workspace/xnovaes-zend/trunk/java-web/";
 	
 	public static Logger log;
 	public static Logger error_log;
-	public static String defaultNotFoundPage = "/404";
-	public static String defaultAccessDeniedPage = "/403";
+	public static String defaultNotFoundPage = "/jsp/404.jsp";
+	public static String defaultAccessDeniedPage = "/jsp/403.jsp";
 	public static String defaultAuthRequiredPage = "/auth/login";
 	
 	private static ReflectionProvider _reflectionProvider;
+	
+	public static String getCurrentLayout() {
+		return currentLayout;
+	}
+	
+	public static void setCurrentLayout( String layout ) {
+		currentLayout = layout;
+	}
 	
 	public static void start() {
 		try {

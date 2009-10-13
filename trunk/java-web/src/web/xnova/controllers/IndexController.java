@@ -1,13 +1,22 @@
 package web.xnova.controllers;
 
-import org.mvc.Dispatcher;
 import org.mvc.controller.Controller;
-import org.mvc.view.View;
 import org.mvc.exceptions.*;
 
+import web.xnova.persistence.entities.User;
+
 public class IndexController extends Controller {
+	private User user;
+	
+	public void _init() {
+		this.user = (User) this.getSession().getAttribute("user");
+		if ( this.user == null ) {
+			this.setException( new PageExceptionAuthRequired() );
+		}
+	}
 	
 	@Override
 	public void mainAction() {
+		
 	}
 }
