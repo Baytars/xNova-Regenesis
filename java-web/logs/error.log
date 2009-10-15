@@ -1,401 +1,0 @@
-Thu Oct 01 19:18:03 MSD 2009 - web.xnova.controllers.IndexController
-Thu Oct 01 19:39:01 MSD 2009 - WebAction
-Thu Oct 01 19:39:01 MSD 2009 - WebAction
-Thu Oct 01 19:40:39 MSD 2009 - WebAction
-Thu Oct 01 19:40:39 MSD 2009 - WebAction
-Thu Oct 01 19:40:40 MSD 2009 - WebAction
-Thu Oct 01 19:40:40 MSD 2009 - WebAction
-Thu Oct 01 19:56:11 MSD 2009 - web.xnova.controllers._Controller
-Thu Oct 01 19:57:21 MSD 2009 - web.xnova.controllers._Controller
-Thu Oct 01 19:57:25 MSD 2009 - web.xnova.controllers._Controller
-Thu Oct 01 19:59:45 MSD 2009 - web.xnova.controllers.WebController
-Thu Oct 01 20:06:06 MSD 2009 - web.xnova.controllers.WebController
-Thu Oct 01 20:06:09 MSD 2009 - web.xnova.controllers.WebController
-Thu Oct 01 20:06:12 MSD 2009 - web.xnova.controllers.WebController
-Thu Oct 01 20:08:46 MSD 2009 - web.xnova.controllers.IndeController
-Thu Oct 01 20:10:22 MSD 2009 - web.xnova.controllers./indeController
-Thu Oct 01 20:10:58 MSD 2009 - web.xnova.controllers./indeController
-Thu Oct 01 20:11:04 MSD 2009 - web.xnova.controllers./indeController
-Thu Oct 01 20:15:11 MSD 2009 - _Action
-Thu Oct 01 20:15:11 MSD 2009 - _Action
-Thu Oct 01 20:17:41 MSD 2009 - MainAction
-Thu Oct 01 20:17:41 MSD 2009 - MainAction
-Thu Oct 01 20:29:57 MSD 2009 - java.lang.NullPointerException
-Fri Oct 02 00:29:20 MSD 2009 - java.lang.ClassNotFoundException: org.mvc.views.View
-Fri Oct 02 01:04:39 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method getParameter(java.lang.String)
-location: interface javax.servlet.http.HttpSession
-
-
-Fri Oct 02 01:09:51 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method getParameter(java.lang.String)
-location: class java.lang.Object
-
-
-Fri Oct 02 01:10:12 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : class View
-location: class org.apache.jsp.jsp.index.main_jsp
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method getParameter(java.lang.String)
-location: class java.lang.Object
-
-
-Fri Oct 02 01:10:27 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method getParameter(java.lang.String)
-location: class java.lang.Object
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method write(org.mvc.view.View)
-location: class javax.servlet.jsp.JspWriter
-
-
-Fri Oct 02 01:10:28 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method getParameter(java.lang.String)
-location: class java.lang.Object
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method write(org.mvc.view.View)
-location: class javax.servlet.jsp.JspWriter
-
-
-Fri Oct 02 01:10:52 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method write(java.lang.Object)
-location: class javax.servlet.jsp.JspWriter
-
-
-Fri Oct 02 01:10:53 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: cannot find symbol
-symbol  : method write(java.lang.Object)
-location: class javax.servlet.jsp.JspWriter
-
-
-Fri Oct 02 01:11:04 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: inconvertible types
-found   : org.mvc.view.View
-required: java.lang.String
-
-
-Fri Oct 02 01:11:19 MSD 2009 - java.lang.NullPointerException
-Fri Oct 02 01:13:33 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:50: ')' expected
-
-
-Fri Oct 02 01:13:43 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:48: cannot find symbol
-symbol  : class View
-location: class org.apache.jsp.jsp.index.main_jsp
-
-
-Fri Oct 02 01:14:07 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 4 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:52: concat(java.lang.String) in java.lang.String cannot be applied to (java.lang.Object)
-
-
-Fri Oct 02 01:14:52 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6199: Generated servlet error:
-string:///main_jsp.java:6: class, interface, or enum expected
-
-
-Fri Oct 02 01:15:01 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 4 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:53: concat(java.lang.String) in java.lang.String cannot be applied to (java.lang.Object)
-
-
-Mon Oct 05 20:57:58 MSD 2009 - web.xnova.controllers.MainController
-Mon Oct 05 20:58:03 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: illegal start of expression
-
-
-Mon Oct 05 20:58:10 MSD 2009 - web.xnova.controllers.3Controller
-Mon Oct 05 21:05:11 MSD 2009 - web.xnova.controllers.3Controller
-Mon Oct 05 21:05:32 MSD 2009 - web.xnova.controllers.3Controller
-Mon Oct 05 21:05:42 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: illegal start of expression
-
-
-Mon Oct 05 21:05:45 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: illegal start of expression
-
-
-Mon Oct 05 21:05:49 MSD 2009 - web.xnova.controllers.MainController
-Mon Oct 05 21:07:23 MSD 2009 - web.xnova.controllers.MainController
-Mon Oct 05 21:07:24 MSD 2009 - web.xnova.controllers.MainController
-Mon Oct 05 21:07:26 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 3 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:47: illegal start of expression
-
-
-Mon Oct 05 21:08:43 MSD 2009 - /jsp/index/main.jsp(5,2) PWC6031: Unterminated &lt;% tag
-Mon Oct 05 21:08:57 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 5 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:50: not a statement
-
-
-Mon Oct 05 21:09:29 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 1 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:46: cannot find symbol
-symbol  : class View
-location: class org.apache.jsp.jsp.index.main_jsp
-
-PWC6197: An error occurred at line: 1 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:46: cannot find symbol
-symbol  : class View
-location: class org.apache.jsp.jsp.index.main_jsp
-
-
-Mon Oct 05 21:09:56 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6199: Generated servlet error:
-string:///main_jsp.java:6: package org.mvc.views does not exist
-
-PWC6197: An error occurred at line: 2 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:49: cannot find symbol
-symbol  : class View
-location: class org.apache.jsp.jsp.index.main_jsp
-
-PWC6197: An error occurred at line: 2 in the jsp file: /jsp/index/main.jsp
-PWC6199: Generated servlet error:
-string:///main_jsp.java:49: cannot find symbol
-symbol  : class View
-location: class org.apache.jsp.jsp.index.main_jsp
-
-
-Mon Oct 05 21:10:03 MSD 2009 - java.lang.NullPointerException
-Tue Oct 06 12:43:14 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:43:45 MSD 2009 - web.xnova.controllers.2Controller
-Tue Oct 06 12:44:02 MSD 2009 - web.xnova.controllers.2Controller
-Tue Oct 06 12:44:20 MSD 2009 - web.xnova.controllers.2Controller
-Tue Oct 06 12:44:24 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:45:16 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:46:13 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:47:19 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:47:34 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:47:37 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:47:40 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:51:59 MSD 2009 - web.xnova.controllers.MainController
-Tue Oct 06 12:52:00 MSD 2009 - web.xnova.controllers.MainController
-Wed Oct 07 16:07:25 MSD 2009 - web.xnova.controllers.MainController
-Wed Oct 07 16:09:02 MSD 2009 - web.xnova.controllers.MainController
-Wed Oct 07 16:09:06 MSD 2009 - web.xnova.controllers.MainController
-Wed Oct 07 16:09:09 MSD 2009 - web.xnova.controllers.MainController
-Wed Oct 07 16:09:13 MSD 2009 - web.xnova.controllers.MainController
-Wed Oct 07 16:09:18 MSD 2009 - web.xnova.controllers.SdasdmainController
-Wed Oct 07 16:09:56 MSD 2009 - web.xnova.controllers.SdasdmainController
-Wed Oct 07 16:09:57 MSD 2009 - web.xnova.controllers.SdasdmainController
-Wed Oct 07 16:10:07 MSD 2009 - web.xnova.controllers.SdasdmainController
-Wed Oct 07 16:10:08 MSD 2009 - web.xnova.controllers.SdasdmainController
-Wed Oct 07 16:10:21 MSD 2009 - web.xnova.controllers.SdasdmainController
-Wed Oct 07 16:10:22 MSD 2009 - web.xnova.controllers.SdasdmainController
-Wed Oct 07 16:10:27 MSD 2009 - web.xnova.controllers.Main.jspController
-Wed Oct 07 16:10:58 MSD 2009 - web.xnova.controllers.WController
-Wed Oct 07 16:11:01 MSD 2009 - web.xnova.controllers.Main.jspController
-Wed Oct 07 16:11:03 MSD 2009 - web.xnova.controllers.22Controller
-Wed Oct 07 16:11:05 MSD 2009 - web.xnova.controllers.Main.jspController
-Wed Oct 07 16:11:06 MSD 2009 - web.xnova.controllers.Main.jspController
-Wed Oct 07 16:11:08 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:12:09 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:12:10 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:12:10 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:12:10 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:12:40 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:12:41 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:13:09 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:13:09 MSD 2009 - web.xnova.controllers.WebController
-Wed Oct 07 16:13:27 MSD 2009 - web
-Wed Oct 07 16:13:27 MSD 2009 - web
-Wed Oct 07 16:13:27 MSD 2009 - web/jsp/index/main.jsp
-Wed Oct 07 16:13:27 MSD 2009 - web
-Wed Oct 07 16:13:27 MSD 2009 - web.xnova.controllers.JspController
-Wed Oct 07 16:15:24 MSD 2009 - web
-Wed Oct 07 16:15:24 MSD 2009 - web
-Wed Oct 07 16:15:24 MSD 2009 - web/jsp/index/main
-Wed Oct 07 16:15:24 MSD 2009 - web
-Wed Oct 07 16:15:24 MSD 2009 - web.xnova.controllers.JspController
-Wed Oct 07 16:15:25 MSD 2009 - web
-Wed Oct 07 16:15:25 MSD 2009 - web
-Wed Oct 07 16:15:25 MSD 2009 - web/jsp/index/main
-Wed Oct 07 16:15:25 MSD 2009 - web
-Wed Oct 07 16:15:25 MSD 2009 - web.xnova.controllers.JspController
-Wed Oct 07 16:17:25 MSD 2009 - web
-Wed Oct 07 16:17:25 MSD 2009 - web
-Wed Oct 07 16:17:25 MSD 2009 - web/jsp/index/main
-Wed Oct 07 16:17:25 MSD 2009 - web
-Wed Oct 07 16:17:25 MSD 2009 - web.xnova.controllers.JspController
-Wed Oct 07 16:23:10 MSD 2009 - web/index
-Wed Oct 07 16:23:10 MSD 2009 - web
-Wed Oct 07 16:23:10 MSD 2009 - PWC1232: Exceeded maximum depth for nested request dispatches: 20
-Wed Oct 07 16:23:27 MSD 2009 - web/index
-Wed Oct 07 16:23:27 MSD 2009 - web
-Wed Oct 07 16:23:27 MSD 2009 - PWC1232: Exceeded maximum depth for nested request dispatches: 20
-Wed Oct 07 16:23:31 MSD 2009 - web/index
-Wed Oct 07 16:23:31 MSD 2009 - web
-Wed Oct 07 16:23:31 MSD 2009 - PWC1232: Exceeded maximum depth for nested request dispatches: 20
-Wed Oct 07 16:23:34 MSD 2009 - web/index
-Wed Oct 07 16:23:34 MSD 2009 - web
-Wed Oct 07 16:23:34 MSD 2009 - PWC1232: Exceeded maximum depth for nested request dispatches: 20
-Wed Oct 07 16:23:34 MSD 2009 - web/index
-Wed Oct 07 16:23:34 MSD 2009 - web
-Wed Oct 07 16:23:34 MSD 2009 - PWC1232: Exceeded maximum depth for nested request dispatches: 20
-Wed Oct 07 16:23:44 MSD 2009 - web/index
-Wed Oct 07 16:23:44 MSD 2009 - web
-Wed Oct 07 16:23:48 MSD 2009 - web/index/main
-Wed Oct 07 16:23:48 MSD 2009 - web
-Wed Oct 07 16:32:34 MSD 2009 - web/index
-Wed Oct 07 16:32:34 MSD 2009 - web
-Wed Oct 07 16:32:38 MSD 2009 - web/index/main2
-Wed Oct 07 16:32:38 MSD 2009 - web
-Wed Oct 07 16:32:38 MSD 2009 - main2Action
-Wed Oct 07 16:32:38 MSD 2009 - main2Action
-Wed Oct 07 16:32:46 MSD 2009 - web/index/main/param/2
-Wed Oct 07 16:32:46 MSD 2009 - web
-Wed Oct 07 16:32:54 MSD 2009 - web/index/main
-Wed Oct 07 16:32:54 MSD 2009 - web
-Wed Oct 07 16:32:56 MSD 2009 - web/index/main
-Wed Oct 07 16:32:56 MSD 2009 - web
-Wed Oct 07 17:15:30 MSD 2009 - web/auth/login
-Wed Oct 07 17:15:30 MSD 2009 - web
-Wed Oct 07 17:15:30 MSD 2009 - web.xnova.controllers.AuthController
-Wed Oct 07 17:16:30 MSD 2009 - indexAction
-Wed Oct 07 17:16:30 MSD 2009 - indexAction
-Wed Oct 07 17:19:31 MSD 2009 - java.lang.NullPointerException
-Wed Oct 07 17:22:14 MSD 2009 - java.lang.NullPointerException
-Wed Oct 07 17:22:15 MSD 2009 - java.lang.NullPointerException
-Wed Oct 07 17:25:49 MSD 2009 - java.lang.NullPointerException
-Wed Oct 07 17:50:01 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 15 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:69: cannot find symbol
-symbol  : method write(java.lang.Class<capture#818 of ? extends java.lang.Exception>)
-location: class javax.servlet.jsp.JspWriter
-
-
-Wed Oct 07 17:51:09 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 15 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:69: cannot find symbol
-symbol  : method write(java.lang.Object)
-location: class javax.servlet.jsp.JspWriter
-
-
-Wed Oct 07 17:52:09 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 16 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:71: 'catch' without 'try'
-
-PWC6197: An error occurred at line: 16 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:71: ')' expected
-
-PWC6197: An error occurred at line: 16 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:71: not a statement
-
-PWC6197: An error occurred at line: 16 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:71: ';' expected
-
-PWC6199: Generated servlet error:
-string:///login_jsp.java:34: 'try' without 'catch' or 'finally'
-
-PWC6199: Generated servlet error:
-string:///login_jsp.java:88: reached end of file while parsing
-
-
-Wed Oct 07 17:53:07 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 13 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:68: cannot find symbol
-symbol  : variable form
-location: class org.apache.jsp.jsp.auth.login_jsp
-
-
-Wed Oct 07 17:53:15 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 13 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:68: cannot find symbol
-symbol  : variable form
-location: class org.apache.jsp.jsp.auth.login_jsp
-
-
-Wed Oct 07 17:53:16 MSD 2009 - PWC6033: Unable to compile class for JSP
-
-PWC6197: An error occurred at line: 13 in the jsp file: /jsp/auth/login.jsp
-PWC6199: Generated servlet error:
-string:///login_jsp.java:68: cannot find symbol
-symbol  : variable form
-location: class org.apache.jsp.jsp.auth.login_jsp
-
-
-Wed Oct 07 17:53:58 MSD 2009 - java.lang.NullPointerException
-Wed Oct 07 18:11:57 MSD 2009 - java.lang.ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.String;
-

@@ -47,7 +47,7 @@ public class Dispatcher {
 	}
 	
 	public String routePath( String path ) {
-		if ( !this.getRequest().getContextPath().isEmpty() ) {
+		if ( null != this.getRequest().getContextPath() && !this.getRequest().getContextPath().isEmpty() ) {
 			path = this.getRequest().getContextPath().concat(path);
 		}
 		

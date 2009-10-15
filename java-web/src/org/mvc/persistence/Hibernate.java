@@ -13,7 +13,7 @@ public class Hibernate {
 	public static String hibernateCfgFile = Main.root_path.concat("/src/webapp/WEB-INF/resources/hibernate.cfg.xml");
 	
 	private static SessionFactory buildSessionFactory() throws Throwable {
-		DriverManager.registerDriver( new com.mysql.jdbc.Driver() );
+		DriverManager.registerDriver( new org.gjt.mm.mysql.Driver() );
 		
 		return new Configuration().configure( new File( hibernateCfgFile ) )
 								  		.buildSessionFactory()
