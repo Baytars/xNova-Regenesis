@@ -16,7 +16,7 @@ public class LoginForm extends Form {
 	public LoginForm() {
 		super();
 		
-		this.setAction( Dispatcher.getInstance().getRequest().getContextPath().concat( "/auth/login") );
+		this.setAction( Dispatcher.getInstance().routePath("/auth/login") );
 		this.setMethod("POST");
 		
 		TextField loginEl = (TextField) this.addElement( new TextField("login") );

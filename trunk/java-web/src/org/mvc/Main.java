@@ -16,6 +16,7 @@ public class Main {
 	public static String defaultNotFoundPage = "/jsp/404.jsp";
 	public static String defaultAccessDeniedPage = "/jsp/403.jsp";
 	public static String defaultAuthRequiredPage = "/auth/login";
+	public static String defaultErrorPage = "/jsp/501.jsp";
 	
 	private static ReflectionProvider _reflectionProvider;
 	

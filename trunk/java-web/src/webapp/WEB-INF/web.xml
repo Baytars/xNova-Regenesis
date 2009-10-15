@@ -4,11 +4,22 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>xNovae</display-name>
+    
+    <servlet>
+        <servlet-name>run-tests</servlet-name>
+        <servlet-class>tests.web.xnova.TestsRunnerServlet</servlet-class>
+    </servlet>
 
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>web.xnova.WebApplication</servlet-class>
     </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>run-tests</servlet-name>
+        <url-pattern>/run-tests</url-pattern>
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/</url-pattern>

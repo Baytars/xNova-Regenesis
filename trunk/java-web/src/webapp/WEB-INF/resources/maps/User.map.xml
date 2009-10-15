@@ -3,8 +3,8 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="web.xnova.persistence.entities">
-  <class name="User" table="USERS">
-    <id name="id" column="USER_ID">
+  <class name="User" table="users">
+    <id name="id" column="id">
         <generator class="native"/>    
     </id> 
     

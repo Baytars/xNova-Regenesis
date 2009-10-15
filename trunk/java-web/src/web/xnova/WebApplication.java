@@ -17,15 +17,7 @@ public class WebApplication extends HttpServlet {
 		
 		Dispatcher.getInstance().setControllersPackage("web.xnova.controllers");
 	}
-	
-	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-		this.doAction( request, response );
-	}
-	
-	public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-		this.doAction( request, response );
-	}
-	
+
 	/**
 	 * Main point for all types of external requests
 	 * 
@@ -34,7 +26,7 @@ public class WebApplication extends HttpServlet {
 	 * @throws IOException
 	 * @return void
 	 */
-	public void doAction( HttpServletRequest request, HttpServletResponse response ) throws IOException {
+	public void service( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 		try {
 			if ( !request.getRequestURI().contains(".jsp") ) {
 				Dispatcher.getInstance().dispatch( this, request, response );
