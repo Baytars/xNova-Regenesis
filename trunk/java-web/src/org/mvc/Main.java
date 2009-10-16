@@ -12,7 +12,6 @@ public class Main {
 	public static String root_path = "/home/nikelin/workspace/xnovaes-zend/trunk/java-web/";
 	
 	public static Logger log;
-	public static Logger error_log;
 	public static String defaultNotFoundPage = "/jsp/404.jsp";
 	public static String defaultAccessDeniedPage = "/jsp/403.jsp";
 	public static String defaultAuthRequiredPage = "/auth/login";
@@ -37,13 +36,6 @@ public class Main {
 			log = Logger.getRootLogger();
 			log.setLevel( Level.ALL );
 			log.addAppender(defaultAppender);
-			
-			FileAppender errorAppender = new FileAppender( new SimpleLayout(), Main.root_path.concat("/logs/errors.log") );
-			errorAppender.setAppend(false);
-			error_log = Logger.getRootLogger();
-			log.setLevel( Level.ERROR );
-			
-			log.addAppender( errorAppender );
 		} catch ( IOException e ) {
 			
 		}

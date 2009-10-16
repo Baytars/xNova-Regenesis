@@ -4,12 +4,12 @@
 
 <hibernate-mapping package="web.xnova.persistence.entities">
   <class name="User" table="users">
-    <id name="id" column="id">
+    <id name="id" column="id" access="field">
         <generator class="native"/>    
     </id> 
     
-    <property name="login"/>
-    <property name="password"/>
-    <property name="email"/>
+    <property name="login" type='string'/>
+    <property name="password" type='string'/>
+    <property name="email" type='string'/>
   </class>
 </hibernate-mapping>

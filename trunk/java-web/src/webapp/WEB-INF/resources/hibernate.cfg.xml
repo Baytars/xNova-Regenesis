@@ -9,14 +9,10 @@
     <!-- Database connection settings -->
 	<property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
 	<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/xnova</property>
-	<property name="hibernate.connection.username">root</property>
-	<property name="hibernate.connection.password">1</property>
+	<property name="hibernate.connection.username">d2</property>
+	<property name="hibernate.connection.password"></property>
     
-     <property name="hibernate.c3p0.min_size">5</property>
-	<property name="hibernate.c3p0.max_size">20</property>
-	<property name="hibernate.c3p0.timeout">1800</property>
-	<property name="hibernate.c3p0.timeout">1800</property>
-	<property name="hibernate.c3p0.max_statements">50</property>
+     <property name="hibernate.pool">20</property>
     
      <!-- SQL dialect -->
      <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -28,6 +24,8 @@
      <property name="show_sql">true</property>
      <!-- Drop and re-create the database schema on startup -->
      <property name="hbm2ddl.auto">create-drop</property>
+	 <mapping file="/home/nikelin/workspace/xnovaes-zend/trunk/java-web/src/webapp/WEB-INF/resources/maps/System.map.xml"/>
+	 <mapping file="/home/nikelin/workspace/xnovaes-zend/trunk/java-web/src/webapp/WEB-INF/resources/maps/Galaxy.map.xml"/>
      <mapping file="/home/nikelin/workspace/xnovaes-zend/trunk/java-web/src/webapp/WEB-INF/resources/maps/User.map.xml"/>
   </session-factory>
 </hibernate-configuration>

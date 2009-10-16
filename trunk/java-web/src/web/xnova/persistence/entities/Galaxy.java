@@ -1,13 +1,24 @@
 package web.xnova.persistence.entities;
 
-import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Galaxy {
 
+	private int id;
     private String name;
-    private List<System> systems;
+    private Set<System> systems = new java.util.HashSet<System>();
 
-    public List<System> getSystems() {
+    public int getId() {
+    	return this.id;
+    }
+    
+    public Galaxy setId( int id ) {
+    	this.id = id;
+    	return this;
+    }
+    
+    public Set<System> getSystems() {
     	return this.systems;
     }
 

@@ -1,3 +1,4 @@
--swf /home/nikelin/workspace/xnovaes-zend/client/public/test.swf
+-swf test.swf
 -swf-version 9
 -main Main
+-cp ./libs/hxjson2 ./libs/haxeui

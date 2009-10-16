@@ -1,7 +1,0 @@
-#!/bin/sh
-if [ -z $1 ]; then
-    echo "Trying to process all tests…";
-    phpunit --verbose AllTests.php
-else
-    ./ParticularTest.php $1 $2
-fi

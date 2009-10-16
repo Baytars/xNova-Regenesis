@@ -1,21 +1,42 @@
 package web.xnova.persistence.entities.systems;
 
-import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+
 import web.xnova.persistence.entities.*;
 import web.xnova.persistence.entities.planets.*;
 
-abstract class System {
+abstract public class System {
 
-    private List<Planet> planets;
+	private int id;
+    private Set<Planet> planets = new HashSet<Planet>();
     private String name;
     private Galaxy galaxy;
-
+    
+    public System setName( String name ) {
+    	this.name = name;
+    	return this;
+    }
+    
+    public String getName() {
+    	return this.name;
+    }
+    
+    public System setGalaxy( Galaxy g ) {
+    	this.galaxy = g;
+    	return this;
+    }
+    
+    public Galaxy getGalaxy() {
+    	return this.galaxy;
+    }
+    
     public System addPlanet( Planet planet) {
     	this.planets.add(planet);
     	return this;
     }
 
-    public List<Planet> getPlanets() {
+    public Set<Planet> getPlanets() {
     	return this.planets;
     }
 
