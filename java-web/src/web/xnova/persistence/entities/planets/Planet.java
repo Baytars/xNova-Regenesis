@@ -10,6 +10,7 @@ import web.xnova.persistence.entities.*;
 
 public class Planet implements ResourceOwner {
 
+	private Galaxy galaxy;
     private System system;
     private User owner;
     public List<PlanetQuadrant> quadrants;

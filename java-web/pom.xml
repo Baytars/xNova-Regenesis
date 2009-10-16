@@ -92,6 +92,12 @@
 	      <artifactId>gf-embedded-api</artifactId>
 	      <version>1.0-alpha-4</version>
 	    </dependency>
+	    <dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>slf4j-simple</artifactId>
+		  <version>1.5.8</version>
+		</dependency>
+	    
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -108,14 +114,21 @@
 			<version>3.3.2.GA</version>
 		</dependency>
 		<dependency>
-			<groupId>mm-mysql</groupId>
-			<artifactId>mm-mysql</artifactId>
-			<version>2.0.7</version>
+			<groupId>com.mysql</groupId>
+			<artifactId>connectorj</artifactId>
+			<version>5.0.8</version>
+			<scope>system</scope>
+			<systemPath>${path}/src/webapp/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar</systemPath>
 		</dependency>
 		<dependency>
 		    <groupId>junit</groupId>
 		    <artifactId>junit</artifactId>
 		    <version>4.7</version>
+		</dependency>
+		<dependency>
+		    <groupId>javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		    <version>3.8.0.GA</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

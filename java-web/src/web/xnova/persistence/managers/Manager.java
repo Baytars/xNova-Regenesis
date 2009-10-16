@@ -26,7 +26,7 @@ public class Manager<T> {
 			s.save(object);
 			s.getTransaction().commit();
 		} catch ( Throwable e ) {
-			Main.error_log.error("", e);
+			throw e;
 		}
 		return this;
 	}
