@@ -1,15 +1,16 @@
 package web.xnova.persistence.entities.planets;
 
 import java.util.List;
+import java.util.Set;
 
 import web.xnova.persistence.entities.buildables.buildings.Building;
 import web.xnova.persistence.entities.resources.*;
 
-abstract class PlanetQuadrant implements ResourceOwner {
+abstract class PlanetQuadrant implements ResourceAggregator {
 
     private Building building;
     private List<QuadrantProperty> properties;
-    private List<ResourceAmount> resources;
+    private Set<ResourceAmount> resources;
 
     /**
      * Method to check that this holder can handle
@@ -24,7 +25,7 @@ abstract class PlanetQuadrant implements ResourceOwner {
     }
     
     @Override
-    public List<ResourceAmount> getResources() {
+    public Set<ResourceAmount> getResources() {
     	return this.resources;
     }
     

@@ -1,6 +1,8 @@
 package web.xnova.persistence.entities.buildables;
 
 import web.xnova.persistence.entities.*;
+import web.xnova.persistence.entities.PropertyValue;
+
 import java.util.List;
 
 public class ConstructDependency {

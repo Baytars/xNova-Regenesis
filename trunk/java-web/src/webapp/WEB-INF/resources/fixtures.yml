@@ -1,0 +1,26 @@
+---
+Galaxy:
+    !web.xnova.persistance.entities.Galaxy
+    -G1:
+        id : 1
+        name : "Dark Galaxy"
+    -G2:
+        id : 2
+        name : "Dark Galaxy VI" 
+---
+---     
+User:
+    !web.xnova.persistance.entities.User
+    - U1
+        login : test
+        password : test
+        email : nikelin@metaid.ru
+---
+---     
+Systems:
+    !web.xnova.persistance.entities.systems.DarkSystem
+    -S1
+        galaxy_id : 1
+        subclass : DarkSystem
+        name : "System #1"
+---

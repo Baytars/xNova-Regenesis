@@ -23,7 +23,7 @@
      <!-- Echo all executed SQL to stdout -->
      <property name="show_sql">true</property>
      <!-- Drop and re-create the database schema on startup -->
-     <property name="hbm2ddl.auto">create-drop</property>
+     <property name="hbm2ddl.auto">create</property>
 	 <mapping file="/home/nikelin/workspace/xnovaes-zend/trunk/java-web/src/webapp/WEB-INF/resources/maps/System.map.xml"/>
 	 <mapping file="/home/nikelin/workspace/xnovaes-zend/trunk/java-web/src/webapp/WEB-INF/resources/maps/Galaxy.map.xml"/>
      <mapping file="/home/nikelin/workspace/xnovaes-zend/trunk/java-web/src/webapp/WEB-INF/resources/maps/User.map.xml"/>

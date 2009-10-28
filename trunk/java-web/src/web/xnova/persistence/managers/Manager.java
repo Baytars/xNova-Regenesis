@@ -4,13 +4,13 @@ import org.hibernate.Session;
 import org.mvc.Main;
 import org.mvc.persistence.Hibernate;
 
-public class Manager<T> {
+public class Manager {
 	
 	protected Session getSession() throws Throwable {
 		return Hibernate.getSessionFactory().getCurrentSession();
 	}
 	
-	protected Session openSession() throws Throwable {
+	public Session openSession() throws Throwable {
 		Session s = this.getSession();
 		if ( !s.getTransaction().isActive() ) {
 			this.getSession().beginTransaction();
@@ -19,7 +19,13 @@ public class Manager<T> {
 		return s;
 	}
 	
-	protected Manager<T> save( T object ) throws Throwable {
+	public Manager update( Object object) throws Throwable {
+		this.openSession();
+		this.getSession().update(object);
+		return this;
+	}
+	
+	public Manager save( Object object ) throws Throwable {
 		try {
 			Session s = this.openSession();
 			

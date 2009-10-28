@@ -3,7 +3,7 @@ package web.xnova.persistence.entities.systems;
 import java.util.Set;
 import java.util.HashSet;
 
-import web.xnova.persistence.entities.*;
+import web.xnova.persistence.entities.Galaxy;
 import web.xnova.persistence.entities.planets.*;
 
 abstract public class System {

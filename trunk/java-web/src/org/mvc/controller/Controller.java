@@ -10,7 +10,7 @@ import org.mvc.*;
 import org.mvc.exceptions.*;
 
 abstract public class Controller {
-	private Exception exception;
+	private Throwable exception;
 	private View _view;
 	
 	public static String defaultAction = "main";
@@ -68,12 +68,12 @@ abstract public class Controller {
 	 * @param e
 	 * @return Controller
 	 */
-	public Controller setException( Exception e ) {
+	public Controller setException( Throwable e ) {
 		this.exception = e;
 		return this;
 	}
 	
-	public Exception getException() {
+	public Throwable getException() {
 		return this.exception;
 	}
 	
