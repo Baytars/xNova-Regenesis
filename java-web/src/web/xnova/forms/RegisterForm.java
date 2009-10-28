@@ -4,8 +4,11 @@ import org.mvc.*;
 import org.mvc.form.*;
 import org.mvc.validators.*;
 import org.mvc.form.elements.*;
+
+import web.xnova.persistence.entities.*;
 import web.xnova.persistence.managers.*;
-import web.xnova.persistence.entities.*;;
+import web.xnova.persistence.entities.EntityException;
+import web.xnova.persistence.entities.User;
 
 public class RegisterForm extends Form {
 

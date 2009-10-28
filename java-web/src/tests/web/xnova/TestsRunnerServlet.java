@@ -1,4 +1,4 @@
-package web.xnova;
+package tests.web.xnova;
 
 import javax.servlet.http.*;
 

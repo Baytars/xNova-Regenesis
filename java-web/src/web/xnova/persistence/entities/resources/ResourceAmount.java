@@ -1,6 +1,7 @@
 package web.xnova.persistence.entities.resources;
 
 import web.xnova.persistence.entities.*;
+import web.xnova.persistence.entities.Buyable;
 
 public class ResourceAmount {
 

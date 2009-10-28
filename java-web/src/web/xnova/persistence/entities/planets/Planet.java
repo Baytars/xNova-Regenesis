@@ -2,19 +2,23 @@ package web.xnova.persistence.entities.planets;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
+import web.xnova.persistence.entities.*;
 import web.xnova.persistence.entities.buildables.*;
 import web.xnova.persistence.entities.buildables.buildings.Building;
 import web.xnova.persistence.entities.resources.*;
-import web.xnova.persistence.entities.*;
+import web.xnova.persistence.entities.Galaxy;
+import web.xnova.persistence.entities.User;
 
-public class Planet implements ResourceOwner {
+abstract public class Planet implements ResourceAggregator {
 
 	private Galaxy galaxy;
     private System system;
     private User owner;
-    public List<PlanetQuadrant> quadrants;
-    public List<ResourceAmount> resources;
+    public Set<PlanetQuadrant> quadrants = new HashSet<PlanetQuadrant>();
+    public Set<ResourceAmount> resources = new HashSet<ResourceAmount>();
 
     public System getSystem() {
     	return this.system;
@@ -36,7 +40,7 @@ public class Planet implements ResourceOwner {
     }
 
 	@Override
-	public List<ResourceAmount> getResources() {
+	public Set<ResourceAmount> getResources() {
 		return this.resources;
 	}
 

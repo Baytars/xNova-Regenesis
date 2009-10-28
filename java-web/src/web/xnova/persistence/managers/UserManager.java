@@ -4,9 +4,14 @@ import org.hibernate.Session;
 import org.mvc.Main;
 
 import web.xnova.persistence.entities.*;
+import web.xnova.persistence.entities.EntityException;
+import web.xnova.persistence.entities.User;
 
-public class UserManager extends Manager<User> {
+import org.apache.log4j.*;
+
+public class UserManager extends Manager {
 	
+	private static Logger log = Logger.getLogger( web.xnova.persistence.managers.UserManager.class );
 	private static final UserManager instance = new UserManager();
 	
 	public static UserManager getInstance() {
@@ -36,16 +41,16 @@ public class UserManager extends Manager<User> {
 		try {
 			Session session = this.openSession();
 			
-			User u = (User) session.createQuery("select user.id " +
-					"							from User as user" +
+			User u = (User) session.createQuery("from User as user" +
 					"							where user.login = :login and " +
 					"								  user.password = :password")
-								  .setParameter( "login", login )
-								  .setParameter( "password", password )
+								  .setString( "login", login )
+								  .setString( "password", password )
 								  .uniqueResult();
 			
 			return u;
 		} catch ( Throwable e ) {
+			log.error( e.getMessage(), e );
 			throw new ManagerException();
 		}
 	}
@@ -54,20 +59,21 @@ public class UserManager extends Manager<User> {
 		try {
 			Session session = this.openSession();
 			
-			User u = (User)session.createQuery("select user.id " +
+			Integer id = (Integer) session.createQuery("select user.id " +
 					"							from User as user" +
 					"							where user.login = :login or" +
 					"								  user.email = :email")
-							.setParameter("login", login)
-							.setParameter("email", email)
+							.setString("login", login)
+							.setString("email", email)
 							.uniqueResult();
 			
-			if ( u.getLogin() != null ) {
+			if ( id != null ) {
 				return true;
 			}
 
 			return false;
 		} catch( Throwable e ) {
+			log.error(e.getMessage(),e);
 			throw new ManagerException();
 		}
 		

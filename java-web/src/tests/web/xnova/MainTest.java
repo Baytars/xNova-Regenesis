@@ -1,4 +1,4 @@
-package web.xnova;
+package tests.web.xnova;
 
 import static org.junit.Assert.*;
 
@@ -8,15 +8,9 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import org.glassfish.config.support.GlassFishConfigBean;
 import org.glassfish.embed.*;
-import org.glassfish.javaee.*;
 import org.junit.*;
-import org.junit.Assert.*;
-import org.mvc.Dispatcher;
-
-
-import web.xnova.forms.LoginForm;
+import web.xnova.forms.*;
 
 public class MainTest {
 	

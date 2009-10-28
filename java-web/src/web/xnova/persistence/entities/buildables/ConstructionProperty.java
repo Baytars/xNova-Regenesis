@@ -1,6 +1,7 @@
 package web.xnova.persistence.entities.buildables;
 
 import web.xnova.persistence.entities.*;
+import web.xnova.persistence.entities.PropertyValue;
 
 public class ConstructionProperty extends PropertyValue {
 	public static final String PROPERTY_LEVEL = "level";

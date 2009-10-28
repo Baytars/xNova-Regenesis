@@ -28,7 +28,7 @@ public class WebApplication extends HttpServlet {
 	 */
 	public void service( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 		try {
-			if ( !request.getRequestURI().contains(".jsp") ) {
+			if ( !request.getRequestURI().contains(".") ) {
 				Dispatcher.getInstance().dispatch( this, request, response );
 			}
 		} catch ( Throwable e) {
