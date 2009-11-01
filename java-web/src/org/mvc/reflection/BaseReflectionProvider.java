@@ -5,19 +5,19 @@
 
 package org.mvc.reflection;
 
-import java.lang.reflect.*;
-import java.util.List;
-import java.util.ArrayList;
+import org.mvc.utils.StringCase;
+import org.mvc.utils.StringUtils;
 
-import org.mvc.utils.*;
+import java.lang.reflect.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- *
  * @author nikelin
  */
 public class BaseReflectionProvider implements ReflectionProvider {
 
-   public Class findClass(String name, String clsPackage) throws ClassNotFoundException {
+    public Class findClass(String name, String clsPackage) throws ClassNotFoundException {
         String path = StringUtils.toCamelCase(name, "", StringCase.UPPER);
         if (clsPackage != null) {
             path = clsPackage + '.' + path;
@@ -26,122 +26,121 @@ public class BaseReflectionProvider implements ReflectionProvider {
         return Class.forName(path);
     }
 
-    public Object invokeMethod( String name, Object context ) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException  {
-    	return this.invokeMethod(name, context, null);
+    public Object invokeMethod(String name, Object context) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        return this.invokeMethod(name, context, null);
     }
-   
+
     public Object invokeMethod(String name, Object context, Object... args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Class cls = context instanceof Class ? (Class)context : context.getClass();
+        Class cls = context instanceof Class ? (Class) context : context.getClass();
 
         ArrayList<Class> argsClasses = new ArrayList<Class>();
-        if ( args != null ) {
-	        for (Object arg : args) {
-	            argsClasses.add(arg.getClass());
-	        }
-        }
-        
-        for (Method method : cls.getDeclaredMethods()) {
-            if (method.getName().equals( name ) 
-            		&& ( argsClasses.size() == 0 || checkMethodParameters(method, argsClasses) )
-            			&& Modifier.isPublic( method.getModifiers() ) ) {
-            	return method.invoke(context, args);
+        if (args != null) {
+            for (Object arg : args) {
+                argsClasses.add(arg.getClass());
             }
         }
 
-        throw new NoSuchMethodException( name );
+        for (Method method : cls.getDeclaredMethods()) {
+            if (method.getName().equals(name)
+                    && (argsClasses.size() == 0 || checkMethodParameters(method, argsClasses))
+                    && Modifier.isPublic(method.getModifiers())) {
+                return method.invoke(context, args);
+            }
+        }
+
+        throw new NoSuchMethodException(name);
     }
-    
-    
+
+
     /**
-     * Check that class instantiates by singleton way, and if it does returns 
+     * Check that class instantiates by singleton way, and if it does returns
      * instantiator method.
-     * 
+     *
      * @param Class context
      * @return boolean
      */
-    public Method getSingletonInstantiator( Class context ) {
-    	/**
-    	 * Check that class have static field to store singleton instance
-    	 */
-    	Field sField = null;
-    	for ( Field f:context.getFields() ) {
-    		if ( !f.getType().getName().equals( context.getName() ) ) {
-    			continue;
-    		}
-    		
-    		if ( !Modifier.isStatic( f.getModifiers() ) ) {
-    			continue;
-    		}
-    		
-    		sField = f;
-    	}
-    	
-    	if ( null == sField ) {
-    		return null;
-    	}
-    	
-    	/**
-    	 * Check that all constructors is not public (main property)
-    	 */
-    	for ( Constructor c:context.getConstructors() ) {
-    		if ( Modifier.isPublic( c.getModifiers() ) ) {
-    			return null;
-    		}
-    	}
-    	
-    	Method sMethod = null;
-    	for( Method m:context.getMethods() ) {
-    		if ( !Modifier.isStatic( m.getModifiers() ) ) {
-    			continue;
-    		}
-    		
-    		if ( !Modifier.isPublic( m.getModifiers() ) ) {
-    			continue;
-    		}
-    		
-    		if ( !m.getReturnType().getName().equals( context.getName() ) ) {
-    			continue;	
-    		}
-    		
-    		if ( m.getParameterTypes().length > 0 ) {
-    			continue;
-    		}
-    		
-    		sMethod = m; 
-    	}
-    	
-    	return sMethod;
+    public Method getSingletonInstantiator(Class context) {
+        /**
+         * Check that class have static field to store singleton instance
+         */
+        Field sField = null;
+        for (Field f : context.getFields()) {
+            if (!f.getType().getName().equals(context.getName())) {
+                continue;
+            }
+
+            if (!Modifier.isStatic(f.getModifiers())) {
+                continue;
+            }
+
+            sField = f;
+        }
+
+        if (null == sField) {
+            return null;
+        }
+
+        /**
+         * Check that all constructors is not public (main property)
+         */
+        for (Constructor c : context.getConstructors()) {
+            if (Modifier.isPublic(c.getModifiers())) {
+                return null;
+            }
+        }
+
+        Method sMethod = null;
+        for (Method m : context.getMethods()) {
+            if (!Modifier.isStatic(m.getModifiers())) {
+                continue;
+            }
+
+            if (!Modifier.isPublic(m.getModifiers())) {
+                continue;
+            }
+
+            if (!m.getReturnType().getName().equals(context.getName())) {
+                continue;
+            }
+
+            if (m.getParameterTypes().length > 0) {
+                continue;
+            }
+
+            sMethod = m;
+        }
+
+        return sMethod;
     }
-    
-	/**
-	 * First this method try to check is given class some part of singleton. If he does,
-	 * we try to find instantiator in class definition. 
-	 * If class is not singleton we look for first accessible non-parametrized constructor
-	 * and call it.
-	 * 
-	 * @fixme This method works only with not generic classes.
-	 * 
-	 * @param Class context
-	 * @return Method
-	 * @throws InvocationTargetException 
-	 * @throws IllegalArgumentException 
-	 * @throws InstantiationException 
-	 */
-    public Object createInstance( Class context ) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
-    	Object result = null;
-    	
-    	Method instantiator = this.getSingletonInstantiator(context);
-    	if ( null != instantiator ) {
-    		result = instantiator.invoke(context);
-    	} else {
-    		for( Constructor c : context.getConstructors() ) {
-    			if ( Modifier.isPublic( c.getModifiers() ) && c.getParameterTypes().length == 0 ) {
-    				result = c.newInstance();
-    			}
-    		}
-    	}
-    	
-    	return result;
+
+    /**
+     * First this method try to check is given class some part of singleton. If he does,
+     * we try to find instantiator in class definition.
+     * If class is not singleton we look for first accessible non-parametrized constructor
+     * and call it.
+     *
+     * @param Class context
+     * @return Method
+     * @throws InvocationTargetException
+     * @throws IllegalArgumentException
+     * @throws InstantiationException
+     * @fixme This method works only with not generic classes.
+     */
+    public Object createInstance(Class context) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException {
+        Object result = null;
+
+        Method instantiator = this.getSingletonInstantiator(context);
+        if (null != instantiator) {
+            result = instantiator.invoke(context);
+        } else {
+            for (Constructor c : context.getConstructors()) {
+                if (Modifier.isPublic(c.getModifiers()) && c.getParameterTypes().length == 0) {
+                    result = c.newInstance();
+                }
+            }
+        }
+
+        return result;
     }
 
     public String getActualParameterType(ParameterizedType type) {
@@ -154,7 +153,7 @@ public class BaseReflectionProvider implements ReflectionProvider {
         int equalsCount = 0;
         for (Class parameterClass : method.getParameterTypes()) {
             for (Class cls : classes) {
-                if (isParent(parameterClass, cls) || cls.getName().equals( parameterClass.getName() ) ) {
+                if (isParent(parameterClass, cls) || cls.getName().equals(parameterClass.getName())) {
                     equalsCount++;
                     break;
                 }
@@ -186,8 +185,8 @@ public class BaseReflectionProvider implements ReflectionProvider {
             this.invokeMethod("set" + StringUtils.toCamelCase(name, "", StringCase.UPPER), context, value);
         } catch (Exception e) {
             Field field = context.getClass().getDeclaredField(name);
-            if ( Modifier.isPublic(field.getModifiers() ) ) {
-            	field.set(context, value);
+            if (Modifier.isPublic(field.getModifiers())) {
+                field.set(context, value);
             }
         }
     }

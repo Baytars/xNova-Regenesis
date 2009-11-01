@@ -1,18 +1,18 @@
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="web.xnova.persistence.entities">
-  <class name="Galaxy" table="galaxies">
-    <id name="id" column="id" access="field">
-        <generator class="native"/>    
-    </id> 
-    
-	<property name="name" type="string"/>
-	
-	<set name="systems" access="field" inverse="true">
-		<key column="id"/>
-        <one-to-many entity-name="web.xnova.persistence.entities.systems.System"/>
-	</set>
-  </class>
+    <class name="Galaxy" table="galaxies">
+        <id name="id" column="id" access="field">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" type="string"/>
+
+        <set name="systems" access="field" inverse="true">
+            <key column="id"/>
+            <one-to-many entity-name="web.xnova.persistence.entities.systems.System"/>
+        </set>
+    </class>
 </hibernate-mapping>

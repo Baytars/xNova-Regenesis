@@ -9,7 +9,6 @@ import java.lang.reflect.*;
 import java.util.List;
 
 /**
- *
  * @author nikelin
  */
 public interface ReflectionProvider {
@@ -20,8 +19,8 @@ public interface ReflectionProvider {
 
     public String getActualParameterType(ParameterizedType type);
 
-    public Object createInstance( Class context ) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException;
-    
+    public Object createInstance(Class context) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException;
+
     public boolean checkMethodParameters(Method method, List<Class> classes);
 
     public boolean isParent(Class parent, Class child);

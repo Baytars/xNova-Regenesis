@@ -1,10 +1,11 @@
 package web.xnova.persistence.entities.planets;
 
+import web.xnova.persistence.entities.buildables.buildings.Building;
+import web.xnova.persistence.entities.resources.ResourceAggregator;
+import web.xnova.persistence.entities.resources.ResourceAmount;
+
 import java.util.List;
 import java.util.Set;
-
-import web.xnova.persistence.entities.buildables.buildings.Building;
-import web.xnova.persistence.entities.resources.*;
 
 abstract class PlanetQuadrant implements ResourceAggregator {
 
@@ -15,40 +16,40 @@ abstract class PlanetQuadrant implements ResourceAggregator {
     /**
      * Method to check that this holder can handle
      * target building
-     * 
-     * @TODO Implement 
+     *
      * @param Construction building
      * @return
+     * @TODO Implement
      */
     public boolean canHandle(Building building) {
-    	return false;
+        return false;
     }
-    
+
     @Override
     public Set<ResourceAmount> getResources() {
-    	return this.resources;
+        return this.resources;
     }
-    
+
     public Building getBuilding() {
-    	return this.building;
+        return this.building;
     }
-    
+
     /**
      * Set building state to "Deconstruction" which takes some
      * time after which current planet place will be empty
-     * 
-     * @TODO Implement 
+     *
      * @return
+     * @TODO Implement
      */
     public PlanetQuadrant removeBuilding() {
-    	//... Implement
-    	
-    	return this;
+        //... Implement
+
+        return this;
     }
-    
-    public PlanetQuadrant setBuilding( Building b ) {
-    	this.building = b;
-    	return this;
+
+    public PlanetQuadrant setBuilding(Building b) {
+        this.building = b;
+        return this;
     }
 
 }

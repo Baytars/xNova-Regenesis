@@ -1,15 +1,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="web.xnova.persistence.entities">
-  <class name="User" table="users">
-    <id name="id" column="id" access="field">
-        <generator class="native"/>    
-    </id> 
-    
-    <property name="login" type='string'/>
-    <property name="password" type='string'/>
-    <property name="email" type='string'/>
-  </class>
+    <class name="User" table="users">
+        <id name="id" column="id" access="field">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" type="string"/>
+        <property name="lastname" type="string"/>
+        <property name="login" type='string'/>
+        <property name="password" type='string'/>
+        <property name="email" type='string'/>
+    </class>
 </hibernate-mapping>

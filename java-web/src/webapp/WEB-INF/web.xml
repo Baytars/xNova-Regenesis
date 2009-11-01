@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>xNovae</display-name>
-    
+
     <servlet>
         <servlet-name>run-tests</servlet-name>
         <servlet-class>tests.web.xnova.TestsRunnerServlet</servlet-class>
@@ -14,12 +14,12 @@
         <servlet-name>index</servlet-name>
         <servlet-class>web.xnova.WebApplication</servlet-class>
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>run-tests</servlet-name>
         <url-pattern>/run-tests</url-pattern>
     </servlet-mapping>
-    
+
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/</url-pattern>

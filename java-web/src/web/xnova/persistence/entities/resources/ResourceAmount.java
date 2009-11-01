@@ -1,6 +1,5 @@
 package web.xnova.persistence.entities.resources;
 
-import web.xnova.persistence.entities.*;
 import web.xnova.persistence.entities.Buyable;
 
 public class ResourceAmount {
@@ -8,17 +7,17 @@ public class ResourceAmount {
     private Resource resource;
     private int amount;
     private Buyable subject;
-    
+
     public Buyable getSubject() {
-    	return this.subject;
+        return this.subject;
     }
-    
+
     public int getAmount() {
-    	return this.amount;
+        return this.amount;
     }
-    
+
     public Resource getResource() {
-    	return this.resource;
+        return this.resource;
     }
 
 }

@@ -25,7 +25,7 @@ public class StringUtils {
                 case UPPER:
                     if (prevChar.equals(delimiter) || (i == 0 && !currChar.equals(delimiter))) {
                         result = result.concat(currChar.toUpperCase());
-                    } else if ( !currChar.equals(delimiter) ) {
+                    } else if (!currChar.equals(delimiter)) {
                         result = result.concat(currChar);
                     }
                     break;
