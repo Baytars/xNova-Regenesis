@@ -1,141 +1,141 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>web.xnova</groupId>
-	<artifactId>java-web</artifactId>
-	<packaging>war</packaging>
-	<name>xNova Web</name>
-	<version>1.0.0A</version>
-	
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>web.xnova</groupId>
+    <artifactId>java-web</artifactId>
+    <packaging>war</packaging>
+    <name>xNova Web</name>
+    <version>1.0.0A</version>
+
     <repositories>
         <repository>
             <id>maven-repo</id>
             <name>Maven Central Repository</name>
             <url>http://repo1.maven.org/maven2</url>
         </repository>
-	    <repository>
-	      <id>glassfish-repository</id>
-	      <name>Java.net Repository for Glassfish</name>
-	      <url>http://download.java.net/maven/glassfish</url>
-	    </repository>
-	    <repository>
-          <id>java-net-repository</id>
-          <name>Java.net Repository</name>
-          <url>http://download.java.net/maven/1</url>
+        <repository>
+            <id>glassfish-repository</id>
+            <name>Java.net Repository for Glassfish</name>
+            <url>http://download.java.net/maven/glassfish</url>
         </repository>
-	</repositories>
-	<profiles>
-		<profile>
-			<id>main</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<jdk>${env.JAVA_HOME}</jdk>
-			</properties>
-		</profile>
-	</profiles>
-	<developers>
-		<developer>
-			<id>1</id>
-			<name>Cyril A. Karpenko</name>
-			<email>nikelin@metaid.ru</email>
-			<url>http://nikelin.ru</url>
-			<timezone>UTF+02:00</timezone>
-		</developer>
-	</developers>
-	<scm>
-		<connection>http://projectxnovaes.svn.sourceforge.net/svnroot/projectxnovaes/trunk/java-web</connection>
-		<developerConnection>nikelin</developerConnection>
-		<url>scm:svn://projectxnovaes.svn.sourceforge.net/svnroot/projectxnovaes</url>
-	</scm>
-	<organization>
-		<name>Strange Company</name>
-		<url>http://strangecompany.ru</url>
-	</organization>
-	<build>
-		<defaultGoal>compile</defaultGoal>
-		<finalName>xnova-build</finalName>
-		<sourceDirectory>${path}/src</sourceDirectory>
-		<directory>build</directory>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<executable>/usr/bin/javac</executable>
-					<compilerVersion>1.6.0_16</compilerVersion>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			
+        <repository>
+            <id>java-net-repository</id>
+            <name>Java.net Repository</name>
+            <url>http://download.java.net/maven/1</url>
+        </repository>
+    </repositories>
+    <profiles>
+        <profile>
+            <id>main</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <jdk>${env.JAVA_HOME}</jdk>
+            </properties>
+        </profile>
+    </profiles>
+    <developers>
+        <developer>
+            <id>1</id>
+            <name>Cyril A. Karpenko</name>
+            <email>nikelin@metaid.ru</email>
+            <url>http://nikelin.ru</url>
+            <timezone>UTF+02:00</timezone>
+        </developer>
+    </developers>
+    <scm>
+        <connection>http://projectxnovaes.svn.sourceforge.net/svnroot/projectxnovaes/trunk/java-web</connection>
+        <developerConnection>nikelin</developerConnection>
+        <url>scm:svn://projectxnovaes.svn.sourceforge.net/svnroot/projectxnovaes</url>
+    </scm>
+    <organization>
+        <name>Strange Company</name>
+        <url>http://strangecompany.ru</url>
+    </organization>
+    <build>
+        <defaultGoal>compile</defaultGoal>
+        <finalName>xnova-build</finalName>
+        <sourceDirectory>${path}/src</sourceDirectory>
+        <directory>build</directory>
+        <plugins>
             <plugin>
-		         <groupId>org.apache.maven.plugins</groupId>
-		         <artifactId>maven-war-plugin</artifactId>
-		         <configuration>
-		         <warSourceDirectory>${path}/src/webapp</warSourceDirectory>
-		         </configuration>
-		     </plugin> 
-		</plugins>
-		<extensions>
-		</extensions>
-	</build>
-	<dependencies>
-		<dependency>
-	      <groupId>org.glassfish.distributions</groupId>
-	      <artifactId>web-all</artifactId>
-	      <version>10.0-build-20080430</version>
-	    </dependency>
-	    <dependency>
-	      <groupId>org.glassfish.embedded</groupId>
-	      <artifactId>gf-embedded-api</artifactId>
-	      <version>1.0-alpha-4</version>
-	    </dependency>
-	    <dependency>
-		  <groupId>org.slf4j</groupId>
-		  <artifactId>slf4j-simple</artifactId>
-		  <version>1.5.8</version>
-		</dependency>
-	    
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-	   <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <executable>/usr/bin/javac</executable>
+                    <compilerVersion>1.6.0_16</compilerVersion>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warSourceDirectory>${path}/src/webapp</warSourceDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+        <extensions>
+        </extensions>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish.distributions</groupId>
+            <artifactId>web-all</artifactId>
+            <version>10.0-build-20080430</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.embedded</groupId>
+            <artifactId>gf-embedded-api</artifactId>
+            <version>1.0-alpha-4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.5.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.9</version>
         </dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>3.3.2.GA</version>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>connectorj</artifactId>
-			<version>5.0.8</version>
-			<scope>system</scope>
-			<systemPath>${path}/src/webapp/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar</systemPath>
-		</dependency>
-		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.7</version>
-		</dependency>
-		<dependency>
-		    <groupId>javassist</groupId>
-		    <artifactId>javassist</artifactId>
-		    <version>3.8.0.GA</version>
-		</dependency>
-	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-		</dependencies>
-	</dependencyManagement>
-	<properties>    
-		<path>/home/nikelin/workspace/xnovaes-zend/trunk/java-web/</path>
-	</properties>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>3.3.2.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>connectorj</artifactId>
+            <version>5.0.8</version>
+            <scope>system</scope>
+            <systemPath>${path}/src/webapp/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.7</version>
+        </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.8.0.GA</version>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+        </dependencies>
+    </dependencyManagement>
+    <properties>
+        <path>/home/nikelin/workspace/xnovaes-zend/trunk/java-web/</path>
+    </properties>
 </project>

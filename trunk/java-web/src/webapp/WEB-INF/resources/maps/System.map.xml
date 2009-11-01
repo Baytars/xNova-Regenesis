@@ -1,19 +1,20 @@
 <!DOCTYPE hibernate-mapping PUBLIC
-    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="web.xnova.persistence.entities.systems">
-  <class name="System" table="systems" abstract="true">
-    <id name="id" column="id" access="field">
-        <generator class="native"/>    
-    </id> 
-    
-	<discriminator column="subclass" type="string"/>
-	
-    <many-to-one access="field" name="galaxy" column="galaxy_id" entity-name="web.xnova.persistence.entities.Galaxy"/>
-  </class>
-  <subclass name="DarkSystem" extends="System" discriminator-value="DarkSystem">
-  </subclass>
-  <subclass name="SolarSystem" extends="System" discriminator-value="SolarSystem">
-  </subclass>
+    <class name="System" table="systems" abstract="true">
+        <id name="id" column="id" access="field">
+            <generator class="native"/>
+        </id>
+
+        <discriminator column="subclass" type="string"/>
+
+        <many-to-one access="field" name="galaxy" column="galaxy_id"
+                     entity-name="web.xnova.persistence.entities.Galaxy"/>
+    </class>
+    <subclass name="DarkSystem" extends="System" discriminator-value="DarkSystem">
+    </subclass>
+    <subclass name="SolarSystem" extends="System" discriminator-value="SolarSystem">
+    </subclass>
 </hibernate-mapping>

@@ -1,10 +1,11 @@
 package web.xnova.persistence.entities;
 
+import web.xnova.persistence.entities.resources.ResourceAmount;
+
 import java.util.List;
-import web.xnova.persistence.entities.resources.*;
 
 public interface Buyable {
-	
+
     public List<ResourceAmount> getCost();
 
 }
